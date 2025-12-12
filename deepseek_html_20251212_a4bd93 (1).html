@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jay Prasad | AI Developer & Cybersecurity Specialist</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #10b981;
+            --accent: #8b5cf6;
+            --dark: #0f172a;
+            --darker: #020617;
+        }
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        h1, h2, h3, h4, .logo {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        
+        body {
+            background-color: var(--darker);
+            color: #f8fafc;
+            overflow-x: hidden;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .neural-bg {
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.15) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(139, 92, 246, 0.15) 0%, transparent 20%),
+                radial-gradient(circle at 50% 50%, rgba(16, 185, 129, 0.1) 0%, transparent 30%);
+        }
+        
+        .grid-pattern {
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+        
+        .ai-pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 0.6; }
+            50% { opacity: 1; }
+            100% { opacity: 0.6; }
+        }
+        
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            transition: transform 0.3s ease;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+        
+        .glow {
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+        }
+        
+        .gradient-border {
+            position: relative;
+            border: 2px solid transparent;
+            background: linear-gradient(var(--darker), var(--darker)) padding-box,
+                        linear-gradient(135deg, var(--primary), var(--accent)) border-box;
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 10px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--primary), var(--accent));
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -30px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--primary);
+            border: 3px solid var(--darker);
+        }
+        
+        .skill-bar {
+            height: 8px;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+        }
+        
+        .skill-level {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 4px;
+        }
+        
+        .ai-chat-bubble {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .ai-chat-bubble:hover {
+            transform: scale(1.1);
+        }
+        
+        .ai-chat-window {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            width: 350px;
+            height: 500px;
+            background: var(--dark);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            overflow: hidden;
+            display: none;
+        }
+        
+        .blog-card:hover .blog-image {
+            transform: scale(1.05);
+            transition: transform 0.5s ease;
+        }
+        
+        .tech-tag {
+            background: rgba(59, 130, 246, 0.15);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        
+        .modal-content {
+            background-color: var(--dark);
+            margin: 5% auto;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            width: 90%;
+            max-width: 800px;
+            max-height: 80vh;
+            overflow-y: auto;
+            border-radius: 20px;
+        }
+        
+        .close-modal {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .close-modal:hover {
+            color: white;
+        }
+        
+        .pdf-styled {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
+            border-left: 4px solid var(--primary);
+        }
+        
+        .certificate-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .certificate-card:hover {
+            transform: scale(1.05);
+        }
+        
+        .typewriter-cursor {
+            display: inline-block;
+            width: 3px;
+            background-color: var(--primary);
+            margin-left: 2px;
+            animation: blink 1s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        
+        .experience-card {
+            transition: all 0.3s ease;
+        }
+        
+        .experience-card:hover {
+            transform: translateX(10px);
+            background: rgba(99, 102, 241, 0.1);
+        }
+    </style>
+</head>
+<body class="neural-bg">
+    <!-- AI Chat Assistant -->
+    <div class="ai-chat-bubble" onclick="toggleChat()">
+        <i class="fas fa-robot text-white text-2xl"></i>
+    </div>
+    
+    <div id="aiChatWindow" class="ai-chat-window">
+        <div class="h-full flex flex-col">
+            <!-- Chat Header -->
+            <div class="gradient-bg p-4">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center">
+                        <i class="fas fa-robot text-2xl mr-3"></i>
+                        <div>
+                            <h3 class="font-bold">AI Assistant</h3>
+                            <p class="text-sm opacity-80">Ask me anything</p>
+                        </div>
+                    </div>
+                    <button onclick="toggleChat()" class="text-white hover:text-gray-200">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Chat Messages -->
+            <div id="chatMessages" class="flex-1 p-4 overflow-y-auto">
+                <div class="mb-4">
+                    <div class="glass-card rounded-lg p-3 max-w-[80%]">
+                        <p class="text-sm">Hello! I'm your AI assistant. How can I help you today?</p>
+                    </div>
+                    <p class="text-xs text-gray-500 mt-1">AI Assistant</p>
+                </div>
+            </div>
+            
+            <!-- Chat Input -->
+            <div class="border-t border-gray-800 p-4">
+                <div class="flex">
+                    <input type="text" id="chatInput" placeholder="Type your message..." 
+                           class="flex-1 glass-card border-none rounded-l-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary-500">
+                    <button onclick="sendChatMessage()" class="gradient-bg text-white px-4 py-2 rounded-r-lg">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+                <div class="mt-2 grid grid-cols-2 gap-2">
+                    <button onclick="quickQuestion('services')" class="text-xs glass-card hover:bg-white/10 rounded px-3 py-1">
+                        Services
+                    </button>
+                    <button onclick="quickQuestion('pricing')" class="text-xs glass-card hover:bg-white/10 rounded px-3 py-1">
+                        Pricing
+                    </button>
+                    <button onclick="quickQuestion('contact')" class="text-xs glass-card hover:bg-white/10 rounded px-3 py-1">
+                        Contact
+                    </button>
+                    <button onclick="quickQuestion('portfolio')" class="text-xs glass-card hover:bg-white/10 rounded px-3 py-1">
+                        Portfolio
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 glass-card">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="gradient-bg w-12 h-12 rounded-xl flex items-center justify-center">
+                        <i class="fas fa-brain text-white text-xl"></i>
+                    </div>
+                    <div>
+                        <div class="logo text-2xl font-bold">Jay <span class="gradient-text">Prasad</span></div>
+                        <div class="text-xs text-gray-400">AI Developer & Cybersecurity Specialist</div>
+                    </div>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex items-center space-x-8">
+                    <a href="#home" class="hover:text-primary-400 transition">Home</a>
+                    <a href="#who-i-am" class="hover:text-primary-400 transition">Who I Am</a>
+                    <a href="#experience" class="hover:text-primary-400 transition">Experience</a>
+                    <a href="#services" class="hover:text-primary-400 transition">Services</a>
+                    <a href="#portfolio" class="hover:text-primary-400 transition">Portfolio</a>
+                    <a href="#blog" class="hover:text-primary-400 transition">Blog</a>
+                    <a href="#certificates" class="hover:text-primary-400 transition">Certificates</a>
+                    <a href="#contact" class="hover:text-primary-400 transition">Contact</a>
+                </nav>
+                
+                <!-- CTA Button -->
+                <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" 
+                        class="gradient-bg px-6 py-2 rounded-lg font-semibold hover:opacity-90 transition">
+                    Book Consultation
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="py-20 md:py-32 px-6 relative overflow-hidden">
+        <div class="absolute inset-0 grid-pattern opacity-20"></div>
+        <div class="container mx-auto relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Hero Content -->
+                <div>
+                    <div class="inline-flex items-center space-x-2 mb-6 px-4 py-2 rounded-full glass-card">
+                        <div class="w-2 h-2 ai-pulse rounded-full bg-green-400"></div>
+                        <span class="text-sm">Available for Projects</span>
+                    </div>
+                    
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                        Jay Prasad <span class="gradient-text">Majhi</span>
+                    </h1>
+                    
+                    <p class="text-xl text-gray-300 mb-8">
+                        AI Developer | Cybersecurity Specialist | IT Consultant
+                    </p>
+                    
+                    <p class="text-gray-400 mb-8 max-w-xl">
+                        Certified Cybersecurity (CC) professional with expertise in Networking, Security Infrastructure, 
+                        IT systems, and website development. Transforming businesses with intelligent AI solutions and secure infrastructure.
+                    </p>
+                    
+                    <!-- Quick Stats -->
+                    <div class="grid grid-cols-3 gap-4 mb-8">
+                        <div class="glass-card p-4 rounded-xl text-center">
+                            <div class="text-2xl font-bold gradient-text">3+</div>
+                            <div class="text-sm text-gray-400">Years Experience</div>
+                        </div>
+                        <div class="glass-card p-4 rounded-xl text-center">
+                            <div class="text-2xl font-bold gradient-text">50+</div>
+                            <div class="text-sm text-gray-400">Projects</div>
+                        </div>
+                        <div class="glass-card p-4 rounded-xl text-center">
+                            <div class="text-2xl font-bold gradient-text">100%</div>
+                            <div class="text-sm text-gray-400">Client Satisfaction</div>
+                        </div>
+                    </div>
+                    
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button onclick="document.getElementById('who-i-am').scrollIntoView({behavior: 'smooth'})" 
+                                class="gradient-bg px-8 py-3 rounded-lg font-semibold text-lg hover:opacity-90 transition">
+                            Learn About Me
+                        </button>
+                        <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" 
+                                class="glass-card px-8 py-3 rounded-lg font-semibold text-lg hover:bg-white/10 transition">
+                            <i class="fas fa-paper-plane mr-2"></i> Contact Now
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Hero Visualization -->
+                <div class="relative">
+                    <div class="glass-card p-8 rounded-2xl float-animation">
+                        <div class="text-center mb-8">
+                            <div class="w-48 h-48 mx-auto mb-6 rounded-full gradient-bg flex items-center justify-center">
+                                <i class="fas fa-user-shield text-white text-6xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold">Cybersecurity Certified</h3>
+                            <p class="text-gray-400">AI & IT Specialist</p>
+                        </div>
+                        
+                        <!-- Tech Stack -->
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="glass-card p-3 rounded-lg flex items-center">
+                                <i class="fas fa-code text-blue-400 mr-3"></i>
+                                <span>Web Development</span>
+                            </div>
+                            <div class="glass-card p-3 rounded-lg flex items-center">
+                                <i class="fas fa-shield-alt text-green-400 mr-3"></i>
+                                <span>Cybersecurity</span>
+                            </div>
+                            <div class="glass-card p-3 rounded-lg flex items-center">
+                                <i class="fas fa-robot text-purple-400 mr-3"></i>
+                                <span>AI Solutions</span>
+                            </div>
+                            <div class="glass-card p-3 rounded-lg flex items-center">
+                                <i class="fas fa-cloud text-yellow-400 mr-3"></i>
+                                <span>Cloud IT</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Contact Info -->
+                        <div class="mt-6 pt-6 border-t border-gray-700">
+                            <div class="flex items-center justify-center space-x-6">
+                                <a href="tel:+9779812345678" class="flex items-center text-sm">
+                                    <i class="fas fa-phone text-blue-400 mr-2"></i>
+                                    <span>+977 9812345678</span>
+                                </a>
+                                <a href="mailto:intelligence@jayprasad.com.np" class="flex items-center text-sm">
+                                    <i class="fas fa-envelope text-blue-400 mr-2"></i>
+                                    <span>Email</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who I Am Section -->
+    <section id="who-i-am" class="py-20 px-6">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    Who <span class="gradient-text">I Am</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Cybersecurity certified professional transforming businesses with technology solutions
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Professional Identity -->
+                <div class="glass-card p-8 rounded-2xl">
+                    <div class="flex items-center mb-6">
+                        <div class="gradient-bg w-16 h-16 rounded-xl flex items-center justify-center mr-4">
+                            <i class="fas fa-user-tie text-white text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold">Professional Identity</h3>
+                            <p class="text-gray-400">Jay Prasad Majhi</p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <p class="text-gray-300">
+                            I am <strong class="text-blue-400">Jay Prasad Majhi</strong>, a <strong class="text-green-400">Cybersecurity (CC) certified professional</strong> with comprehensive expertise in:
+                        </p>
+                        
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-400 mt-1 mr-3"></i>
+                                <span><strong>Networking & Security Infrastructure</strong> - Building secure network environments</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-400 mt-1 mr-3"></i>
+                                <span><strong>IT Systems Management</strong> - End-to-end IT support and troubleshooting</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-400 mt-1 mr-3"></i>
+                                <span><strong>Website Development</strong> - Building and managing secure web platforms</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-400 mt=1 mr-3"></i>
+                                <span><strong>AI Solutions</strong> - Implementing intelligent automation systems</span>
+                            </li>
+                        </ul>
+                        
+                        <p class="text-gray-300 pt-4">
+                            As a passionate tech enthusiast, I focus on <strong class="text-purple-400">protecting digital assets</strong>, 
+                            <strong class="text-purple-400">strengthening network environments</strong>, and delivering 
+                            <strong class="text-purple-400">practical, secure technology solutions</strong> that drive business growth.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- What I Do -->
+                <div class="glass-card p-8 rounded-2xl">
+                    <div class="flex items-center mb-6">
+                        <div class="gradient-bg w-16 h-16 rounded-xl flex items-center justify-center mr-4">
+                            <i class="fas fa-tasks text-white text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold">What I Do</h3>
+                            <p class="text-gray-400">Services & Solutions</p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <div class="glass-card p-4 rounded-lg">
+                            <div class="flex items-center mb-2">
+                                <i class="fas fa-shield-alt text-blue-400 mr-3"></i>
+                                <h4 class="font-bold">Cybersecurity Solutions</h4>
+                            </div>
+                            <p class="text-gray-400 text-sm">
+                                Threat detection, network protection, compliance management, and security infrastructure design
+                            </p>
+                        </div>
+                        
+                        <div class="glass-card p-4 rounded-lg">
+                            <div class="flex items-center mb-2">
+                                <i class="fas fa-robot text-purple-400 mr-3"></i>
+                                <h4 class="font-bold">AI Development</h4>
+                            </div>
+                            <p class="text-gray-400 text-sm">
+                                AI-powered websites, chatbots, automation workflows, and intelligent business solutions
+                            </p>
+                        </div>
+                        
+                        <div class="glass-card p-4 rounded-lg">
+                            <div class="flex items-center mb-2">
+                                <i class="fas fa-code text-green-400 mr-3"></i>
+                                <h4 class="font-bold">Web Development</h4>
+                            </div>
+                            <p class="text-gray-400 text-sm">
+                                Custom website development, hosting setup, domain management, and maintenance
+                            </p>
+                        </div>
+                        
+                        <div class="glass-card p-4 rounded-lg">
+                            <div class="flex items-center mb-2">
+                                <i class="fas fa-tools text-yellow-400 mr-3"></i>
+                                <h4 class="font-bold">IT Consulting</h4>
+                            </div>
+                            <p class="text-gray-400 text-sm">
+                                System troubleshooting, infrastructure optimization, and technology strategy consulting
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Education & Background -->
+            <div class="mt-12 glass-card p-8 rounded-2xl">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <div>
+                        <h4 class="text-xl font-bold mb-4">Education</h4>
+                        <div class="space-y-3">
+                            <div>
+                                <h5 class="font-bold">Tribhuvan University</h5>
+                                <p class="text-gray-400">Bachelor's Degree in Business/IT</p>
+                                <p class="text-gray-500 text-sm">Business and Information Technology Integration</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-xl font-bold mb-4">Top Skills</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 glass-card rounded-full text-sm">Higher Education</span>
+                            <span class="px-3 py-1 glass-card rounded-full text-sm">Academic Advising</span>
+                            <span class="px-3 py-1 glass-card rounded-full text-sm">College Education Planning</span>
+                            <span class="px-3 py-1 glass-card rounded-full text-sm">Network Security</span>
+                            <span class="px-3 py-1 glass-card rounded-full text-sm">Cybersecurity Analysis</span>
+                            <span class="px-3 py-1 glass-card rounded-full text-sm">Web Development</span>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-xl font-bold mb-4">Location</h4>
+                        <div class="space-y-3">
+                            <div class="flex items-center">
+                                <i class="fas fa-map-marker-alt text-blue-400 mr-3"></i>
+                                <div>
+                                    <p class="font-bold">Kathmandu District, Nepal</p>
+                                    <p class="text-gray-400 text-sm">Available for remote work worldwide</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-globe text-green-400 mr-3"></i>
+                                <div>
+                                    <p class="font-bold">Global Reach</p>
+                                    <p class="text-gray-400 text-sm">Serving international clients</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 px-6">
+        <div class="absolute inset-0 grid-pattern opacity-10"></div>
+        <div class="container mx-auto relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    Work <span class="gradient-text">Experience</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Professional journey combining IT expertise with business operations
+                </p>
+            </div>
+            
+            <!-- Current Roles -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold mb-8">Current Positions</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Trio IT -->
+                    <div class="experience-card glass-card p-6 rounded-2xl">
+                        <div class="flex items-start justify-between mb-4">
+                            <div>
+                                <h4 class="text-xl font-bold">Founder | IT Specialist</h4>
+                                <p class="text-blue-400">Trio IT</p>
+                            </div>
+                            <span class="px-3 py-1 glass-card rounded-full text-sm">Nov 2022 - Present</span>
+                        </div>
+                        <p class="text-gray-400 mb-4">
+                            Leading IT solutions and cybersecurity services company providing enterprise-level technology solutions.
+                        </p>
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-circle text-xs text-blue-400 mt-2 mr-2"></i>
+                                <span>Provide comprehensive IT support and cybersecurity solutions</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-circle text-xs text-blue-400 mt-2 mr-2"></i>
+                                <span>Develop custom software and web applications</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-circle text-xs text-blue-400 mt-2 mr-2"></i>
+                                <span>Implement network security infrastructure</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Oil & Associates -->
+                    <div class="experience-card glass-card p-6 rounded-2xl">
+                        <div class="flex items-start justify-between mb-4">
+                            <div>
+                                <h4 class="text-xl font-bold">Admission/Visa Officer</h4>
+                                <p class="text-blue-400">Oil & Associates</p>
+                            </div>
+                            <span class="px-3 py-1 glass-card rounded-full text-sm">Dec 2024 - Present</span>
+                        </div>
+                        <p class="text-gray-400 mb-4">
+                            Managing admission processes and visa documentation for international students.
+                        </p>
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-circle text-xs text-blue-400 mt-2 mr-2"></i>
+                                <span>Process international student admissions</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-circle text-xs text-blue-400 mt-2 mr-2"></i>
+                                <span>Manage visa documentation and compliance</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-circle text-xs text-blue-400 mt-2 mr-2"></i>
+                                <span>Provide education consulting services</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Previous Experience -->
+            <div>
+                <h3 class="text-2xl font-bold mb-8">Previous Experience</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Accountant -->
+                    <div class="experience-card glass-card p-6 rounded-2xl">
+                        <div class="flex items-start justify-between mb-4">
+                            <div>
+                                <h4 class="text-xl font-bold">Accountant</h4>
+                                <p class="text-blue-400">Oil & Associates</p>
+                            </div>
+                            <span class="px-3 py-1 glass-card rounded-full text-sm">Jul 2022 - Present</span>
+                        </div>
+                        <p class="text-gray-400 mb-4">
+                            Financial management and accounting responsibilities for educational consultancy.
+                        </p>
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-circle text-xs text-blue-400 mt-2 mr-2"></i>
+                                <span>Financial management and reporting</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-circle text-xs text-blue-400 mt-2 mr-2"></i>
+                                <span>Budget planning and analysis</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-circle text-xs text-blue-400 mt-2 mr-2"></i>
+                                <span>Accounting system management</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Documentation Officer -->
+                    <div class="experience-card glass-card p-6 rounded-2xl">
+                        <div class="flex items-start justify-between mb-4">
+                            <div>
+                                <h4 class="text-xl font-bold">Documentation Officer</h4>
+                                <p class="text-blue-400">Oil & Associates</p>
+                            </div>
+                            <span class="px-3 py-1 glass-card rounded-full text-sm">Feb 2023 - Dec 2024</span>
+                        </div>
+                        <p class="text-gray-400 mb-4">
+                            Managing official documentation and records for educational consultancy operations.
+                        </p>
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-circle text-xs text-blue-400 mt-2 mr-2"></i>
+                                <span>Document management and organization</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-circle text-xs text-blue-400 mt-2 mr-2"></i>
+                                <span>Record keeping and compliance</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-circle text-xs text-blue-400 mt-2 mr-2"></i>
+                                <span>Process documentation</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Sagarmatha Teens Club -->
+                    <div class="experience-card glass-card p-6 rounded-2xl">
+                        <div class="flex items-start justify-between mb-4">
+                            <div>
+                                <h4 class="text-xl font-bold">Vice President</h4>
+                                <p class="text-blue-400">Sagarmatha Teens Club</p>
+                            </div>
+                            <span class="px-3 py-1 glass-card rounded-full text-sm">Dec 2019 - Nov 2021</span>
+                        </div>
+                        <p class="text-gray-400 mb-4">
+                            Leadership role in youth organization focused on community development and skill building.
+                        </p>
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-circle text-xs text-blue-400 mt-2 mr-2"></i>
+                                <span>Youth leadership and development</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-circle text-xs text-blue-400 mt-2 mr-2"></i>
+                                <span>Community program management</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-circle text-xs text-blue-400 mt-2 mr-2"></i>
+                                <span>Event planning and coordination</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Professional Journey Timeline -->
+            <div class="mt-12 glass-card p-8 rounded-2xl">
+                <h3 class="text-2xl font-bold mb-6">Professional Journey Timeline</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="glass-card p-6 rounded-xl">
+                            <div class="flex justify-between items-start mb-4">
+                                <div>
+                                    <h4 class="font-bold text-lg">Vice President</h4>
+                                    <p class="text-blue-400">Sagarmatha Teens Club</p>
+                                </div>
+                                <span class="px-3 py-1 bg-blue-900/50 rounded-full text-sm">Dec 2019 - Nov 2021</span>
+                            </div>
+                            <p class="text-gray-400">Youth leadership and community development in Koshi Province</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="glass-card p-6 rounded-xl">
+                            <div class="flex justify-between items-start mb-4">
+                                <div>
+                                    <h4 class="font-bold text-lg">Accountant</h4>
+                                    <p class="text-blue-400">Oil & Associates</p>
+                                </div>
+                                <span class="px-3 py-1 bg-blue-900/50 rounded-full text-sm">Jul 2022 - Present</span>
+                            </div>
+                            <p class="text-gray-400">Financial management and accounting responsibilities</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="glass-card p-6 rounded-xl">
+                            <div class="flex justify-between items-start mb-4">
+                                <div>
+                                    <h4 class="font-bold text-lg">Founder | IT Specialist</h4>
+                                    <p class="text-blue-400">Trio IT</p>
+                                </div>
+                                <span class="px-3 py-1 bg-purple-900/50 rounded-full text-sm">Nov 2022 - Present</span>
+                            </div>
+                            <p class="text-gray-400">Leading IT solutions and cybersecurity services company</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="glass-card p-6 rounded-xl">
+                            <div class="flex justify-between items-start mb-4">
+                                <div>
+                                    <h4 class="font-bold text-lg">Documentation Officer</h4>
+                                    <p class="text-blue-400">Oil & Associates</p>
+                                </div>
+                                <span class="px-3 py-1 bg-blue-900/50 rounded-full text-sm">Feb 2023 - Dec 2024</span>
+                            </div>
+                            <p class="text-gray-400">Managing official documentation and records</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="glass-card p-6 rounded-xl">
+                            <div class="flex justify-between items-start mb-4">
+                                <div>
+                                    <h4 class="font-bold text-lg">Admission/Visa Officer</h4>
+                                    <p class="text-blue-400">Oil & Associates</p>
+                                </div>
+                                <span class="px-3 py-1 bg-blue-900/50 rounded-full text-sm">Dec 2024 - Present</span>
+                            </div>
+                            <p class="text-gray-400">Managing admission processes and visa documentation</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Services Section -->
+    <section id="services" class="py-20 px-6">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    AI & Tech <span class="gradient-text">Services</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Comprehensive solutions combining cutting-edge AI with robust IT infrastructure
+                </p>
+            </div>
+            
+            <!-- Services Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- AI Services -->
+                <div class="service-card glass-card p-8 rounded-2xl">
+                    <div class="gradient-bg w-16 h-16 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-robot text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">AI-Powered Website Design</h3>
+                    <p class="text-gray-400 mb-6">
+                        Intelligent websites with AI chatbots, personalization, and automation features.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="tech-tag text-xs px-3 py-1 rounded-full">AI Integration</span>
+                        <span class="tech-tag text-xs px-3 py-1 rounded-full">Chatbots</span>
+                        <span class="tech-tag text-xs px-3 py-1 rounded-full">Automation</span>
+                    </div>
+                    <button onclick="openServiceModal('ai-website')" class="text-blue-400 font-semibold flex items-center">
+                        Learn More <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+                
+                <div class="service-card glass-card p-8 rounded-2xl">
+                    <div class="gradient-bg w-16 h-16 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-comments text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Chatbot/Jarvis Systems</h3>
+                    <p class="text-gray-400 mb-6">
+                        Intelligent virtual assistants for customer service, support, and business automation.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="tech-tag text-xs px-3 py-1 rounded-full">NLP</span>
+                        <span class="tech-tag text-xs px-3 py-1 rounded-full">Automation</span>
+                        <span class="tech-tag text-xs px-3 py-1 rounded-full">Integration</span>
+                    </div>
+                    <button onclick="openServiceModal('chatbot')" class="text-blue-400 font-semibold flex items-center">
+                        Learn More <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+                
+                <div class="service-card glass-card p-8 rounded-2xl">
+                    <div class="gradient-bg w-16 h-16 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-cogs text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Automation Workflows</h3>
+                    <p class="text-gray-400 mb-6">
+                        Streamline business processes with intelligent automation and workflow optimization.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="tech-tag text-xs px-3 py-1 rounded-full">Workflow</span>
+                        <span class="tech-tag text-xs px-3 py-1 rounded-full">Integration</span>
+                        <span class="tech-tag text-xs px-3 py-1 rounded-full">Optimization</span>
+                    </div>
+                    <button onclick="openServiceModal('automation')" class="text-blue-400 font-semibold flex items-center">
+                        Learn More <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+                
+                <!-- Tech Services -->
+                <div class="service-card glass-card p-8 rounded-2xl">
+                    <div class="gradient-bg w-16 h-16 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-code text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Custom Website Development</h3>
+                    <p class="text-gray-400 mb-6">
+                        Responsive, secure websites built with modern technologies and best practices.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="tech-tag text-xs px-3 py-1 rounded-full">HTML/CSS</span>
+                        <span class="tech-tag text-xs px-3 py-1 rounded-full">JavaScript</span>
+                        <span class="tech-tag text-xs px-3 py-1 rounded-full">React</span>
+                    </div>
+                    <button onclick="openServiceModal('web-dev')" class="text-blue-400 font-semibold flex items-center">
+                        Learn More <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+                
+                <div class="service-card glass-card p-8 rounded-2xl">
+                    <div class="gradient-bg w-16 h-16 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-server text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Hosting & DNS Management</h3>
+                    <p class="text-gray-400 mb-6">
+                        Complete domain, hosting, and Cloudflare DNS setup, configuration, and management.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="tech-tag text-xs px-3 py-1 rounded-full">Cloudflare</span>
+                        <span class="tech-tag text-xs px-3 py-1 rounded-full">cPanel</span>
+                        <span class="tech-tag text-xs px-3 py-1 rounded-full">DNS</span>
+                    </div>
+                    <button onclick="openServiceModal('hosting')" class="text-blue-400 font-semibold flex items-center">
+                        Learn More <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+                
+                <!-- Cybersecurity -->
+                <div class="service-card glass-card p-8 rounded-2xl">
+                    <div class="gradient-bg w-16 h-16 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-shield-alt text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Cybersecurity Solutions</h3>
+                    <p class="text-gray-400 mb-6">
+                        Comprehensive security assessment, protection, and compliance management services.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="tech-tag text-xs px-3 py-1 rounded-full">Security</span>
+                        <span class="tech-tag text-xs px-3 py-1 rounded-full">Compliance</span>
+                        <span class="tech-tag text-xs px-3 py-1 rounded-full">Protection</span>
+                    </div>
+                    <button onclick="openServiceModal('cybersecurity')" class="text-blue-400 font-semibold flex items-center">
+                        Learn More <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <!-- (Previous portfolio section remains the same) -->
+
+    <!-- Blog Section -->
+    <!-- (Previous blog section remains the same) -->
+
+    <!-- Certificates Section -->
+    <!-- (Previous certificates section remains the same) -->
+
+    <!-- Tools & Technologies -->
+    <!-- (Previous tools section remains the same) -->
+
+    <!-- Contact Section -->
+    <!-- (Previous contact section remains the same) -->
+
+    <!-- Footer -->
+    <!-- (Previous footer remains the same) -->
+
+    <!-- JavaScript -->
+    <script>
+        // AI Chat Functions
+        function toggleChat() {
+            const chatWindow = document.getElementById('aiChatWindow');
+            if (chatWindow.style.display === 'block') {
+                chatWindow.style.display = 'none';
+            } else {
+                chatWindow.style.display = 'block';
+            }
+        }
+
+        function sendChatMessage() {
+            const input = document.getElementById('chatInput');
+            const messages = document.getElementById('chatMessages');
+            
+            if (input.value.trim() === '') return;
+            
+            // Add user message
+            const userMsg = document.createElement('div');
+            userMsg.className = 'mb-4';
+            userMsg.innerHTML = `
+                <div class="glass-card rounded-lg p-3 max-w-[80%] ml-auto">
+                    <p class="text-sm">${input.value}</p>
+                </div>
+                <p class="text-xs text-gray-500 mt-1 text-right">You</p>
+            `;
+            messages.appendChild(userMsg);
+            
+            // Clear input
+            const userQuestion = input.value;
+            input.value = '';
+            
+            // Simulate AI response
+            setTimeout(() => {
+                const aiResponse = getAIResponse(userQuestion);
+                const aiMsg = document.createElement('div');
+                aiMsg.className = 'mb-4';
+                aiMsg.innerHTML = `
+                    <div class="glass-card rounded-lg p-3 max-w-[80%]">
+                        <p class="text-sm">${aiResponse}</p>
+                    </div>
+                    <p class="text-xs text-gray-500 mt-1">AI Assistant</p>
+                `;
+                messages.appendChild(aiMsg);
+                messages.scrollTop = messages.scrollHeight;
+            }, 1000);
+        }
+
+        function quickQuestion(type) {
+            const questions = {
+                'services': 'What AI and tech services do you offer?',
+                'pricing': 'What are your pricing plans?',
+                'contact': 'How can I contact you?',
+                'portfolio': 'Can I see some of your work?',
+                'experience': 'What is your work experience?',
+                'who-i-am': 'Tell me about yourself'
+            };
+            
+            document.getElementById('chatInput').value = questions[type];
+            sendChatMessage();
+        }
+
+        function getAIResponse(question) {
+            const responses = {
+                'services': 'I offer AI development, web development, cybersecurity solutions, IT consulting, automation workflows, and chatbot systems. Which service are you interested in?',
+                'pricing': 'I offer flexible pricing based on project requirements. Basic websites start at $500, AI solutions from $1000, and ongoing support packages available.',
+                'contact': 'You can reach me at intelligence@jayprasad.com.np or call +977 9812345678. I\'m available for consultations.',
+                'portfolio': 'You can view my portfolio projects above. I specialize in AI systems, web applications, and security solutions.',
+                'experience': 'I have 3+ years experience as Founder of Trio IT, Admission/Visa Officer at Oil & Associates, Accountant, and Documentation Officer. I also served as Vice President of Sagarmatha Teens Club.',
+                'who-i-am': 'I am Jay Prasad Majhi, a Cybersecurity (CC) certified professional with expertise in Networking, Security Infrastructure, IT systems, and website development. I provide comprehensive technology solutions.',
+                'default': 'Thank you for your question! I specialize in AI development, cybersecurity, and IT solutions. How can I assist you further?'
+            };
+            
+            const lowerQuestion = question.toLowerCase();
+            for (const key in responses) {
+                if (lowerQuestion.includes(key)) {
+                    return responses[key];
+                }
+            }
+            return responses['default'];
+        }
+
+        // Form Submission with Timestamp
+        function handleFormSubmit(event) {
+            // Set timezone
+            const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+            document.getElementById('timezone').value = timezone;
+            
+            // Set timestamp
+            const now = new Date();
+            const timestamp = now.toLocaleString('en-US', {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: true,
+                timeZoneName: 'short'
+            });
+            document.getElementById('timestamp').value = timestamp;
+            
+            // Show success message
+            const button = event.target.querySelector('button[type="submit"]');
+            const originalText = button.textContent;
+            
+            button.textContent = 'Sending...';
+            button.disabled = true;
+            
+            setTimeout(() => {
+                alert('Message sent successfully! You will receive a confirmation email shortly.');
+                button.textContent = originalText;
+                button.disabled = false;
+                event.target.reset();
+            }, 1500);
+        }
+
+        // Modal Functions
+        function openServiceModal(serviceId) {
+            // Show modal with service details
+            alert(`Opening ${serviceId} service details. In production, this would show a detailed modal.`);
+        }
+
+        function openProjectModal(projectId) {
+            // Show modal with project details
+            alert(`Opening ${projectId} project details. In production, this would show a detailed modal.`);
+        }
+
+        function openCertificateModal(certId) {
+            // Show modal with certificate details
+            alert(`Opening ${certId} certificate details. In production, this would show the actual certificate.`);
+        }
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Navigation active state
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('nav a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if(scrollY >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('text-blue-400');
+                if(link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('text-blue-400');
+                }
+            });
+        });
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set current year in footer
+            const yearElement = document.querySelector('footer p');
+            if (yearElement) {
+                yearElement.innerHTML = yearElement.innerHTML.replace('2024', new Date().getFullYear());
+            }
+        });
+    </script>
+</body>
+</html>
