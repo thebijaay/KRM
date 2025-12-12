@@ -1,0 +1,1296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeuraCore AI | Enterprise AI Solutions & Cybersecurity</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #10b981;
+            --accent: #8b5cf6;
+            --dark: #0f172a;
+            --darker: #020617;
+        }
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        h1, h2, h3, h4, .logo {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        
+        body {
+            background-color: var(--darker);
+            color: #f8fafc;
+            overflow-x: hidden;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .neural-bg {
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.15) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(139, 92, 246, 0.15) 0%, transparent 20%),
+                radial-gradient(circle at 50% 50%, rgba(16, 185, 129, 0.1) 0%, transparent 30%);
+        }
+        
+        .grid-pattern {
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+        
+        .ai-pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 0.6; }
+            50% { opacity: 1; }
+            100% { opacity: 0.6; }
+        }
+        
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .glow {
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+        }
+        
+        .gradient-border {
+            position: relative;
+            border: 2px solid transparent;
+            background: linear-gradient(var(--darker), var(--darker)) padding-box,
+                        linear-gradient(135deg, var(--primary), var(--accent)) border-box;
+        }
+        
+        .scrollbar-hidden {
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        
+        .scrollbar-hidden::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            transition: transform 0.3s ease;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+        
+        .typewriter-cursor {
+            display: inline-block;
+            width: 3px;
+            background-color: var(--primary);
+            margin-left: 2px;
+            animation: blink 1s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+    </style>
+</head>
+<body class="neural-bg">
+    <!-- Header & Navigation -->
+    <header class="sticky top-0 z-50 glass-card">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="gradient-bg w-12 h-12 rounded-xl flex items-center justify-center">
+                        <i class="fas fa-brain text-white text-xl"></i>
+                    </div>
+                    <div>
+                        <div class="logo text-2xl font-bold">NeuraCore<span class="gradient-text">AI</span></div>
+                        <div class="text-xs text-gray-400">Enterprise AI Solutions</div>
+                    </div>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex items-center space-x-8">
+                    <a href="#home" class="hover:text-primary-400 transition">Home</a>
+                    <a href="#services" class="hover:text-primary-400 transition">Services</a>
+                    <a href="#ai-solutions" class="hover:text-primary-400 transition">AI Solutions</a>
+                    <a href="#portfolio" class="hover:text-primary-400 transition">Portfolio</a>
+                    <a href="#blog" class="hover:text-primary-400 transition">Insights</a>
+                    <a href="#contact" class="hover:text-primary-400 transition">Contact</a>
+                </nav>
+                
+                <!-- CTA & Mobile Menu -->
+                <div class="flex items-center space-x-4">
+                    <button class="hidden md:block gradient-bg px-6 py-2 rounded-lg font-semibold hover:opacity-90 transition">
+                        Get AI Demo
+                    </button>
+                    <button id="mobileMenuBtn" class="lg:hidden text-2xl">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="lg:hidden hidden glass-card mt-2 p-6">
+            <div class="flex flex-col space-y-4">
+                <a href="#home" class="py-2 hover:text-primary-400">Home</a>
+                <a href="#services" class="py-2 hover:text-primary-400">Services</a>
+                <a href="#ai-solutions" class="py-2 hover:text-primary-400">AI Solutions</a>
+                <a href="#portfolio" class="py-2 hover:text-primary-400">Portfolio</a>
+                <a href="#blog" class="py-2 hover:text-primary-400">Insights</a>
+                <a href="#contact" class="py-2 hover:text-primary-400">Contact</a>
+                <button class="gradient-bg px-6 py-3 rounded-lg font-semibold mt-4">
+                    Get AI Demo
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="py-20 md:py-32 px-6 relative overflow-hidden">
+        <!-- Animated Background Elements -->
+        <div class="absolute top-10 left-10 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-10 right-10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
+        
+        <div class="container mx-auto relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Hero Content -->
+                <div>
+                    <div class="inline-flex items-center space-x-2 mb-6 px-4 py-2 rounded-full glass-card">
+                        <div class="w-2 h-2 ai-pulse rounded-full bg-green-400"></div>
+                        <span class="text-sm">Enterprise AI Ready</span>
+                    </div>
+                    
+                    <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+                        Transform Your Business with 
+                        <span class="gradient-text">Intelligent AI</span> Systems
+                    </h1>
+                    
+                    <p class="text-xl text-gray-300 mb-8 max-w-xl">
+                        We build secure, scalable AI solutions that drive innovation, enhance security, and deliver measurable ROI across industries.
+                    </p>
+                    
+                    <!-- AI Stats -->
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-10">
+                        <div class="glass-card p-4 rounded-xl">
+                            <div class="text-2xl font-bold gradient-text">40%</div>
+                            <div class="text-sm text-gray-400">Cost Reduction</div>
+                        </div>
+                        <div class="glass-card p-4 rounded-xl">
+                            <div class="text-2xl font-bold gradient-text">99.9%</div>
+                            <div class="text-sm text-gray-400">System Uptime</div>
+                        </div>
+                        <div class="glass-card p-4 rounded-xl">
+                            <div class="text-2xl font-bold gradient-text">24/7</div>
+                            <div class="text-sm text-gray-400">AI Monitoring</div>
+                        </div>
+                    </div>
+                    
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button class="gradient-bg px-8 py-3 rounded-lg font-semibold text-lg hover:opacity-90 transition">
+                            Start AI Project
+                        </button>
+                        <button class="glass-card px-8 py-3 rounded-lg font-semibold text-lg hover:bg-white/10 transition">
+                            <i class="fas fa-play-circle mr-2"></i> Watch Demo
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- AI Visualization -->
+                <div class="relative">
+                    <div class="glass-card p-8 rounded-2xl float-animation">
+                        <!-- Neural Network Visualization -->
+                        <div class="relative h-96 grid-pattern rounded-xl overflow-hidden">
+                            <!-- Network Nodes -->
+                            <div class="absolute top-10 left-1/4 w-4 h-4 gradient-bg rounded-full"></div>
+                            <div class="absolute top-20 left-1/3 w-4 h-4 gradient-bg rounded-full"></div>
+                            <div class="absolute top-32 left-1/2 w-4 h-4 gradient-bg rounded-full"></div>
+                            <div class="absolute top-44 left-2/3 w-4 h-4 gradient-bg rounded-full"></div>
+                            <div class="absolute top-10 right-1/4 w-4 h-4 bg-green-500 rounded-full"></div>
+                            <div class="absolute top-20 right-1/3 w-4 h-4 bg-green-500 rounded-full"></div>
+                            <div class="absolute top-32 right-1/2 w-4 h-4 bg-green-500 rounded-full"></div>
+                            <div class="absolute top-44 right-2/3 w-4 h-4 bg-green-500 rounded-full"></div>
+                            
+                            <!-- Connecting Lines -->
+                            <svg class="absolute inset-0 w-full h-full">
+                                <line x1="25%" y1="10%" x2="33%" y2="20%" stroke="rgba(99, 102, 241, 0.5)" stroke-width="2"/>
+                                <line x1="33%" y1="20%" x2="50%" y2="32%" stroke="rgba(99, 102, 241, 0.5)" stroke-width="2"/>
+                                <line x1="50%" y1="32%" x2="66%" y2="44%" stroke="rgba(99, 102, 241, 0.5)" stroke-width="2"/>
+                                <line x1="75%" y1="10%" x2="66%" y2="20%" stroke="rgba(16, 185, 129, 0.5)" stroke-width="2"/>
+                                <line x1="66%" y1="20%" x2="50%" y2="32%" stroke="rgba(16, 185, 129, 0.5)" stroke-width="2"/>
+                                <line x1="50%" y1="32%" x2="33%" y2="44%" stroke="rgba(16, 185, 129, 0.5)" stroke-width="2"/>
+                            </svg>
+                            
+                            <!-- Data Flow Animation -->
+                            <div class="absolute top-0 left-1/4 w-2 h-2 bg-blue-400 rounded-full animate-ping"></div>
+                            <div class="absolute top-0 right-1/4 w-2 h-2 bg-green-400 rounded-full animate-ping" style="animation-delay: 0.5s;"></div>
+                        </div>
+                        
+                        <!-- Live AI Metrics -->
+                        <div class="mt-6 grid grid-cols-3 gap-4">
+                            <div class="text-center">
+                                <div class="text-2xl font-bold gradient-text">3.2M</div>
+                                <div class="text-xs text-gray-400">Data Points</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold gradient-text">98.7%</div>
+                                <div class="text-xs text-gray-400">Accuracy</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold gradient-text">0.02s</div>
+                                <div class="text-xs text-gray-400">Response Time</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trusted By Section -->
+    <section class="py-12 px-6 glass-card">
+        <div class="container mx-auto">
+            <div class="text-center mb-8">
+                <p class="text-gray-400">Trusted by leading enterprises</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-6 gap-8 items-center justify-center">
+                <div class="text-center text-2xl font-bold opacity-70">🏥</div>
+                <div class="text-center text-2xl font-bold opacity-70">🏦</div>
+                <div class="text-center text-2xl font-bold opacity-70">📚</div>
+                <div class="text-center text-2xl font-bold opacity-70">🏭</div>
+                <div class="text-center text-2xl font-bold opacity-70">🛒</div>
+                <div class="text-center text-2xl font-bold opacity-70">💻</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Services Section -->
+    <section id="services" class="py-20 px-6">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    <span class="gradient-text">AI & IT Services</span> Portfolio
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Comprehensive enterprise solutions combining cutting-edge AI with robust IT infrastructure
+                </p>
+            </div>
+            
+            <!-- Services Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                <!-- Service 1 -->
+                <div class="service-card glass-card p-8 rounded-2xl">
+                    <div class="gradient-bg w-16 h-16 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-shield-alt text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">AI Cybersecurity</h3>
+                    <p class="text-gray-400 mb-6">
+                        Advanced threat detection, zero-trust architecture, and intelligent security automation.
+                    </p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-400 mr-3"></i>
+                            <span>AI-Powered Threat Intelligence</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-400 mr-3"></i>
+                            <span>Behavioral Analytics</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-400 mr-3"></i>
+                            <span>Automated Incident Response</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="text-primary-400 font-semibold flex items-center">
+                        Explore Security AI <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card glass-card p-8 rounded-2xl">
+                    <div class="gradient-bg w-16 h-16 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-robot text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Agentic AI Systems</h3>
+                    <p class="text-gray-400 mb-6">
+                        Autonomous AI agents for business process automation and intelligent decision-making.
+                    </p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-400 mr-3"></i>
+                            <span>Workflow Automation Agents</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-400 mr-3"></i>
+                            <span>Customer Service Bots</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-400 mr-3"></i>
+                            <span>Predictive Analytics Engines</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="text-primary-400 font-semibold flex items-center">
+                        View Agentic AI <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card glass-card p-8 rounded-2xl">
+                    <div class="gradient-bg w-16 h-16 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-cloud text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">AI Cloud Infrastructure</h3>
+                    <p class="text-gray-400 mb-6">
+                        Scalable, secure cloud platforms optimized for AI/ML workloads and data pipelines.
+                    </p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-400 mr-3"></i>
+                            <span>MLOps & Model Deployment</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-400 mr-3"></i>
+                            <span>GPU-Optimized Clusters</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-400 mr-3"></i>
+                            <span>Auto-scaling AI Services</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="text-primary-400 font-semibold flex items-center">
+                        Explore Cloud AI <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Additional Services -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="glass-card p-6 rounded-xl">
+                    <div class="flex items-center mb-4">
+                        <div class="gradient-bg w-12 h-12 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-heartbeat text-white"></i>
+                        </div>
+                        <h4 class="text-xl font-bold">Healthcare AI</h4>
+                    </div>
+                    <p class="text-gray-400">Diagnostic systems, patient monitoring, and medical imaging analysis.</p>
+                </div>
+                
+                <div class="glass-card p-6 rounded-xl">
+                    <div class="flex items-center mb-4">
+                        <div class="gradient-bg w-12 h-12 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-graduation-cap text-white"></i>
+                        </div>
+                        <h4 class="text-xl font-bold">Education AI</h4>
+                    </div>
+                    <p class="text-gray-400">Adaptive learning platforms and intelligent tutoring systems.</p>
+                </div>
+                
+                <div class="glass-card p-6 rounded-xl">
+                    <div class="flex items-center mb-4">
+                        <div class="gradient-bg w-12 h-12 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-chart-line text-white"></i>
+                        </div>
+                        <h4 class="text-xl font-bold">Financial AI</h4>
+                    </div>
+                    <p class="text-gray-400">Fraud detection, algorithmic trading, and risk assessment systems.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Solutions Showcase -->
+    <section id="ai-solutions" class="py-20 px-6 relative overflow-hidden">
+        <div class="absolute inset-0 grid-pattern opacity-20"></div>
+        <div class="container mx-auto relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    Industry-Specific <span class="gradient-text">AI Solutions</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Tailored AI implementations that solve real-world business challenges
+                </p>
+            </div>
+            
+            <!-- Solutions Tabs -->
+            <div class="mb-12">
+                <div class="flex flex-wrap justify-center gap-4 mb-8">
+                    <button class="gradient-bg px-6 py-3 rounded-lg font-semibold">All Industries</button>
+                    <button class="glass-card px-6 py-3 rounded-lg font-semibold hover:bg-white/10">Healthcare</button>
+                    <button class="glass-card px-6 py-3 rounded-lg font-semibold hover:bg-white/10">Finance</button>
+                    <button class="glass-card px-6 py-3 rounded-lg font-semibold hover:bg-white/10">Retail</button>
+                    <button class="glass-card px-6 py-3 rounded-lg font-semibold hover:bg-white/10">Manufacturing</button>
+                </div>
+                
+                <!-- Solutions Grid -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Solution 1 -->
+                    <div class="glass-card p-8 rounded-2xl">
+                        <div class="flex items-start mb-6">
+                            <div class="gradient-bg w-14 h-14 rounded-xl flex items-center justify-center mr-4">
+                                <i class="fas fa-stethoscope text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold mb-2">Medical Diagnosis AI</h3>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="text-xs px-3 py-1 bg-blue-900/50 rounded-full">Healthcare</span>
+                                    <span class="text-xs px-3 py-1 bg-green-900/50 rounded-full">Deep Learning</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-400 mb-6">
+                            AI-powered diagnostic assistant that analyzes medical images with 99.2% accuracy, reducing diagnosis time by 70%.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-4">
+                                <div>
+                                    <div class="text-2xl font-bold gradient-text">99.2%</div>
+                                    <div class="text-xs text-gray-400">Accuracy</div>
+                                </div>
+                                <div>
+                                    <div class="text-2xl font-bold gradient-text">70%</div>
+                                    <div class="text-xs text-gray-400">Time Saved</div>
+                                </div>
+                            </div>
+                            <button class="glass-card px-6 py-2 rounded-lg hover:bg-white/10">
+                                Case Study
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Solution 2 -->
+                    <div class="glass-card p-8 rounded-2xl">
+                        <div class="flex items-start mb-6">
+                            <div class="gradient-bg w-14 h-14 rounded-xl flex items-center justify-center mr-4">
+                                <i class="fas fa-credit-card text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold mb-2">Fraud Detection System</h3>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="text-xs px-3 py-1 bg-purple-900/50 rounded-full">Finance</span>
+                                    <span class="text-xs px-3 py-1 bg-red-900/50 rounded-full">Real-time AI</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-400 mb-6">
+                            Real-time fraud detection AI that analyzes transaction patterns, preventing $45M+ in fraudulent activities annually.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-4">
+                                <div>
+                                    <div class="text-2xl font-bold gradient-text">0.01s</div>
+                                    <div class="text-xs text-gray-400">Detection Time</div>
+                                </div>
+                                <div>
+                                    <div class="text-2xl font-bold gradient-text">$45M+</div>
+                                    <div class="text-xs text-gray-400">Saved Annually</div>
+                                </div>
+                            </div>
+                            <button class="glass-card px-6 py-2 rounded-lg hover:bg-white/10">
+                                Case Study
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- AI Performance Dashboard -->
+            <div class="glass-card p-8 rounded-2xl mt-12">
+                <h3 class="text-2xl font-bold mb-8">AI Performance Dashboard</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="text-center p-6 rounded-xl bg-gradient-to-br from-blue-900/30 to-transparent">
+                        <div class="text-3xl font-bold gradient-text">98.7%</div>
+                        <div class="text-gray-400">Model Accuracy</div>
+                    </div>
+                    <div class="text-center p-6 rounded-xl bg-gradient-to-br from-green-900/30 to-transparent">
+                        <div class="text-3xl font-bold gradient-text">99.9%</div>
+                        <div class="text-gray-400">System Uptime</div>
+                    </div>
+                    <div class="text-center p-6 rounded-xl bg-gradient-to-br from-purple-900/30 to-transparent">
+                        <div class="text-3xl font-bold gradient-text">2.5M</div>
+                        <div class="text-gray-400">Daily Predictions</div>
+                    </div>
+                    <div class="text-center p-6 rounded-xl bg-gradient-to-br from-red-900/30 to-transparent">
+                        <div class="text-3xl font-bold gradient-text">0.05s</div>
+                        <div class="text-gray-400">Avg. Response</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Demo Section -->
+    <section class="py-20 px-6">
+        <div class="container mx-auto">
+            <div class="glass-card p-8 md:p-12 rounded-3xl">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 class="text-4xl font-bold mb-6">
+                            Interactive <span class="gradient-text">AI Demo</span>
+                        </h2>
+                        <p class="text-gray-300 mb-8">
+                            Experience our AI capabilities firsthand. Try our sentiment analysis, text generation, or image recognition demo.
+                        </p>
+                        
+                        <!-- Demo Controls -->
+                        <div class="space-y-6">
+                            <div>
+                                <label class="block mb-2 font-medium">Try AI Text Analysis</label>
+                                <textarea id="aiInput" class="w-full bg-gray-900/50 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary-500" rows="4" placeholder="Enter text for AI analysis..."></textarea>
+                            </div>
+                            
+                            <div class="flex flex-wrap gap-4">
+                                <button onclick="analyzeSentiment()" class="gradient-bg px-6 py-3 rounded-lg font-semibold">
+                                    Analyze Sentiment
+                                </button>
+                                <button onclick="generateText()" class="glass-card px-6 py-3 rounded-lg font-semibold">
+                                    Generate Text
+                                </button>
+                                <button onclick="summarizeText()" class="glass-card px-6 py-3 rounded-lg font-semibold">
+                                    Summarize
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Demo Output -->
+                    <div class="glass-card p-6 rounded-xl">
+                        <div class="flex items-center justify-between mb-6">
+                            <h3 class="text-xl font-bold">AI Output</h3>
+                            <div class="flex items-center">
+                                <div class="w-2 h-2 bg-green-400 rounded-full mr-2"></div>
+                                <span class="text-sm text-gray-400">AI Active</span>
+                            </div>
+                        </div>
+                        
+                        <div id="aiOutput" class="min-h-64 p-4 bg-gray-900/30 rounded-lg">
+                            <div class="text-center py-12 text-gray-500">
+                                <i class="fas fa-robot text-4xl mb-4"></i>
+                                <p>Enter text and click a button to see AI analysis</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6 grid grid-cols-3 gap-4">
+                            <div class="text-center">
+                                <div class="text-sm font-bold gradient-text">0.8s</div>
+                                <div class="text-xs text-gray-400">Processing</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-sm font-bold gradient-text">94%</div>
+                                <div class="text-xs text-gray-400">Confidence</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-sm font-bold gradient-text">AI</div>
+                                <div class="text-xs text-gray-400">GPT-4</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 px-6">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    AI <span class="gradient-text">Portfolio</span> & Case Studies
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Real-world AI implementations delivering measurable business impact
+                </p>
+            </div>
+            
+            <!-- Portfolio Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                <!-- Project 1 -->
+                <div class="glass-card rounded-2xl overflow-hidden group">
+                    <div class="h-48 gradient-bg relative overflow-hidden">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-hospital text-white text-6xl"></i>
+                        </div>
+                        <div class="absolute top-4 right-4">
+                            <span class="px-3 py-1 bg-black/50 rounded-full text-sm">Healthcare</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">Medical Imaging AI</h3>
+                        <p class="text-gray-400 mb-4">
+                            Deep learning system for early detection of medical conditions from imaging data.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <i class="fas fa-chart-line text-green-400 mr-2"></i>
+                                <span class="text-sm">98.5% Accuracy</span>
+                            </div>
+                            <a href="#" class="text-primary-400 hover:text-primary-300">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="glass-card rounded-2xl overflow-hidden group">
+                    <div class="h-48 bg-gradient-to-r from-blue-900 to-purple-900 relative overflow-hidden">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-lock text-white text-6xl"></i>
+                        </div>
+                        <div class="absolute top-4 right-4">
+                            <span class="px-3 py-1 bg-black/50 rounded-full text-sm">Security</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">Cybersecurity AI Platform</h3>
+                        <p class="text-gray-400 mb-4">
+                            Enterprise security system with AI-powered threat detection and response.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <i class="fas fa-shield-alt text-blue-400 mr-2"></i>
+                                <span class="text-sm">99.9% Detection</span>
+                            </div>
+                            <a href="#" class="text-primary-400 hover:text-primary-300">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="glass-card rounded-2xl overflow-hidden group">
+                    <div class="h-48 bg-gradient-to-r from-green-900 to-blue-900 relative overflow-hidden">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-robot text-white text-6xl"></i>
+                        </div>
+                        <div class="absolute top-4 right-4">
+                            <span class="px-3 py-1 bg-black/50 rounded-full text-sm">Automation</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">Business Process AI</h3>
+                        <p class="text-gray-400 mb-4">
+                            Intelligent automation system that reduced operational costs by 40%.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <i class="fas fa-dollar-sign text-yellow-400 mr-2"></i>
+                                <span class="text-sm">40% Cost Reduction</span>
+                            </div>
+                            <a href="#" class="text-primary-400 hover:text-primary-300">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- View More -->
+            <div class="text-center">
+                <button class="gradient-border px-8 py-3 rounded-lg font-semibold text-lg hover:bg-white/5 transition">
+                    View All AI Projects
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="py-20 px-6">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    AI <span class="gradient-text">Insights</span> & Technical Blog
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Latest research, technical guides, and AI industry insights
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Featured Post -->
+                <div class="lg:col-span-2 glass-card p-8 rounded-2xl">
+                    <div class="flex items-center mb-6">
+                        <div class="gradient-bg w-16 h-16 rounded-xl flex items-center justify-center mr-4">
+                            <i class="fas fa-brain text-white text-2xl"></i>
+                        </div>
+                        <div>
+                            <div class="text-sm text-gray-400 mb-1">Featured • 15 min read</div>
+                            <h3 class="text-2xl font-bold">Agentic AI: The Future of Autonomous Systems</h3>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-6">
+                        Exploring the architecture of self-directed AI agents that can plan, reason, and execute complex tasks autonomously across various domains.
+                    </p>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-4">
+                            <div class="flex items-center">
+                                <i class="fas fa-eye text-gray-400 mr-2"></i>
+                                <span class="text-sm text-gray-400">2.4K views</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-calendar text-gray-400 mr-2"></i>
+                                <span class="text-sm text-gray-400">Mar 15, 2024</span>
+                            </div>
+                        </div>
+                        <a href="#" class="text-primary-400 font-semibold">Read Article →</a>
+                    </div>
+                </div>
+                
+                <!-- Recent Posts -->
+                <div class="glass-card p-6 rounded-2xl">
+                    <h3 class="text-xl font-bold mb-6">Recent Articles</h3>
+                    <div class="space-y-6">
+                        <div class="pb-4 border-b border-gray-800">
+                            <h4 class="font-bold mb-2">MLOps Best Practices 2024</h4>
+                            <div class="flex items-center text-sm text-gray-400">
+                                <span>8 min read</span>
+                                <span class="mx-2">•</span>
+                                <span>Mar 10</span>
+                            </div>
+                        </div>
+                        <div class="pb-4 border-b border-gray-800">
+                            <h4 class="font-bold mb-2">AI Security Frameworks</h4>
+                            <div class="flex items-center text-sm text-gray-400">
+                                <span>12 min read</span>
+                                <span class="mx-2">•</span>
+                                <span>Mar 5</span>
+                            </div>
+                        </div>
+                        <div class="pb-4 border-b border-gray-800">
+                            <h4 class="font-bold mb-2">Healthcare AI Compliance</h4>
+                            <div class="flex items-center text-sm text-gray-400">
+                                <span>10 min read</span>
+                                <span class="mx-2">•</span>
+                                <span>Feb 28</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-2">Edge AI Deployments</h4>
+                            <div class="flex items-center text-sm text-gray-400">
+                                <span>14 min read</span>
+                                <span class="mx-2">•</span>
+                                <span>Feb 22</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Blog Topics -->
+            <div class="mt-12 glass-card p-8 rounded-2xl">
+                <h3 class="text-2xl font-bold mb-8">Explore AI Topics</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                    <a href="#" class="glass-card p-4 rounded-xl text-center hover:bg-white/10 transition">
+                        <i class="fas fa-shield-alt text-xl mb-2"></i>
+                        <div class="text-sm">Security AI</div>
+                    </a>
+                    <a href="#" class="glass-card p-4 rounded-xl text-center hover:bg-white/10 transition">
+                        <i class="fas fa-robot text-xl mb-2"></i>
+                        <div class="text-sm">Agentic AI</div>
+                    </a>
+                    <a href="#" class="glass-card p-4 rounded-xl text-center hover:bg-white/10 transition">
+                        <i class="fas fa-heartbeat text-xl mb-2"></i>
+                        <div class="text-sm">Healthcare AI</div>
+                    </a>
+                    <a href="#" class="glass-card p-4 rounded-xl text-center hover:bg-white/10 transition">
+                        <i class="fas fa-chart-line text-xl mb-2"></i>
+                        <div class="text-sm">Business AI</div>
+                    </a>
+                    <a href="#" class="glass-card p-4 rounded-xl text-center hover:bg-white/10 transition">
+                        <i class="fas fa-graduation-cap text-xl mb-2"></i>
+                        <div class="text-sm">Education AI</div>
+                    </a>
+                    <a href="#" class="glass-card p-4 rounded-xl text-center hover:bg-white/10 transition">
+                        <i class="fas fa-industry text-xl mb-2"></i>
+                        <div class="text-sm">Industrial AI</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-6">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    Start Your <span class="gradient-text">AI Journey</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Let's discuss how AI can transform your business. Get in touch for a free consultation.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Contact Form -->
+                <div class="glass-card p-8 rounded-2xl">
+                    <h3 class="text-2xl font-bold mb-6">Send AI Project Inquiry</h3>
+                    <form id="contactForm" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block mb-2 font-medium">Full Name *</label>
+                                <input type="text" required 
+                                       class="w-full bg-gray-900/50 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary-500">
+                            </div>
+                            <div>
+                                <label class="block mb-2 font-medium">Email *</label>
+                                <input type="email" required 
+                                       class="w-full bg-gray-900/50 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary-500">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block mb-2 font-medium">Company</label>
+                            <input type="text" 
+                                   class="w-full bg-gray-900/50 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary-500">
+                        </div>
+                        
+                        <div>
+                            <label class="block mb-2 font-medium">AI Service Interest *</label>
+                            <select required 
+                                    class="w-full bg-gray-900/50 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary-500">
+                                <option value="">Select AI Service</option>
+                                <option value="security">AI Cybersecurity</option>
+                                <option value="agentic">Agentic AI Systems</option>
+                                <option value="cloud">AI Cloud Infrastructure</option>
+                                <option value="healthcare">Healthcare AI</option>
+                                <option value="consultation">AI Consultation</option>
+                                <option value="custom">Custom AI Solution</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label class="block mb-2 font-medium">Project Details *</label>
+                            <textarea required rows="5" 
+                                      class="w-full bg-gray-900/50 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary-500"
+                                      placeholder="Describe your AI project requirements, challenges, and goals..."></textarea>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <input type="checkbox" required 
+                                   class="mt-1 mr-3 bg-gray-900/50 border border-gray-700 rounded">
+                            <label class="text-sm text-gray-400">
+                                I agree to receive communications about AI solutions and services.
+                            </label>
+                        </div>
+                        
+                        <button type="submit" 
+                                class="gradient-bg w-full py-4 rounded-lg font-semibold text-lg hover:opacity-90 transition">
+                            Submit AI Project Request
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Contact Info -->
+                <div>
+                    <div class="glass-card p-8 rounded-2xl mb-8">
+                        <h3 class="text-2xl font-bold mb-6">Contact Information</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="gradient-bg w-12 h-12 rounded-lg flex items-center justify-center mr-4">
+                                    <i class="fas fa-envelope text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold mb-1">Email</h4>
+                                    <a href="mailto:ai@jayprasad.com" class="text-primary-400 hover:underline">ai@jayprasad.com</a>
+                                    <p class="text-sm text-gray-400 mt-1">Response within 24 hours</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="gradient-bg w-12 h-12 rounded-lg flex items-center justify-center mr-4">
+                                    <i class="fas fa-map-marker-alt text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold mb-1">Location</h4>
+                                    <p>Los Angeles, California</p>
+                                    <p class="text-sm text-gray-400 mt-1">Serving clients globally</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="gradient-bg w-12 h-12 rounded-lg flex items-center justify-center mr-4">
+                                    <i class="fas fa-clock text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold mb-1">Availability</h4>
+                                    <p>Mon - Fri: 9:00 AM - 6:00 PM PST</p>
+                                    <p class="text-sm text-gray-400 mt-1">Emergency support available</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Quick Links -->
+                    <div class="glass-card p-8 rounded-2xl">
+                        <h3 class="text-2xl font-bold mb-6">Quick AI Resources</h3>
+                        <div class="space-y-4">
+                            <a href="#" class="flex items-center justify-between p-3 rounded-lg hover:bg-white/10 transition">
+                                <div class="flex items-center">
+                                    <i class="fas fa-file-pdf text-red-400 mr-3"></i>
+                                    <span>AI Solutions Whitepaper</span>
+                                </div>
+                                <i class="fas fa-download text-gray-400"></i>
+                            </a>
+                            <a href="#" class="flex items-center justify-between p-3 rounded-lg hover:bg-white/10 transition">
+                                <div class="flex items-center">
+                                    <i class="fas fa-video text-purple-400 mr-3"></i>
+                                    <span>AI Implementation Webinar</span>
+                                </div>
+                                <i class="fas fa-play text-gray-400"></i>
+                            </a>
+                            <a href="#" class="flex items-center justify-between p-3 rounded-lg hover:bg-white/10 transition">
+                                <div class="flex items-center">
+                                    <i class="fas fa-calculator text-green-400 mr-3"></i>
+                                    <span>AI ROI Calculator</span>
+                                </div>
+                                <i class="fas fa-external-link-alt text-gray-400"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 border-t border-gray-800">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                <!-- Brand -->
+                <div>
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="gradient-bg w-10 h-10 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-brain text-white"></i>
+                        </div>
+                        <div>
+                            <div class="logo text-xl font-bold">NeuraCore<span class="gradient-text">AI</span></div>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm">
+                        Enterprise AI solutions with cybersecurity, scalability, and measurable business impact.
+                    </p>
+                </div>
+                
+                <!-- Services -->
+                <div>
+                    <h4 class="font-bold text-lg mb-6">AI Services</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">AI Cybersecurity</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Agentic AI Systems</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Cloud AI Infrastructure</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Healthcare AI</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Education AI</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Resources -->
+                <div>
+                    <h4 class="font-bold text-lg mb-6">Resources</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">AI Blog</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Case Studies</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Whitepapers</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">AI Tools</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Documentation</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Connect -->
+                <div>
+                    <h4 class="font-bold text-lg mb-6">Connect</h4>
+                    <div class="flex space-x-4 mb-8">
+                        <a href="#" class="w-10 h-10 glass-card rounded-lg flex items-center justify-center hover:bg-white/10">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 glass-card rounded-lg flex items-center justify-center hover:bg-white/10">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 glass-card rounded-lg flex items-center justify-center hover:bg-white/10">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 glass-card rounded-lg flex items-center justify-center hover:bg-white/10">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                    <div class="text-sm text-gray-400">
+                        <p>📍 Los Angeles, CA</p>
+                        <p>📧 ai@jayprasad.com</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500 text-sm">
+                <p>© 2024 NeuraCore AI. All rights reserved. | Enterprise AI Solutions & Cybersecurity</p>
+                <p class="mt-2">Built with advanced AI architectures and secure cloud infrastructure</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const menu = document.getElementById('mobileMenu');
+            const menuBtn = document.getElementById('mobileMenuBtn');
+            
+            if (!menu.contains(event.target) && !menuBtn.contains(event.target)) {
+                menu.classList.add('hidden');
+            }
+        });
+
+        // AI Demo Functions
+        function analyzeSentiment() {
+            const input = document.getElementById('aiInput').value;
+            const output = document.getElementById('aiOutput');
+            
+            if (!input.trim()) {
+                output.innerHTML = `
+                    <div class="text-center py-12 text-red-400">
+                        <i class="fas fa-exclamation-triangle text-4xl mb-4"></i>
+                        <p>Please enter text for analysis</p>
+                    </div>`;
+                return;
+            }
+            
+            // Simulate AI processing
+            output.innerHTML = `
+                <div class="text-center py-8">
+                    <div class="inline-block animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-primary-400 mb-4"></div>
+                    <p>AI is analyzing sentiment...</p>
+                </div>`;
+            
+            setTimeout(() => {
+                const sentiments = ['Positive', 'Neutral', 'Negative'];
+                const randomSentiment = sentiments[Math.floor(Math.random() * sentiments.length)];
+                const confidence = (Math.random() * 20 + 80).toFixed(1);
+                
+                output.innerHTML = `
+                    <div class="p-4">
+                        <div class="flex items-center justify-between mb-4">
+                            <h4 class="font-bold">Sentiment Analysis Result</h4>
+                            <span class="px-3 py-1 bg-green-900/50 text-green-400 rounded-full text-sm">${confidence}% Confidence</span>
+                        </div>
+                        <div class="mb-4">
+                            <div class="flex items-center mb-2">
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-green-500 h-2 rounded-full" style="width: ${confidence}%"></div>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <span class="text-2xl font-bold ${randomSentiment === 'Positive' ? 'text-green-400' : randomSentiment === 'Negative' ? 'text-red-400' : 'text-yellow-400'}">${randomSentiment}</span>
+                            </div>
+                        </div>
+                        <div class="text-sm text-gray-400">
+                            <p><strong>Text analyzed:</strong> "${input.substring(0, 100)}${input.length > 100 ? '...' : ''}"</p>
+                            <p class="mt-2">The AI detected a <strong>${randomSentiment.toLowerCase()}</strong> sentiment with <strong>${confidence}%</strong> confidence.</p>
+                        </div>
+                    </div>`;
+            }, 1500);
+        }
+
+        function generateText() {
+            const input = document.getElementById('aiInput').value;
+            const output = document.getElementById('aiOutput');
+            
+            if (!input.trim()) {
+                output.innerHTML = `
+                    <div class="text-center py-12 text-red-400">
+                        <i class="fas fa-exclamation-triangle text-4xl mb-4"></i>
+                        <p>Please enter a prompt for text generation</p>
+                    </div>`;
+                return;
+            }
+            
+            output.innerHTML = `
+                <div class="text-center py-8">
+                    <div class="inline-block animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-primary-400 mb-4"></div>
+                    <p>AI is generating text...</p>
+                </div>`;
+            
+            setTimeout(() => {
+                const sampleTexts = [
+                    "The integration of artificial intelligence in modern business processes has revolutionized operational efficiency, enabling unprecedented levels of automation and data-driven decision making.",
+                    "Based on the latest industry trends, AI-powered solutions are expected to contribute significantly to economic growth, with projections indicating a 40% increase in productivity for early adopters.",
+                    "Advanced neural networks can now process complex patterns in real-time, providing businesses with actionable insights that were previously impossible to obtain through traditional analytical methods."
+                ];
+                
+                const randomText = sampleTexts[Math.floor(Math.random() * sampleTexts.length)];
+                
+                output.innerHTML = `
+                    <div class="p-4">
+                        <div class="flex items-center justify-between mb-4">
+                            <h4 class="font-bold">AI Generated Text</h4>
+                            <span class="px-3 py-1 bg-purple-900/50 text-purple-400 rounded-full text-sm">GPT-4</span>
+                        </div>
+                        <div class="mb-4 p-4 bg-gray-900/50 rounded-lg">
+                            <p class="text-gray-300">${randomText}</p>
+                        </div>
+                        <div class="text-sm text-gray-400">
+                            <p><strong>Prompt:</strong> "${input.substring(0, 80)}${input.length > 80 ? '...' : ''}"</p>
+                            <p class="mt-2">Generated using advanced language model with 175B parameters.</p>
+                        </div>
+                    </div>`;
+            }, 2000);
+        }
+
+        function summarizeText() {
+            const input = document.getElementById('aiInput').value;
+            const output = document.getElementById('aiOutput');
+            
+            if (!input.trim()) {
+                output.innerHTML = `
+                    <div class="text-center py-12 text-red-400">
+                        <i class="fas fa-exclamation-triangle text-4xl mb-4"></i>
+                        <p>Please enter text to summarize</p>
+                    </div>`;
+                return;
+            }
+            
+            if (input.length < 50) {
+                output.innerHTML = `
+                    <div class="text-center py-12 text-yellow-400">
+                        <i class="fas fa-exclamation-circle text-4xl mb-4"></i>
+                        <p>Text is too short for summarization</p>
+                        <p class="text-sm mt-2">Please enter at least 50 characters</p>
+                    </div>`;
+                return;
+            }
+            
+            output.innerHTML = `
+                <div class="text-center py-8">
+                    <div class="inline-block animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-blue-400 mb-4"></div>
+                    <p>AI is summarizing text...</p>
+                </div>`;
+            
+            setTimeout(() => {
+                const wordCount = input.split(' ').length;
+                const summaryLength = Math.max(20, Math.floor(wordCount * 0.3));
+                
+                // Create a simple summary (in real implementation, this would call an AI API)
+                const words = input.split(' ');
+                const summary = words.slice(0, summaryLength).join(' ') + '...';
+                const reduction = Math.floor(((wordCount - summaryLength) / wordCount) * 100);
+                
+                output.innerHTML = `
+                    <div class="p-4">
+                        <div class="flex items-center justify-between mb-4">
+                            <h4 class="font-bold">Text Summary</h4>
+                            <span class="px-3 py-1 bg-blue-900/50 text-blue-400 rounded-full text-sm">${reduction}% Reduced</span>
+                        </div>
+                        <div class="mb-4 p-4 bg-gray-900/50 rounded-lg">
+                            <p class="text-gray-300">${summary}</p>
+                        </div>
+                        <div class="text-sm text-gray-400">
+                            <p><strong>Original:</strong> ${wordCount} words</p>
+                            <p><strong>Summary:</strong> ${summaryLength} words</p>
+                            <p class="mt-2">AI extracted key information while maintaining context and meaning.</p>
+                        </div>
+                    </div>`;
+            }, 1800);
+        }
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show success message
+            const button = this.querySelector('button[type="submit"]');
+            const originalText = button.textContent;
+            
+            button.textContent = 'Sending...';
+            button.disabled = true;
+            
+            setTimeout(() => {
+                button.textContent = 'Request Sent!';
+                button.classList.remove('gradient-bg');
+                button.classList.add('bg-green-600');
+                
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.disabled = false;
+                    button.classList.remove('bg-green-600');
+                    button.classList.add('gradient-bg');
+                    this.reset();
+                }, 3000);
+            }, 1500);
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add animation to elements when they come into view
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all service cards and other elements
+        document.querySelectorAll('.service-card, .glass-card').forEach((el) => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
