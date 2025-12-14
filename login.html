@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Jay Prasad Majhi Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-cyan: #00f3ff;
+            --primary-blue: #0066ff;
+            --primary-purple: #9d00ff;
+            --bg-dark: #0a0a0f;
+            --bg-darker: #050508;
+        }
+        
+        body {
+            background-color: var(--bg-dark);
+            color: #ffffff;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, var(--primary-cyan) 0%, var(--primary-purple) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .glass-card {
+            background: rgba(20, 20, 30, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 243, 255, 0.1);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        
+        .cyber-button {
+            position: relative;
+            padding: 12px 30px;
+            background: transparent;
+            border: 2px solid var(--primary-cyan);
+            color: var(--primary-cyan);
+            font-weight: 600;
+            letter-spacing: 1px;
+            cursor: pointer;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border-radius: 10px;
+        }
+        
+        .cyber-button:hover {
+            background: rgba(0, 243, 255, 0.1);
+            box-shadow: 0 0 20px rgba(0, 243, 255, 0.3);
+        }
+        
+        .cyber-input {
+            background: rgba(20, 20, 30, 0.8);
+            border: 1px solid rgba(0, 243, 255, 0.2);
+            border-radius: 10px;
+            padding: 15px 20px;
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+        
+        .cyber-input:focus {
+            outline: none;
+            border-color: var(--primary-cyan);
+            box-shadow: 0 0 20px rgba(0, 243, 255, 0.2);
+        }
+        
+        .security-badge {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center">
+    <!-- Background Effects -->
+    <div class="fixed inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-900"></div>
+    <div class="fixed inset-0 bg-[url('data:image/svg+xml,%3Csvg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z" fill="%2300f3ff" fill-opacity="0.1" fill-rule="evenodd"/%3E%3C/svg%3E')] opacity-10"></div>
+    
+    <!-- Main Container -->
+    <div class="relative z-10 w-full max-w-md px-4">
+        <!-- Security Header -->
+        <div class="text-center mb-8">
+            <div class="flex items-center justify-center mb-4">
+                <div class="w-16 h-16 rounded-2xl bg-gradient-to-r from-cyan-500 to-purple-500 flex items-center justify-center mr-4">
+                    <i class="fas fa-shield-alt text-white text-2xl"></i>
+                </div>
+                <div class="text-left">
+                    <h1 class="text-3xl font-bold gradient-text">SECURE PORTAL</h1>
+                    <p class="text-cyan-400 text-sm">Jay Prasad Majhi Systems</p>
+                </div>
+            </div>
+            
+            <div class="glass-card p-4 mb-6">
+                <div class="flex items-center justify-center space-x-2">
+                    <i class="fas fa-lock text-green-400"></i>
+                    <span class="text-sm">256-bit SSL Encryption • Two-Factor Auth</span>
+                    <i class="fas fa-shield-check text-green-400"></i>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Login Form -->
+        <div class="glass-card p-8">
+            <!-- Status Messages -->
+            <div id="messageContainer" class="mb-6 hidden">
+                <div id="message" class="p-4 rounded-lg"></div>
+            </div>
+            
+            <h2 class="text-2xl font-bold mb-6 text-center">Secure Login</h2>
+            
+            <form id="loginForm" onsubmit="loginUser(event)">
+                <!-- Email Input -->
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-400 mb-2">
+                        <i class="fas fa-envelope mr-2"></i>Email Address
+                    </label>
+                    <div class="relative">
+                        <input type="email" 
+                               id="email" 
+                               name="email" 
+                               required 
+                               placeholder="admin@jayprasad.com.np" 
+                               class="cyber-input pl-12"
+                               autocomplete="email">
+                        <div class="absolute left-4 top-1/2 transform -translate-y-1/2 text-cyan-400">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Password Input -->
+                <div class="mb-6">
+                    <div class="flex justify-between items-center mb-2">
+                        <label class="block text-sm font-medium text-gray-400">
+                            <i class="fas fa-key mr-2"></i>Password
+                        </label>
+                        <button type="button" onclick="togglePassword()" class="text-cyan-400 text-sm hover:text-cyan-300">
+                            <i class="fas fa-eye"></i> Show
+                        </button>
+                    </div>
+                    <div class="relative">
+                        <input type="password" 
+                               id="password" 
+                               name="password" 
+                               required 
+                               placeholder="Enter your password" 
+                               class="cyber-input pl-12"
+                               autocomplete="current-password">
+                        <div class="absolute left-4 top-1/2 transform -translate-y-1/2 text-cyan-400">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                    </div>
+                    <div class="mt-2 flex items-center space-x-2">
+                        <div id="passwordStrength" class="h-1 flex-1 bg-gray-700 rounded-full overflow-hidden">
+                            <div id="strengthBar" class="h-full bg-red-500"></div>
+                        </div>
+                        <span id="strengthText" class="text-xs text-gray-400">Weak</span>
+                    </div>
+                </div>
+                
+                <!-- Remember Me & 2FA -->
+                <div class="flex items-center justify-between mb-6">
+                    <label class="flex items-center">
+                        <input type="checkbox" name="remember" class="mr-2 rounded bg-gray-700 border-cyan-500 text-cyan-500 focus:ring-cyan-500">
+                        <span class="text-sm text-gray-400">Remember me</span>
+                    </label>
+                    <label class="flex items-center">
+                        <input type="checkbox" name="twoFactor" class="mr-2 rounded bg-gray-700 border-cyan-500 text-cyan-500 focus:ring-cyan-500">
+                        <span class="text-sm text-gray-400">Enable 2FA</span>
+                    </label>
+                </div>
+                
+                <!-- Login Button -->
+                <button type="submit" class="cyber-button w-full mb-4" id="loginButton">
+                    <i class="fas fa-sign-in-alt mr-2"></i> Login to Portal
+                </button>
+                
+                <!-- Alternative Login -->
+                <div class="text-center mb-6">
+                    <div class="relative">
+                        <div class="absolute inset-0 flex items-center">
+                            <div class="w-full border-t border-gray-700"></div>
+                        </div>
+                        <div class="relative flex justify-center text-sm">
+                            <span class="px-2 bg-gray-900 text-gray-400">Or continue with</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4 grid grid-cols-2 gap-3">
+                        <button type="button" onclick="googleLogin()" class="flex items-center justify-center py-2 px-4 bg-gray-800 hover:bg-gray-700 rounded-lg transition">
+                            <i class="fab fa-google text-red-400 mr-2"></i>
+                            <span class="text-sm">Google</span>
+                        </button>
+                        <button type="button" onclick="githubLogin()" class="flex items-center justify-center py-2 px-4 bg-gray-800 hover:bg-gray-700 rounded-lg transition">
+                            <i class="fab fa-github mr-2"></i>
+                            <span class="text-sm">GitHub</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Links -->
+                <div class="text-center space-y-3">
+                    <div>
+                        <a href="register.html" class="text-cyan-400 hover:text-cyan-300 text-sm">
+                            <i class="fas fa-user-plus mr-1"></i> Create New Account
+                        </a>
+                    </div>
+                    <div>
+                        <a href="forgot-password.html" class="text-cyan-400 hover:text-cyan-300 text-sm">
+                            <i class="fas fa-key mr-1"></i> Forgot Password?
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#" onclick="showHelp()" class="text-gray-500 hover:text-gray-400 text-sm">
+                            <i class="fas fa-question-circle mr-1"></i> Need Help?
+                        </a>
+                    </div>
+                </div>
+            </form>
+        </div>
+        
+        <!-- Security Footer -->
+        <div class="mt-8 text-center">
+            <div class="glass-card p-4">
+                <div class="flex items-center justify-center space-x-4 text-xs text-gray-400">
+                    <div class="flex items-center">
+                        <i class="fas fa-shield-alt text-green-400 mr-1"></i>
+                        <span>Encrypted Connection</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-clock text-yellow-400 mr-1"></i>
+                        <span id="lastLogin">Never logged in</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-user-check text-blue-400 mr-1"></i>
+                        <span id="activeUsers">0 Active</span>
+                    </div>
+                </div>
+            </div>
+            
+            <p class="text-gray-500 text-xs mt-4">
+                <i class="fas fa-copyright mr-1"></i> 2024 Jay Prasad Majhi Security Systems
+                <br>
+                Version 3.0 | Build 241214 | CyberSecure Protocol v2
+            </p>
+        </div>
+    </div>
+
+    <!-- Login Help Modal -->
+    <div id="helpModal" class="fixed inset-0 bg-black/80 flex items-center justify-center z-50 hidden">
+        <div class="glass-card p-8 m-4 max-w-md w-full">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold gradient-text">Login Help</h3>
+                <button onclick="closeHelp()" class="text-gray-400 hover:text-white">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            
+            <div class="space-y-4">
+                <div class="p-4 bg-gray-800/50 rounded-lg">
+                    <h4 class="font-bold text-cyan-300 mb-2">Admin Credentials</h4>
+                    <p class="text-sm text-gray-300">Email: <code class="bg-gray-900 px-2 py-1 rounded">it@jayprasad.com.np</code></p>
+                    <p class="text-sm text-gray-300">Password: <code class="bg-gray-900 px-2 py-1 rounded">Yah08132x4@@</code></p>
+                </div>
+                
+                <div class="p-4 bg-gray-800/50 rounded-lg">
+                    <h4 class="font-bold text-cyan-300 mb-2">Support</h4>
+                    <p class="text-sm text-gray-300">
+                        <i class="fas fa-envelope mr-2"></i>
+                        intelligence@jayprasad.com.np
+                    </p>
+                    <p class="text-sm text-gray-300">
+                        <i class="fas fa-phone mr-2"></i>
+                        +977 9812345678
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Default Admin Credentials
+        const ADMIN_EMAIL = "it@jayprasad.com.np";
+        const ADMIN_PASSWORD = "Yah08132x4@@";
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load last login from localStorage
+            const lastLogin = localStorage.getItem('lastLogin');
+            if (lastLogin) {
+                document.getElementById('lastLogin').textContent = `Last: ${lastLogin}`;
+            }
+            
+            // Check if user is already logged in
+            const isLoggedIn = localStorage.getItem('isLoggedIn');
+            if (isLoggedIn === 'true') {
+                window.location.href = 'dashboard.html';
+            }
+        });
+        
+        // Password strength checker
+        document.getElementById('password').addEventListener('input', function(e) {
+            const password = e.target.value;
+            const strengthBar = document.getElementById('strengthBar');
+            const strengthText = document.getElementById('strengthText');
+            
+            let strength = 0;
+            let color = 'bg-red-500';
+            let text = 'Weak';
+            
+            if (password.length >= 8) strength++;
+            if (/[A-Z]/.test(password)) strength++;
+            if (/[0-9]/.test(password)) strength++;
+            if (/[^A-Za-z0-9]/.test(password)) strength++;
+            
+            switch(strength) {
+                case 1:
+                    color = 'bg-red-500';
+                    text = 'Weak';
+                    break;
+                case 2:
+                    color = 'bg-yellow-500';
+                    text = 'Fair';
+                    break;
+                case 3:
+                    color = 'bg-blue-500';
+                    text = 'Good';
+                    break;
+                case 4:
+                    color = 'bg-green-500';
+                    text = 'Strong';
+                    break;
+            }
+            
+            strengthBar.className = `h-full ${color}`;
+            strengthBar.style.width = `${strength * 25}%`;
+            strengthText.textContent = text;
+        });
+        
+        // Toggle password visibility
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const toggleBtn = document.querySelector('button[onclick="togglePassword()"] i');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleBtn.className = 'fas fa-eye-slash';
+                toggleBtn.parentElement.innerHTML = '<i class="fas fa-eye-slash"></i> Hide';
+            } else {
+                passwordInput.type = 'password';
+                toggleBtn.className = 'fas fa-eye';
+                toggleBtn.parentElement.innerHTML = '<i class="fas fa-eye"></i> Show';
+            }
+        }
+        
+        // Login function
+        function loginUser(event) {
+            event.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const remember = document.querySelector('input[name="remember"]').checked;
+            const twoFactor = document.querySelector('input[name="twoFactor"]').checked;
+            
+            const loginBtn = document.getElementById('loginButton');
+            const originalText = loginBtn.innerHTML;
+            
+            // Show loading
+            loginBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Authenticating...';
+            loginBtn.disabled = true;
+            
+            // Simulate API call
+            setTimeout(() => {
+                // Check credentials
+                if (email === ADMIN_EMAIL && password === ADMIN_PASSWORD) {
+                    // Admin login
+                    localStorage.setItem('userRole', 'admin');
+                    localStorage.setItem('userEmail', email);
+                    localStorage.setItem('isLoggedIn', 'true');
+                    localStorage.setItem('lastLogin', new Date().toLocaleString());
+                    
+                    if (remember) {
+                        localStorage.setItem('rememberMe', 'true');
+                    }
+                    
+                    if (twoFactor) {
+                        // Redirect to 2FA page
+                        window.location.href = 'verify-otp.html?type=login&email=' + encodeURIComponent(email);
+                    } else {
+                        // Direct to admin dashboard
+                        window.location.href = 'admin-dashboard.html';
+                    }
+                } else {
+                    // Check if user exists in localStorage
+                    const users = JSON.parse(localStorage.getItem('users') || '[]');
+                    const user = users.find(u => u.email === email && u.password === password);
+                    
+                    if (user) {
+                        if (!user.verified) {
+                            showMessage('Please verify your email first. Check your inbox for OTP.', 'warning');
+                            loginBtn.innerHTML = originalText;
+                            loginBtn.disabled = false;
+                            return;
+                        }
+                        
+                        localStorage.setItem('userRole', 'user');
+                        localStorage.setItem('userEmail', email);
+                        localStorage.setItem('isLoggedIn', 'true');
+                        localStorage.setItem('lastLogin', new Date().toLocaleString());
+                        
+                        if (twoFactor) {
+                            window.location.href = 'verify-otp.html?type=login&email=' + encodeURIComponent(email);
+                        } else {
+                            window.location.href = 'dashboard.html';
+                        }
+                    } else {
+                        showMessage('Invalid email or password. Please try again.', 'error');
+                        loginBtn.innerHTML = originalText;
+                        loginBtn.disabled = false;
+                    }
+                }
+            }, 1500);
+        }
+        
+        // Social login functions
+        function googleLogin() {
+            showMessage('Google login is temporarily unavailable. Please use email login.', 'info');
+        }
+        
+        function githubLogin() {
+            showMessage('GitHub login is temporarily unavailable. Please use email login.', 'info');
+        }
+        
+        // Show message
+        function showMessage(text, type) {
+            const container = document.getElementById('messageContainer');
+            const message = document.getElementById('message');
+            
+            message.textContent = text;
+            message.className = 'p-4 rounded-lg ';
+            
+            switch(type) {
+                case 'error':
+                    message.className += 'bg-red-500/20 border border-red-500 text-red-300';
+                    break;
+                case 'success':
+                    message.className += 'bg-green-500/20 border border-green-500 text-green-300';
+                    break;
+                case 'warning':
+                    message.className += 'bg-yellow-500/20 border border-yellow-500 text-yellow-300';
+                    break;
+                case 'info':
+                    message.className += 'bg-blue-500/20 border border-blue-500 text-blue-300';
+                    break;
+            }
+            
+            container.classList.remove('hidden');
+            setTimeout(() => {
+                container.classList.add('hidden');
+            }, 5000);
+        }
+        
+        // Help modal
+        function showHelp() {
+            document.getElementById('helpModal').classList.remove('hidden');
+        }
+        
+        function closeHelp() {
+            document.getElementById('helpModal').classList.add('hidden');
+        }
+        
+        // Close modal on ESC
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeHelp();
+            }
+        });
+        
+        // Check if user is returning
+        const rememberedEmail = localStorage.getItem('rememberedEmail');
+        if (rememberedEmail) {
+            document.getElementById('email').value = rememberedEmail;
+            document.querySelector('input[name="remember"]').checked = true;
+        }
+    </script>
+</body>
+</html>
