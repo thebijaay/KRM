@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Jay Prasad Majhi Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-cyan: #00f3ff;
+            --primary-blue: #0066ff;
+            --primary-purple: #9d00ff;
+            --bg-dark: #0a0a0f;
+            --bg-darker: #050508;
+        }
+        
+        body {
+            background-color: var(--bg-dark);
+            color: #ffffff;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, var(--primary-cyan) 0%, var(--primary-purple) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .glass-card {
+            background: rgba(20, 20, 30, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 243, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        
+        .sidebar {
+            width: 280px;
+            transition: all 0.3s ease;
+        }
+        
+        .sidebar.collapsed {
+            width: 80px;
+        }
+        
+        .main-content {
+            margin-left: 280px;
+            transition: all 0.3s ease;
+        }
+        
+        .main-content.expanded {
+            margin-left: 80px;
+        }
+        
+        .nav-item {
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+        
+        .nav-item:hover {
+            background: rgba(0, 243, 255, 0.1);
+            border-left-color: var(--primary-cyan);
+        }
+        
+        .nav-item.active {
+            background: rgba(0, 243, 255, 0.1);
+            border-left-color: var(--primary-cyan);
+        }
+        
+        .stat-card {
+            transition: transform 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .badge {
+            font-size: 0.75rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+        }
+        
+        .badge-success {
+            background: rgba(34, 197, 94, 0.2);
+            color: #4ade80;
+            border: 1px solid rgba(34, 197, 94, 0.3);
+        }
+        
+        .badge-warning {
+            background: rgba(234, 179, 8, 0.2);
+            color: #fbbf24;
+            border: 1px solid rgba(234, 179, 8, 0.3);
+        }
+        
+        .badge-danger {
+            background: rgba(239, 68, 68, 0.2);
+            color: #f87171;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+        
+        .badge-info {
+            background: rgba(59, 130, 246, 0.2);
+            color: #60a5fa;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Sidebar -->
+    <div id="sidebar" class="sidebar fixed left-0 top-0 h-full glass-card z-40">
+        <!-- Logo -->
+        <div class="p-6 border-b border-gray-800">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-r from-cyan-500 to-purple-500 flex items-center justify-center">
+                        <i class="fas fa-shield-alt text-white"></i>
+                    </div>
+                    <div id="logoText">
+                        <div class="font-bold gradient-text">ADMIN</div>
+                        <div class="text-xs text-cyan-400">Control Panel</div>
+                    </div>
+                </div>
+                <button onclick="toggleSidebar()" class="text-gray-400 hover:text-white">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- User Profile -->
+        <div class="p-6 border-b border-gray-800">
+            <div class="flex items-center space-x-3">
+                <div class="w-12 h-12 rounded-full bg-gradient-to-r from-cyan-500 to-purple-500 flex items-center justify-center">
+                    <i class="fas fa-user-cog text-white"></i>
+                </div>
+                <div id="userInfo">
+                    <div class="font-bold">System Admin</div>
+                    <div class="text-xs text-gray-400" id="userEmail">it@jayprasad.com.np</div>
+                    <div class="text-xs text-green-400">● Online</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Navigation -->
+        <nav class="p-4 space-y-2">
+            <a href="#dashboard" class="nav-item active flex items-center space-x-3 p-3 rounded-lg" onclick="setActive(this)">
+                <i class="fas fa-tachometer-alt text-cyan-400 w-6"></i>
+                <span id="dashboardText">Dashboard</span>
+            </a>
+            
+            <a href="#users" class="nav-item flex items-center space-x-3 p-3 rounded-lg" onclick="setActive(this)">
+                <i class="fas fa-users text-cyan-400 w-6"></i>
+                <span id="usersText">User Management</span>
+            </a>
+            
+            <a href="#security" class="nav-item flex items-center space-x-3 p-3 rounded-lg" onclick="setActive(this)">
+                <i class="fas fa-shield-alt text-cyan-400 w-6"></i>
+                <span id="securityText">Security</span>
+            </a>
+            
+            <a href="#settings" class="nav-item flex items-center space-x-3 p-3 rounded-lg" onclick="setActive(this)">
+                <i class="fas fa-cog text-cyan-400 w-6"></i>
+                <span id="settingsText">Settings</span>
+            </a>
+            
+            <a href="#logs" class="nav-item flex items-center space-x-3 p-3 rounded-lg" onclick="setActive(this)">
+                <i class="fas fa-clipboard-list text-cyan-400 w-6"></i>
+                <span id="logsText">Activity Logs</span>
+            </a>
+            
+            <a href="#reports" class="nav-item flex items-center space-x-3 p-3 rounded-lg" onclick="setActive(this)">
+                <i class="fas fa-chart-bar text-cyan-400 w-6"></i>
+                <span id="reportsText">Reports</span>
+            </a>
+            
+            <a href="#api" class="nav-item flex items-center space-x-3 p-3 rounded-lg" onclick="setActive(this)">
+                <i class="fas fa-code text-cyan-400 w-6"></i>
+                <span id="apiText">API Keys</span>
+            </a>
+        </nav>
+        
+        <!-- Quick Actions -->
+        <div class="p-4 border-t border-gray-800">
+            <div class="mb-3">
+                <span class="text-xs text-gray-400">QUICK ACTIONS</span>
+            </div>
+            <div class="grid grid-cols-2 gap-2">
+                <button onclick="createUser()" class="flex flex-col items-center justify-center p-3 bg-gray-800/50 hover:bg-gray-700/50 rounded-lg transition">
+                    <i class="fas fa-user-plus text-cyan-400 mb-1"></i>
+                    <span class="text-xs">Add User</span>
+                </button>
+                <button onclick="generateReport()" class="flex flex-col items-center justify-center p-3 bg-gray-800/50 hover:bg-gray-700/50 rounded-lg transition">
+                    <i class="fas fa-file-export text-cyan-400 mb-1"></i>
+                    <span class="text-xs">Export</span>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Logout -->
+        <div class="absolute bottom-0 left-0 right-0 p-4 border-t border-gray-800">
+            <button onclick="logout()" class="flex items-center justify-center space-x-2 w-full py-3 bg-red-500/20 hover:bg-red-500/30 text-red-400 hover:text-red-300 rounded-lg transition">
+                <i class="fas fa-sign-out-alt"></i>
+                <span id="logoutText">Logout</span>
+            </button>
+        </div>
+    </div>
+    
+    <!-- Main Content -->
+    <div id="mainContent" class="main-content min-h-screen">
+        <!-- Top Bar -->
+        <div class="glass-card mx-6 mt-6">
+            <div class="flex items-center justify-between p-4">
+                <div>
+                    <h1 id="pageTitle" class="text-2xl font-bold">Admin Dashboard</h1>
+                    <p class="text-sm text-gray-400" id="pageSubtitle">System Overview & Analytics</p>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <!-- Notifications -->
+                    <div class="relative">
+                        <button onclick="toggleNotifications()" class="relative p-2 hover:bg-gray-800/50 rounded-lg">
+                            <i class="fas fa-bell text-xl"></i>
+                            <span id="notificationBadge" class="absolute -top-1 -right-1 w-5 h-5 bg-red-500 text-xs rounded-full flex items-center justify-center">3</span>
+                        </button>
+                        
+                        <!-- Notifications Dropdown -->
+                        <div id="notificationsDropdown" class="absolute right-0 mt-2 w-80 glass-card hidden">
+                            <div class="p-4 border-b border-gray-800">
+                                <div class="flex justify-between items-center">
+                                    <h3 class="font-bold">Notifications</h3>
+                                    <button onclick="markAllRead()" class="text-sm text-cyan-400">Mark all read</button>
+                                </div>
+                            </div>
+                            <div class="max-h-80 overflow-y-auto">
+                                <!-- Notification items will be populated here -->
+                            </div>
+                            <div class="p-4 border-t border-gray-800">
+                                <a href="#" class="block text-center text-cyan-400 hover:text-cyan-300">
+                                    View all notifications
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Search -->
+                    <div class="relative">
+                        <input type="text" 
+                               placeholder="Search..." 
+                               class="bg-gray-800/50 border border-gray-700 rounded-lg pl-10 pr-4 py-2 w-64 focus:outline-none focus:border-cyan-500">
+                        <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
+                    </div>
+                    
+                    <!-- User Menu -->
+                    <div class="relative">
+                        <button onclick="toggleUserMenu()" class="flex items-center space-x-2 p-2 hover:bg-gray-800/50 rounded-lg">
+                            <div class="w-8 h-8 rounded-full bg-gradient-to-r from-cyan-500 to-purple-500 flex items-center justify-center">
+                                <i class="fas fa-user text-white text-sm"></i>
+                            </div>
+                            <div class="text-left hidden md:block">
+                                <div class="text-sm font-medium">Admin</div>
+                                <div class="text-xs text-gray-400">Super Admin</div>
+                            </div>
+                            <i class="fas fa-chevron-down text-gray-400"></i>
+                        </button>
+                        
+                        <!-- User Menu Dropdown -->
+                        <div id="userMenuDropdown" class="absolute right-0 mt-2 w-48 glass-card hidden">
+                            <div class="p-4 border-b border-gray-800">
+                                <div class="text-sm font-medium">Signed in as</div>
+                                <div class="text-xs text-gray-400" id="dropdownEmail">it@jayprasad.com.np</div>
+                            </div>
+                            <div class="p-2">
+                                <a href="#profile" class="flex items-center space-x-2 p-2 hover:bg-gray-800/50 rounded-lg">
+                                    <i class="fas fa-user text-gray-400 w-5"></i>
+                                    <span>Your Profile</span>
+                                </a>
+                                <a href="#settings" class="flex items-center space-x-2 p-2 hover:bg-gray-800/50 rounded-lg">
+                                    <i class="fas fa-cog text-gray-400 w-5"></i>
+                                    <span>Settings</span>
+                                </a>
+                                <a href="#help" class="flex items-center space-x-2 p-2 hover:bg-gray-800/50 rounded-lg">
+                                    <i class="fas fa-question-circle text-gray-400 w-5"></i>
+                                    <span>Help</span>
+                                </a>
+                            </div>
+                            <div class="p-2 border-t border-gray-800">
+                                <button onclick="logout()" class="flex items-center space-x-2 p-2 w-full text-left text-red-400 hover:bg-red-500/20 rounded-lg">
+                                    <i class="fas fa-sign-out-alt w-5"></i>
+                                    <span>Logout</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Page Content -->
+        <div class="p-6">
+            <!-- Stats Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                <!-- Total Users -->
+                <div class="stat-card glass-card p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <div>
+                            <div class="text-2xl font-bold" id="totalUsers">0</div>
+                            <div class="text-sm text-gray-400">Total Users</div>
+                        </div>
+                        <div class="w-12 h-12 rounded-lg bg-blue-500/20 flex items-center justify-center">
+                            <i class="fas fa-users text-blue-400 text-xl"></i>
+                        </div>
+                    </div>
+                    <div class="text-sm">
+                        <span class="text-green-400">
+                            <i class="fas fa-arrow-up mr-1"></i> 12%
+                        </span>
+                        <span class="text-gray-400 ml-2">from last month</span>
+                    </div>
+                </div>
+                
+                <!-- Active Sessions -->
+                <div class="stat-card glass-card p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <div>
+                            <div class="text-2xl font-bold" id="activeSessions">0</div>
+                            <div class="text-sm text-gray-400">Active Sessions</div>
+                        </div>
+                        <div class="w-12 h-12 rounded-lg bg-green-500/20 flex items-center justify-center">
+                            <i class="fas fa-user-check text-green-400 text-xl"></i>
+                        </div>
+                    </div>
+                    <div class="text-sm">
+                        <span class="text-green-400">
+                            <i class="fas fa-circle mr-1"></i> Live
+                        </span>
+                        <span class="text-gray-400 ml-2">monitoring</span>
+                    </div>
+                </div>
+                
+                <!-- Pending Verifications -->
+                <div class="stat-card glass-card p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <div>
+                            <div class="text-2xl font-bold" id="pendingVerifications">0</div>
+                            <div class="text-sm text-gray-400">Pending Verifications</div>
+                        </div>
+                        <div class="w-12 h-12 rounded-lg bg-yellow-500/20 flex items-center justify-center">
+                            <i class="fas fa-clock text-yellow-400 text-xl"></i>
+                        </div>
+                    </div>
+                    <div class="text-sm">
+                        <span class="text-yellow-400">
+                            <i class="fas fa-exclamation-triangle mr-1"></i> Needs attention
+                        </span>
+                    </div>
+                </div>
+                
+                <!-- Security Score -->
+                <div class="stat-card glass-card p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <div>
+                            <div class="text-2xl font-bold" id="securityScore">0%</div>
+                            <div class="text-sm text-gray-400">Security Score</div>
+                        </div>
+                        <div class="w-12 h-12 rounded-lg bg-purple-500/20 flex items-center justify-center">
+                            <i class="fas fa-shield-alt text-purple-400 text-xl"></i>
+                        </div>
+                    </div>
+                    <div class="text-sm">
+                        <span class="text-green-400">
+                            <i class="fas fa-check-circle mr-1"></i> Excellent
+                        </span>
+                        <span class="text-gray-400 ml-2">all systems secure</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Charts Section -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+                <!-- User Growth Chart -->
+                <div class="glass-card p-6">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-lg font-bold">User Growth</h3>
+                        <select class="bg-gray-800 border border-gray-700 rounded-lg px-3 py-1 text-sm">
+                            <option>Last 7 days</option>
+                            <option>Last 30 days</option>
+                            <option>Last 90 days</option>
+                        </select>
+                    </div>
+                    <div class="h-64 flex items-center justify-center">
+                        <canvas id="userGrowthChart"></canvas>
+                    </div>
+                </div>
+                
+                <!-- Login Activity -->
+                <div class="glass-card p-6">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-lg font-bold">Login Activity</h3>
+                        <div class="text-sm text-gray-400">
+                            <i class="fas fa-circle text-green-400 mr-1"></i> Today
+                        </div>
+                    </div>
+                    <div class="h-64 flex items-center justify-center">
+                        <canvas id="loginActivityChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Recent Activity Table -->
+            <div class="glass-card p-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-lg font-bold">Recent User Activity</h3>
+                    <button onclick="refreshActivity()" class="text-cyan-400 hover:text-cyan-300 text-sm">
+                        <i class="fas fa-sync-alt mr-1"></i> Refresh
+                    </button>
+                </div>
+                
+                <div class="overflow-x-auto">
+                    <table id="activityTable" class="w-full text-sm">
+                        <thead>
+                            <tr class="border-b border-gray-800">
+                                <th class="py-3 px-4 text-left">User</th>
+                                <th class="py-3 px-4 text-left">Action</th>
+                                <th class="py-3 px-4 text-left">IP Address</th>
+                                <th class="py-3 px-4 text-left">Time</th>
+                                <th class="py-3 px-4 text-left">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="activityBody">
+                            <!-- Activity rows will be populated here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Quick Stats -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+                <div class="glass-card p-6">
+                    <h4 class="font-bold mb-4">System Status</h4>
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-400">Authentication</span>
+                            <span class="badge badge-success">Active</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-400">Database</span>
+                            <span class="badge badge-success">Healthy</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-400">SMTP Service</span>
+                            <span class="badge badge-success">Online</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-400">API Gateway</span>
+                            <span class="badge badge-success">Running</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="glass-card p-6">
+                    <h4 class="font-bold mb-4">Recent Alerts</h4>
+                    <div class="space-y-3">
+                        <div class="flex items-start space-x-3">
+                            <i class="fas fa-exclamation-triangle text-yellow-400 mt-1"></i>
+                            <div>
+                                <div class="text-sm">Multiple failed login attempts</div>
+                                <div class="text-xs text-gray-400">2 minutes ago</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <i class="fas fa-info-circle text-blue-400 mt-1"></i>
+                            <div>
+                                <div class="text-sm">New user registration</div>
+                                <div class="text-xs text-gray-400">15 minutes ago</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="glass-card p-6">
+                    <h4 class="font-bold mb-4">Upcoming Tasks</h4>
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm">User account audit</span>
+                            <span class="text-xs text-gray-400">Tomorrow</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm">Security update</span>
+                            <span class="text-xs text-gray-400">In 2 days</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm">Backup verification</span>
+                            <span class="text-xs text-gray-400">Weekly</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add User Modal -->
+    <div id="addUserModal" class="fixed inset-0 bg-black/80 flex items-center justify-center z-50 hidden">
+        <div class="glass-card p-8 m-4 max-w-md w-full max-h-[90vh] overflow-y-auto">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold gradient-text">Add New User</h3>
+                <button onclick="closeAddUserModal()" class="text-gray-400 hover:text-white">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            
+            <form id="addUserForm" onsubmit="saveNewUser(event)">
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-400 mb-2">Full Name</label>
+                        <input type="text" name="fullName" required class="cyber-input">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-400 mb-2">Email Address</label>
+                        <input type="email" name="email" required class="cyber-input">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-400 mb-2">Role</label>
+                        <select name="role" class="cyber-input">
+                            <option value="user">Standard User</option>
+                            <option value="admin">Administrator</option>
+                            <option value="client">Client</option>
+                            <option value="moderator">Moderator</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-400 mb-2">Initial Password</label>
+                        <input type="password" name="password" required class="cyber-input" value="Temp@123">
+                        <p class="text-xs text-gray-400 mt-1">User will be asked to change on first login</p>
+                    </div>
+                    
+                    <div>
+                        <label class="flex items-center">
+                            <input type="checkbox" name="sendWelcome" checked class="mr-2 rounded bg-gray-700 border-cyan-500 text-cyan-500">
+                            <span class="text-sm text-gray-400">Send welcome email with credentials</span>
+                        </label>
+                    </div>
+                    
+                    <div>
+                        <label class="flex items-center">
+                            <input type="checkbox" name="requireVerification" class="mr-2 rounded bg-gray-700 border-cyan-500 text-cyan-500">
+                            <span class="text-sm text-gray-400">Require email verification</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="mt-8 flex justify-end space-x-4">
+                    <button type="button" onclick="closeAddUserModal()" class="px-6 py-2 text-gray-400 hover:text-white">
+                        Cancel
+                    </button>
+                    <button type="submit" class="cyber-button px-6">
+                        Create User
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <script>
+        // Check authentication
+        document.addEventListener('DOMContentLoaded', function() {
+            const isLoggedIn = localStorage.getItem('isLoggedIn');
+            const userRole = localStorage.getItem('userRole');
+            const userEmail = localStorage.getItem('userEmail');
+            
+            if (!isLoggedIn || userRole !== 'admin' || userEmail !== 'it@jayprasad.com.np') {
+                window.location.href = 'index.html';
+                return;
+            }
+            
+            // Set user email
+            document.getElementById('userEmail').textContent = userEmail;
+            document.getElementById('dropdownEmail').textContent = userEmail;
+            
+            // Load dashboard data
+            loadDashboardData();
+            loadRecentActivity();
+            initializeCharts();
+            loadNotifications();
+            
+            // Update active users count
+            updateActiveUsers();
+            setInterval(updateActiveUsers, 30000); // Update every 30 seconds
+            
+            // Check for updates
+            checkForUpdates();
+        });
+        
+        // Toggle sidebar
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const mainContent = document.getElementById('mainContent');
+            const logoText = document.getElementById('logoText');
+            const userInfo = document.getElementById('userInfo');
+            
+            sidebar.classList.toggle('collapsed');
+            mainContent.classList.toggle('expanded');
+            
+            // Toggle text elements
+            const textElements = ['logoText', 'userInfo', 'dashboardText', 'usersText', 'securityText', 
+                                 'settingsText', 'logsText', 'reportsText', 'apiText', 'logoutText'];
+            
+            textElements.forEach(id => {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.classList.toggle('hidden');
+                }
+            });
+        }
+        
+        // Set active nav item
+        function setActive(element) {
+            // Remove active class from all nav items
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Add active class to clicked item
+            element.classList.add('active');
+            
+            // Update page title based on clicked item
+            const pageTitle = element.querySelector('span').textContent;
+            document.getElementById('pageTitle').textContent = pageTitle;
+            document.getElementById('pageSubtitle').textContent = getPageSubtitle(pageTitle);
+        }
+        
+        // Get page subtitle
+        function getPageSubtitle(title) {
+            const subtitles = {
+                'Dashboard': 'System Overview & Analytics',
+                'User Management': 'Manage users, roles & permissions',
+                'Security': 'Security settings & audit logs',
+                'Settings': 'System configuration',
+                'Activity Logs': 'View all system activities',
+                'Reports': 'Generate & view reports',
+                'API Keys': 'Manage API access keys'
+            };
+            
+            return subtitles[title] || 'Management Panel';
+        }
+        
+        // Load dashboard data
+        function loadDashboardData() {
+            // Load users from localStorage
+            const users = JSON.parse(localStorage.getItem('users') || '[]');
+            
+            // Update stats
+            document.getElementById('totalUsers').textContent = users.length;
+            
+            // Calculate active sessions (demo: random between 5-20)
+            const activeSessions = Math.floor(Math.random() * 16) + 5;
+            document.getElementById('activeSessions').textContent = activeSessions;
+            
+            // Calculate pending verifications
+            const pending = users.filter(u => !u.verified).length;
+            document.getElementById('pendingVerifications').textContent = pending;
+            
+            // Calculate security score (demo: random between 85-100)
+            const securityScore = Math.floor(Math.random() * 16) + 85;
+            document.getElementById('securityScore').textContent = `${securityScore}%`;
+        }
+        
+        // Update active users
+        function updateActiveUsers() {
+            // In a real app, this would fetch from API
+            const activeUsers = Math.floor(Math.random() * 50) + 10;
+            document.querySelector('#activeUsers').textContent = `${activeUsers} Active`;
+        }
+        
+        // Initialize charts
+        function initializeCharts() {
+            // User Growth Chart
+            const userGrowthCtx = document.getElementById('userGrowthChart').getContext('2d');
+            new Chart(userGrowthCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                    datasets: [{
+                        label: 'New Users',
+                        data: [12, 19, 15, 25, 22, 30, 28],
+                        borderColor: '#00f3ff',
+                        backgroundColor: 'rgba(0, 243, 255, 0.1)',
+                        tension: 0.4,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        }
+                    }
+                }
+            });
+            
+            // Login Activity Chart
+            const loginActivityCtx = document.getElementById('loginActivityChart').getContext('2d');
+            new Chart(loginActivityCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['00:00', '04:00', '08:00', '12:00', '16:00', '20:00'],
+                    datasets: [{
+                        label: 'Logins',
+                        data: [45, 30, 120, 85, 95, 60],
+                        backgroundColor: 'rgba(157, 0, 255, 0.5)',
+                        borderColor: '#9d00ff',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        
+        // Load recent activity
+        function loadRecentActivity() {
+            const activityBody = document.getElementById('activityBody');
+            activityBody.innerHTML = '';
+            
+            // Sample activity data
+            const activities = [
+                { user: 'John Doe', action: 'Logged in', ip: '192.168.1.100', time: '2 min ago', status: 'success' },
+                { user: 'Jane Smith', action: 'Password changed', ip: '203.0.113.45', time: '15 min ago', status: 'success' },
+                { user: 'Bob Johnson', action: 'Failed login', ip: '198.51.100.23', time: '30 min ago', status: 'failed' },
+                { user: 'Alice Brown', action: 'Account created', ip: '192.168.1.150', time: '1 hour ago', status: 'success' },
+                { user: 'Charlie Wilson', action: 'Logged out', ip: '203.0.113.78', time: '2 hours ago', status: 'info' }
+            ];
+            
+            activities.forEach(activity => {
+                const row = document.createElement('tr');
+                row.className = 'border-b border-gray-800 hover:bg-gray-800/50';
+                
+                let statusBadge = '';
+                switch(activity.status) {
+                    case 'success':
+                        statusBadge = '<span class="badge badge-success">Success</span>';
+                        break;
+                    case 'failed':
+                        statusBadge = '<span class="badge badge-danger">Failed</span>';
+                        break;
+                    case 'info':
+                        statusBadge = '<span class="badge badge-info">Info</span>';
+                        break;
+                }
+                
+                row.innerHTML = `
+                    <td class="py-3 px-4">
+                        <div class="font-medium">${activity.user}</div>
+                        <div class="text-xs text-gray-400">${activity.user.toLowerCase().replace(' ', '.')}@example.com</div>
+                    </td>
+                    <td class="py-3 px-4">${activity.action}</td>
+                    <td class="py-3 px-4">
+                        <div class="font-mono text-sm">${activity.ip}</div>
+                        <div class="text-xs text-gray-400">Kathmandu, NP</div>
+                    </td>
+                    <td class="py-3 px-4">${activity.time}</td>
+                    <td class="py-3 px-4">${statusBadge}</td>
+                `;
+                
+                activityBody.appendChild(row);
+            });
+        }
+        
+        // Refresh activity
+        function refreshActivity() {
+            // Show loading
+            const refreshBtn = event.target;
+            const originalText = refreshBtn.innerHTML;
+            refreshBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-1"></i> Refreshing...';
+            refreshBtn.disabled = true;
+            
+            setTimeout(() => {
+                loadRecentActivity();
+                refreshBtn.innerHTML = originalText;
+                refreshBtn.disabled = false;
+            }, 1000);
+        }
+        
+        // Load notifications
+        function loadNotifications() {
+            const notificationsContainer = document.querySelector('#notificationsDropdown .max-h-80');
+            
+            const notifications = [
+                { type: 'warning', icon: 'fa-exclamation-triangle', title: 'Security Alert', message: 'Multiple failed login attempts detected', time: '2 min ago' },
+                { type: 'info', icon: 'fa-user-plus', title: 'New User', message: 'Alice Brown created a new account', time: '1 hour ago' },
+                { type: 'success', icon: 'fa-check-circle', title: 'System Update', message: 'Security patch installed successfully', time: '3 hours ago' },
+                { type: 'info', icon: 'fa-database', title: 'Backup Complete', message: 'Daily backup completed successfully', time: '5 hours ago' }
+            ];
+            
+            notificationsContainer.innerHTML = '';
+            
+            notifications.forEach(notification => {
+                const item = document.createElement('div');
+                item.className = 'p-4 border-b border-gray-800 hover:bg-gray-800/50 cursor-pointer';
+                
+                let iconColor = 'text-blue-400';
+                if (notification.type === 'warning') iconColor = 'text-yellow-400';
+                if (notification.type === 'success') iconColor = 'text-green-400';
+                
+                item.innerHTML = `
+                    <div class="flex items-start space-x-3">
+                        <i class="fas ${notification.icon} ${iconColor} mt-1"></i>
+                        <div class="flex-1">
+                            <div class="font-medium">${notification.title}</div>
+                            <div class="text-sm text-gray-400">${notification.message}</div>
+                            <div class="text-xs text-gray-500 mt-1">${notification.time}</div>
+                        </div>
+                    </div>
+                `;
+                
+                notificationsContainer.appendChild(item);
+            });
+            
+            // Update badge count
+            document.getElementById('notificationBadge').textContent = notifications.length;
+        }
+        
+        // Toggle notifications
+        function toggleNotifications() {
+            const dropdown = document.getElementById('notificationsDropdown');
+            dropdown.classList.toggle('hidden');
+            
+            // Close other dropdowns
+            document.getElementById('userMenuDropdown').classList.add('hidden');
+        }
+        
+        // Toggle user menu
+        function toggleUserMenu() {
+            const dropdown = document.getElementById('userMenuDropdown');
+            dropdown.classList.toggle('hidden');
+            
+            // Close other dropdowns
+            document.getElementById('notificationsDropdown').classList.add('hidden');
+        }
+        
+        // Mark all notifications as read
+        function markAllRead() {
+            document.getElementById('notificationBadge').textContent = '0';
+            document.getElementById('notificationsDropdown').classList.add('hidden');
+        }
+        
+        // Create user modal
+        function createUser() {
+            document.getElementById('addUserModal').classList.remove('hidden');
+        }
+        
+        // Close add user modal
+        function closeAddUserModal() {
+            document.getElementById('addUserModal').classList.add('hidden');
+            document.getElementById('addUserForm').reset();
+        }
+        
+        // Save new user
+        function saveNewUser(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(event.target);
+            const userData = {
+                fullName: formData.get('fullName'),
+                email: formData.get('email'),
+                password: formData.get('password'),
+                role: formData.get('role'),
+                createdAt: new Date().toISOString(),
+                verified: !formData.get('requireVerification'),
+                status: 'active',
+                createdBy: localStorage.getItem('userEmail')
+            };
+            
+            // Save to localStorage
+            const users = JSON.parse(localStorage.getItem('users') || '[]');
+            users.push(userData);
+            localStorage.setItem('users', JSON.stringify(users));
+            
+            // Show success message
+            alert('User created successfully!');
+            
+            // Close modal and refresh
+            closeAddUserModal();
+            loadDashboardData();
+        }
+        
+        // Generate report
+        function generateReport() {
+            // In a real app, this would generate and download a report
+            alert('Report generation started. You will receive an email when it\'s ready.');
+        }
+        
+        // Check for updates
+        function checkForUpdates() {
+            // In a real app, this would check for system updates
+            console.log('Checking for updates...');
+        }
+        
+        // Logout
+        function logout() {
+            if (confirm('Are you sure you want to logout?')) {
+                // Clear session
+                localStorage.removeItem('isLoggedIn');
+                localStorage.removeItem('userRole');
+                localStorage.removeItem('userEmail');
+                
+                // Redirect to login
+                window.location.href = 'logout.html';
+            }
+        }
+        
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!event.target.closest('.relative')) {
+                document.getElementById('notificationsDropdown').classList.add('hidden');
+                document.getElementById('userMenuDropdown').classList.add('hidden');
+            }
+        });
+        
+        // Handle keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            // Ctrl+Shift+N for new user
+            if (e.ctrlKey && e.shiftKey && e.key === 'N') {
+                e.preventDefault();
+                createUser();
+            }
+            
+            // Ctrl+R for refresh
+            if (e.ctrlKey && e.key === 'r') {
+                e.preventDefault();
+                refreshActivity();
+            }
+            
+            // ESC to close modals
+            if (e.key === 'Escape') {
+                closeAddUserModal();
+            }
+        });
+    </script>
+</body>
+</html>
