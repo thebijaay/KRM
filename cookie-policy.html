@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Policy - Jay Prasad Majhi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-cyan: #00f3ff;
+            --primary-blue: #0066ff;
+            --primary-purple: #9d00ff;
+            --bg-dark: #0a0a0f;
+            --bg-darker: #050508;
+        }
+        
+        body {
+            background-color: var(--bg-dark);
+            color: #ffffff;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            line-height: 1.8;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, var(--primary-cyan) 0%, var(--primary-purple) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .glass-card {
+            background: rgba(20, 20, 30, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 243, 255, 0.1);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        
+        .cyber-button {
+            position: relative;
+            padding: 12px 30px;
+            background: transparent;
+            border: 2px solid var(--primary-cyan);
+            color: var(--primary-cyan);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border-radius: 10px;
+        }
+        
+        .cyber-button:hover {
+            background: rgba(0, 243, 255, 0.1);
+            box-shadow: 0 0 20px rgba(0, 243, 255, 0.3);
+        }
+        
+        .cookie-type {
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+        
+        .cookie-type:hover {
+            border-left-color: var(--primary-cyan);
+            transform: translateX(10px);
+        }
+        
+        .cookie-essential { border-left-color: #00ff9d; }
+        .cookie-analytics { border-left-color: #00f3ff; }
+        .cookie-functional { border-left-color: #9d00ff; }
+        .cookie-advertising { border-left-color: #ffcc00; }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Navigation -->
+    <nav class="glass-card fixed top-4 left-4 right-4 z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-lg bg-gradient-to-r from-cyan-500 to-purple-500 flex items-center justify-center">
+                        <i class="fas fa-cookie-bite text-white"></i>
+                    </div>
+                    <div>
+                        <div class="text-xl font-bold gradient-text">JAY PRASAD MAJHI</div>
+                        <div class="text-xs text-cyan-400">Cookie Policy</div>
+                    </div>
+                </a>
+                <div class="flex space-x-4">
+                    <a href="index.html" class="text-gray-300 hover:text-cyan-400 transition">← Back to Home</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mx-auto px-4 pt-24 pb-16 max-w-6xl">
+        <!-- Header -->
+        <div class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">Cookie Policy</h1>
+            <p class="text-gray-400 text-lg">Effective Date: December 14, 2024</p>
+            <div class="flex justify-center space-x-4 mt-8">
+                <button onclick="downloadPDF('cookie')" class="cyber-button">
+                    <i class="fas fa-download mr-2"></i> Download PDF
+                </button>
+                <button onclick="printPage()" class="cyber-button">
+                    <i class="fas fa-print mr-2"></i> Print Policy
+                </button>
+                <button onclick="manageCookies()" class="cyber-button bg-cyan-500/10">
+                    <i class="fas fa-sliders-h mr-2"></i> Manage Cookies
+                </button>
+            </div>
+        </div>
+
+        <!-- Cookie Consent Banner -->
+        <div id="cookieBanner" class="glass-card p-6 mb-8 animate-pulse">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="mb-4 md:mb-0 md:mr-6">
+                    <h3 class="font-bold text-lg mb-2 gradient-text">Cookie Preferences</h3>
+                    <p class="text-gray-400 text-sm">
+                        We use cookies to enhance your browsing experience. You can manage your preferences below.
+                    </p>
+                </div>
+                <div class="flex space-x-4">
+                    <button onclick="acceptAllCookies()" class="cyber-button px-6">
+                        Accept All
+                    </button>
+                    <button onclick="showCookieSettings()" class="cyber-button bg-gray-800 px-6">
+                        Customize
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="glass-card p-8 md:p-12 space-y-12">
+            <!-- Introduction -->
+            <section>
+                <h2 class="text-2xl font-bold mb-4 text-cyan-400">1. What Are Cookies?</h2>
+                <p class="text-gray-300 mb-4">
+                    Cookies are small text files that are placed on your computer or mobile device when you visit a website. They are widely used to make websites work more efficiently and provide information to the website owners. Cookies allow websites to remember your actions and preferences (such as login, language, font size, and other display preferences) over a period of time.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                    <div class="p-4 bg-gray-900/50 rounded-lg text-center">
+                        <i class="fas fa-memory text-cyan-400 text-2xl mb-2"></i>
+                        <h4 class="font-bold text-cyan-300">Small Files</h4>
+                        <p class="text-gray-400 text-sm">Tiny text files stored on your device</p>
+                    </div>
+                    <div class="p-4 bg-gray-900/50 rounded-lg text-center">
+                        <i class="fas fa-user-cog text-cyan-400 text-2xl mb-2"></i>
+                        <h4 class="font-bold text-cyan-300">Preferences</h4>
+                        <p class="text-gray-400 text-sm">Remember your settings and preferences</p>
+                    </div>
+                    <div class="p-4 bg-gray-900/50 rounded-lg text-center">
+                        <i class="fas fa-chart-line text-cyan-400 text-2xl mb-2"></i>
+                        <h4 class="font-bold text-cyan-300">Analytics</h4>
+                        <p class="text-gray-400 text-sm">Help improve website performance</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Types of Cookies -->
+            <section>
+                <h2 class="text-2xl font-bold mb-6 text-cyan-400">2. Types of Cookies We Use</h2>
+                
+                <!-- Essential Cookies -->
+                <div class="cookie-type cookie-essential glass-card p-6 mb-6">
+                    <div class="flex items-center mb-3">
+                        <div class="w-10 h-10 rounded-lg bg-green-500/20 flex items-center justify-center mr-4">
+                            <i class="fas fa-shield-alt text-green-400"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-cyan-300">Essential Cookies</h3>
+                            <p class="text-gray-400 text-sm">Required for basic website functionality</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300">
+                        These cookies are strictly necessary for the website to function properly. They enable core functionality such as security, network management, and accessibility. You cannot opt out of these cookies as the website cannot function properly without them.
+                    </p>
+                    <div class="mt-4">
+                        <h4 class="font-bold text-green-400 mb-2">Examples:</h4>
+                        <ul class="list-disc pl-6 text-gray-400 space-y-1">
+                            <li>Session management cookies</li>
+                            <li>Security and fraud prevention cookies</li>
+                            <li>Load balancing cookies</li>
+                            <li>User authentication cookies</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Analytics Cookies -->
+                <div class="cookie-type cookie-analytics glass-card p-6 mb-6">
+                    <div class="flex items-center mb-3">
+                        <div class="w-10 h-10 rounded-lg bg-cyan-500/20 flex items-center justify-center mr-4">
+                            <i class="fas fa-chart-bar text-cyan-400"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-cyan-300">Analytics Cookies</h3>
+                            <p class="text-gray-400 text-sm">Help us understand how visitors interact</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300">
+                        These cookies allow us to count visits and traffic sources so we can measure and improve the performance of our site. They help us know which pages are the most and least popular and see how visitors move around the site.
+                    </p>
+                    <div class="mt-4">
+                        <h4 class="font-bold text-cyan-400 mb-2">Examples:</h4>
+                        <ul class="list-disc pl-6 text-gray-400 space-y-1">
+                            <li>Google Analytics cookies</li>
+                            <li>Heatmap analysis cookies</li>
+                            <li>Visitor tracking cookies</li>
+                            <li>Performance monitoring cookies</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Functional Cookies -->
+                <div class="cookie-type cookie-functional glass-card p-6 mb-6">
+                    <div class="flex items-center mb-3">
+                        <div class="w-10 h-10 rounded-lg bg-purple-500/20 flex items-center justify-center mr-4">
+                            <i class="fas fa-cogs text-purple-400"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-cyan-300">Functional Cookies</h3>
+                            <p class="text-gray-400 text-sm">Enable enhanced functionality</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300">
+                        These cookies enable the website to provide enhanced functionality and personalization. They may be set by us or by third-party providers whose services we have added to our pages.
+                    </p>
+                    <div class="mt-4">
+                        <h4 class="font-bold text-purple-400 mb-2">Examples:</h4>
+                        <ul class="list-disc pl-6 text-gray-400 space-y-1">
+                            <li>Language preference cookies</li>
+                            <li>Theme preference cookies</li>
+                            <li>Chat widget cookies</li>
+                            <li>Social media integration cookies</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Advertising Cookies -->
+                <div class="cookie-type cookie-advertising glass-card p-6">
+                    <div class="flex items-center mb-3">
+                        <div class="w-10 h-10 rounded-lg bg-yellow-500/20 flex items-center justify-center mr-4">
+                            <i class="fas fa-ad text-yellow-400"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-cyan-300">Advertising Cookies</h3>
+                            <p class="text-gray-400 text-sm">Used for marketing purposes</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300">
+                        These cookies may be set through our site by our advertising partners. They may be used by those companies to build a profile of your interests and show you relevant advertisements on other sites.
+                    </p>
+                    <div class="mt-4">
+                        <h4 class="font-bold text-yellow-400 mb-2">Examples:</h4>
+                        <ul class="list-disc pl-6 text-gray-400 space-y-1">
+                            <li>Retargeting cookies</li>
+                            <li>Conversion tracking cookies</li>
+                            <li>Social media advertising cookies</li>
+                            <li>Affiliate marketing cookies</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Cookie Management -->
+            <section>
+                <h2 class="text-2xl font-bold mb-6 text-cyan-400">3. Managing Cookies</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Browser Settings -->
+                    <div class="glass-card p-6">
+                        <h3 class="text-xl font-bold mb-3 text-cyan-300">Browser Settings</h3>
+                        <p class="text-gray-300 mb-4">
+                            Most web browsers allow you to control cookies through their settings preferences. However, limiting cookies may affect your ability to use certain features of our website.
+                        </p>
+                        <div class="space-y-2">
+                            <div class="flex items-center space-x-3">
+                                <i class="fab fa-chrome text-gray-400"></i>
+                                <span class="text-gray-300">Google Chrome</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <i class="fab fa-firefox text-gray-400"></i>
+                                <span class="text-gray-300">Mozilla Firefox</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <i class="fab fa-safari text-gray-400"></i>
+                                <span class="text-gray-300">Apple Safari</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <i class="fab fa-edge text-gray-400"></i>
+                                <span class="text-gray-300">Microsoft Edge</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Our Cookie Controls -->
+                    <div class="glass-card p-6">
+                        <h3 class="text-xl font-bold mb-3 text-cyan-300">Our Cookie Controls</h3>
+                        <p class="text-gray-300 mb-4">
+                            You can manage your cookie preferences directly through our website using the cookie management tool.
+                        </p>
+                        <button onclick="showCookieSettings()" class="cyber-button w-full">
+                            <i class="fas fa-sliders-h mr-2"></i> Open Cookie Settings
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Third-Party Cookies -->
+            <section>
+                <h2 class="text-2xl font-bold mb-6 text-cyan-400">4. Third-Party Cookies</h2>
+                <p class="text-gray-300 mb-6">
+                    We use various third-party services that may set cookies on your device when you visit our website. These services help us provide enhanced functionality and analyze website usage.
+                </p>
+                
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm text-left text-gray-400">
+                        <thead class="text-xs uppercase bg-gray-900">
+                            <tr>
+                                <th class="px-6 py-3">Service</th>
+                                <th class="px-6 py-3">Purpose</th>
+                                <th class="px-6 py-3">Privacy Policy</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-gray-800">
+                                <td class="px-6 py-4">Google Analytics</td>
+                                <td class="px-6 py-4">Website analytics and performance tracking</td>
+                                <td class="px-6 py-4">
+                                    <a href="https://policies.google.com/privacy" class="text-cyan-400 hover:underline">View Policy</a>
+                                </td>
+                            </tr>
+                            <tr class="border-b border-gray-800">
+                                <td class="px-6 py-4">Cloudflare</td>
+                                <td class="px-6 py-4">Security and performance optimization</td>
+                                <td class="px-6 py-4">
+                                    <a href="https://www.cloudflare.com/privacypolicy/" class="text-cyan-400 hover:underline">View Policy</a>
+                                </td>
+                            </tr>
+                            <tr class="border-b border-gray-800">
+                                <td class="px-6 py-4">Facebook Pixel</td>
+                                <td class="px-6 py-4">Advertising and conversion tracking</td>
+                                <td class="px-6 py-4">
+                                    <a href="https://www.facebook.com/policy.php" class="text-cyan-400 hover:underline">View Policy</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Cookie Duration -->
+            <section>
+                <h2 class="text-2xl font-bold mb-6 text-cyan-400">5. Cookie Duration</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="glass-card p-6 text-center">
+                        <i class="fas fa-clock text-cyan-400 text-2xl mb-2"></i>
+                        <h4 class="font-bold text-cyan-300 mb-2">Session Cookies</h4>
+                        <p class="text-gray-400 text-sm">Temporary cookies that expire when you close your browser</p>
+                    </div>
+                    <div class="glass-card p-6 text-center">
+                        <i class="fas fa-calendar-day text-cyan-400 text-2xl mb-2"></i>
+                        <h4 class="font-bold text-cyan-300 mb-2">Persistent Cookies</h4>
+                        <p class="text-gray-400 text-sm">Remain on your device for a set period or until deleted</p>
+                    </div>
+                    <div class="glass-card p-6 text-center">
+                        <i class="fas fa-history text-cyan-400 text-2xl mb-2"></i>
+                        <h4 class="font-bold text-cyan-300 mb-2">Duration Varies</h4>
+                        <p class="text-gray-400 text-sm">Cookie lifetimes range from minutes to several years</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Updates -->
+            <section>
+                <h2 class="text-2xl font-bold mb-4 text-cyan-400">6. Updates to This Policy</h2>
+                <p class="text-gray-300">
+                    We may update this Cookie Policy from time to time to reflect changes in technology, legislation, or our data practices. We encourage you to review this policy periodically for any changes. Changes to this Cookie Policy are effective when they are posted on this page.
+                </p>
+            </section>
+
+            <!-- Contact -->
+            <section>
+                <h2 class="text-2xl font-bold mb-4 text-cyan-400">7. Contact Information</h2>
+                <div class="glass-card p-6">
+                    <p class="text-gray-300 mb-4">
+                        If you have any questions about our use of cookies, please contact us:
+                    </p>
+                    <div class="space-y-3">
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-envelope text-cyan-400"></i>
+                            <a href="mailto:intelligence@jayprasad.com.np" class="text-gray-300 hover:text-cyan-400 transition">intelligence@jayprasad.com.np</a>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-phone text-cyan-400"></i>
+                            <span class="text-gray-300">+977 9812345678</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-map-marker-alt text-cyan-400"></i>
+                            <span class="text-gray-300">Kathmandu, Nepal / Los Angeles, USA</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Cookie Settings Modal -->
+        <div id="cookieSettings" class="fixed inset-0 bg-black/80 flex items-center justify-center z-50 hidden">
+            <div class="glass-card p-8 m-4 max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-2xl font-bold gradient-text">Cookie Settings</h3>
+                    <button onclick="closeCookieSettings()" class="text-gray-400 hover:text-white">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+                
+                <div class="space-y-6">
+                    <!-- Essential Cookies -->
+                    <div class="border-l-4 border-green-500 pl-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <div>
+                                <h4 class="font-bold text-lg">Essential Cookies</h4>
+                                <p class="text-gray-400 text-sm">Always active - required for website functionality</p>
+                            </div>
+                            <div class="relative inline-block w-12 h-6">
+                                <input type="checkbox" checked disabled class="opacity-0 w-0 h-0">
+                                <span class="slider round bg-green-500"></span>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 text-sm">These cookies are necessary for the website to function and cannot be switched off.</p>
+                    </div>
+
+                    <!-- Analytics Cookies -->
+                    <div class="border-l-4 border-cyan-500 pl-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <div>
+                                <h4 class="font-bold text-lg">Analytics Cookies</h4>
+                                <p class="text-gray-400 text-sm">Help us improve our website</p>
+                            </div>
+                            <div class="relative inline-block w-12 h-6">
+                                <input type="checkbox" id="analyticsToggle" class="opacity-0 w-0 h-0">
+                                <span class="slider round" onclick="toggleCookie('analytics')"></span>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 text-sm">Allow us to analyze website usage to improve user experience.</p>
+                    </div>
+
+                    <!-- Functional Cookies -->
+                    <div class="border-l-4 border-purple-500 pl-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <div>
+                                <h4 class="font-bold text-lg">Functional Cookies</h4>
+                                <p class="text-gray-400 text-sm">Enable enhanced features</p>
+                            </div>
+                            <div class="relative inline-block w-12 h-6">
+                                <input type="checkbox" id="functionalToggle" class="opacity-0 w-0 h-0">
+                                <span class="slider round" onclick="toggleCookie('functional')"></span>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 text-sm">Enable personalized features and remember your preferences.</p>
+                    </div>
+
+                    <!-- Advertising Cookies -->
+                    <div class="border-l-4 border-yellow-500 pl-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <div>
+                                <h4 class="font-bold text-lg">Advertising Cookies</h4>
+                                <p class="text-gray-400 text-sm">Used for marketing purposes</p>
+                            </div>
+                            <div class="relative inline-block w-12 h-6">
+                                <input type="checkbox" id="advertisingToggle" class="opacity-0 w-0 h-0">
+                                <span class="slider round" onclick="toggleCookie('advertising')"></span>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 text-sm">Used to deliver relevant advertisements and measure ad performance.</p>
+                    </div>
+                </div>
+
+                <div class="mt-8 flex justify-between">
+                    <button onclick="saveCookieSettings()" class="cyber-button px-8">
+                        Save Preferences
+                    </button>
+                    <button onclick="acceptAllCookies()" class="cyber-button bg-cyan-500/20 px-8">
+                        Accept All
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Download Section -->
+        <div class="glass-card p-8 mt-8 text-center">
+            <h3 class="text-2xl font-bold mb-4 gradient-text">Download Cookie Policy</h3>
+            <p class="text-gray-400 mb-6">Download a copy of our Cookie Policy for your records.</p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                <button onclick="downloadPDF('cookie')" class="cyber-button">
+                    <i class="fas fa-file-pdf mr-2"></i> Download PDF
+                </button>
+                <button onclick="downloadTXT('cookie')" class="cyber-button">
+                    <i class="fas fa-file-alt mr-2"></i> Download TXT
+                </button>
+                <button onclick="downloadDOC('cookie')" class="cyber-button">
+                    <i class="fas fa-file-word mr-2"></i> Download DOC
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="glass-card mt-8 border-t border-gray-800">
+        <div class="container mx-auto px-6 py-8">
+            <div class="text-center">
+                <p class="text-gray-400">© 2024 Jay Prasad Majhi. All rights reserved.</p>
+                <p class="text-gray-500 text-sm mt-2">Last Updated: December 14, 2024</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Cookie management functions
+        function manageCookies() {
+            showCookieSettings();
+        }
+
+        function showCookieSettings() {
+            document.getElementById('cookieSettings').classList.remove('hidden');
+        }
+
+        function closeCookieSettings() {
+            document.getElementById('cookieSettings').classList.add('hidden');
+        }
+
+        function toggleCookie(type) {
+            const toggle = document.getElementById(`${type}Toggle`);
+            toggle.checked = !toggle.checked;
+        }
+
+        function saveCookieSettings() {
+            const analytics = document.getElementById('analyticsToggle').checked;
+            const functional = document.getElementById('functionalToggle').checked;
+            const advertising = document.getElementById('advertisingToggle').checked;
+            
+            localStorage.setItem('cookiePreferences', JSON.stringify({
+                analytics,
+                functional,
+                advertising,
+                timestamp: new Date().toISOString()
+            }));
+            
+            alert('Cookie preferences saved successfully!');
+            closeCookieSettings();
+        }
+
+        function acceptAllCookies() {
+            localStorage.setItem('cookiePreferences', JSON.stringify({
+                analytics: true,
+                functional: true,
+                advertising: true,
+                timestamp: new Date().toISOString()
+            }));
+            
+            alert('All cookies accepted!');
+            closeCookieSettings();
+        }
+
+        // Download functions
+        function downloadPDF(type) {
+            const content = document.querySelector('.glass-card').innerText;
+            const blob = new Blob([content], { type: 'application/pdf' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `jay-prasad-majhi-${type}-policy.pdf`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }
+
+        function downloadTXT(type) {
+            const content = document.querySelector('.glass-card').innerText;
+            const blob = new Blob([content], { type: 'text/plain' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `jay-prasad-majhi-${type}-policy.txt`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }
+
+        function downloadDOC(type) {
+            const content = document.querySelector('.glass-card').innerHTML;
+            const blob = new Blob([content], { type: 'application/msword' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `jay-prasad-majhi-${type}-policy.doc`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }
+
+        function printPage() {
+            window.print();
+        }
+
+        // Load saved preferences
+        document.addEventListener('DOMContentLoaded', function() {
+            const saved = localStorage.getItem('cookiePreferences');
+            if (saved) {
+                const preferences = JSON.parse(saved);
+                document.getElementById('analyticsToggle').checked = preferences.analytics;
+                document.getElementById('functionalToggle').checked = preferences.functional;
+                document.getElementById('advertisingToggle').checked = preferences.advertising;
+            }
+        });
+
+        // Add CSS for toggle switches
+        const style = document.createElement('style');
+        style.textContent = `
+            .slider {
+                position: absolute;
+                cursor: pointer;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: #374151;
+                transition: .4s;
+                border-radius: 34px;
+            }
+            .slider:before {
+                position: absolute;
+                content: "";
+                height: 18px;
+                width: 18px;
+                left: 4px;
+                bottom: 4px;
+                background-color: white;
+                transition: .4s;
+                border-radius: 50%;
+            }
+            input:checked + .slider {
+                background-color: #00f3ff;
+            }
+            input:checked + .slider:before {
+                transform: translateX(26px);
+            }
+            .slider.round {
+                border-radius: 34px;
+            }
+            .slider.round:before {
+                border-radius: 50%;
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
