@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management | Admin Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-cyan: #00f3ff;
+            --primary-blue: #0066ff;
+            --primary-purple: #9d00ff;
+            --bg-dark: #0a0a0f;
+            --bg-darker: #050508;
+        }
+        
+        body {
+            background-color: var(--bg-dark);
+            color: #ffffff;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+        
+        .glass-card {
+            background: rgba(20, 20, 30, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 243, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        
+        .dataTables_wrapper {
+            color: white !important;
+        }
+        
+        .dataTables_wrapper .dataTables_filter input {
+            background: rgba(20, 20, 30, 0.8) !important;
+            border: 1px solid rgba(0, 243, 255, 0.2) !important;
+            color: white !important;
+            border-radius: 10px;
+            padding: 8px 15px;
+        }
+        
+        .dataTables_wrapper .dataTables_length select {
+            background: rgba(20, 20, 30, 0.8) !important;
+            border: 1px solid rgba(0, 243, 255, 0.2) !important;
+            color: white !important;
+            border-radius: 10px;
+            padding: 5px;
+        }
+        
+        .dataTables_wrapper .dataTables_paginate .paginate_button {
+            background: rgba(20, 20, 30, 0.8) !important;
+            border: 1px solid rgba(0, 243, 255, 0.2) !important;
+            color: white !important;
+            border-radius: 5px;
+            margin: 0 2px;
+        }
+        
+        .dataTables_wrapper .dataTables_paginate .paginate_button.current {
+            background: rgba(0, 243, 255, 0.2) !important;
+            border-color: var(--primary-cyan) !important;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Similar sidebar structure as admin dashboard -->
+    <!-- Focus on user management features -->
+    
+    <div class="p-6">
+        <!-- User Management Header -->
+        <div class="glass-card p-6 mb-6">
+            <div class="flex justify-between items-center">
+                <div>
+                    <h1 class="text-2xl font-bold">User Management</h1>
+                    <p class="text-gray-400">Manage all user accounts and permissions</p>
+                </div>
+                <div class="flex space-x-4">
+                    <button onclick="exportUsers()" class="flex items-center space-x-2 px-4 py-2 bg-gray-800 hover:bg-gray-700 rounded-lg">
+                        <i class="fas fa-download"></i>
+                        <span>Export</span>
+                    </button>
+                    <button onclick="createUser()" class="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-lg">
+                        <i class="fas fa-user-plus"></i>
+                        <span>Add User</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- User Stats -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
+            <div class="glass-card p-4">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <div class="text-2xl font-bold" id="totalUsers">0</div>
+                        <div class="text-sm text-gray-400">Total Users</div>
+                    </div>
+                    <i class="fas fa-users text-blue-400 text-2xl"></i>
+                </div>
+            </div>
+            
+            <div class="glass-card p-4">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <div class="text-2xl font-bold" id="activeUsers">0</div>
+                        <div class="text-sm text-gray-400">Active Users</div>
+                    </div>
+                    <i class="fas fa-user-check text-green-400 text-2xl"></i>
+                </div>
+            </div>
+            
+            <div class="glass-card p-4">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <div class="text-2xl font-bold" id="pendingUsers">0</div>
+                        <div class="text-sm text-gray-400">Pending Verification</div>
+                    </div>
+                    <i class="fas fa-clock text-yellow-400 text-2xl"></i>
+                </div>
+            </div>
+            
+            <div class="glass-card p-4">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <div class="text-2xl font-bold" id="adminUsers">0</div>
+                        <div class="text-sm text-gray-400">Administrators</div>
+                    </div>
+                    <i class="fas fa-user-shield text-purple-400 text-2xl"></i>
+                </div>
+            </div>
+        </div>
+        
+        <!-- User Table -->
+        <div class="glass-card p-6">
+            <div class="overflow-x-auto">
+                <table id="usersTable" class="w-full">
+                    <thead>
+                        <tr>
+                            <th>User</th>
+                            <th>Role</th>
+                            <th>Status</th>
+                            <th>Last Login</th>
+                            <th>Created</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Users will be populated by DataTables -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- User Edit Modal -->
+    <div id="editUserModal" class="fixed inset-0 bg-black/80 flex items-center justify-center z-50 hidden">
+        <div class="glass-card p-8 m-4 max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold gradient-text">Edit User</h3>
+                <button onclick="closeEditModal()" class="text-gray-400 hover:text-white">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            
+            <form id="editUserForm">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-400 mb-2">Full Name</label>
+                        <input type="text" name="fullName" class="cyber-input" required>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-400 mb-2">Email Address</label>
+                        <input type="email" name="email" class="cyber-input" required>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-400 mb-2">Role</label>
+                        <select name="role" class="cyber-input">
+                            <option value="user">Standard User</option>
+                            <option value="admin">Administrator</option>
+                            <option value="client">Client</option>
+                            <option value="moderator">Moderator</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-400 mb-2">Status</label>
+                        <select name="status" class="cyber-input">
+                            <option value="active">Active</option>
+                            <option value="suspended">Suspended</option>
+                            <option value="pending">Pending</option>
+                            <option value="inactive">Inactive</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <!-- Password Reset Section -->
+                <div class="mb-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h4 class="font-bold">Password Reset</h4>
+                        <button type="button" onclick="togglePasswordSection()" class="text-cyan-400 text-sm">
+                            Reset Password
+                        </button>
+                    </div>
+                    
+                    <div id="passwordSection" class="hidden space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-2">New Password</label>
+                            <input type="password" name="newPassword" class="cyber-input">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-2">Confirm Password</label>
+                            <input type="password" name="confirmPassword" class="cyber-input">
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <input type="checkbox" name="forceChange" class="mr-2">
+                            <span class="text-sm text-gray-400">Force password change on next login</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Permissions -->
+                <div class="mb-6">
+                    <h4 class="font-bold mb-4">Permissions</h4>
+                    <div class="grid grid-cols-2 gap-4">
+                        <label class="flex items-center">
+                            <input type="checkbox" name="canView" class="mr-2">
+                            <span class="text-sm">Can View Dashboard</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" name="canEdit" class="mr-2">
+                            <span class="text-sm">Can Edit Profile</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" name="canDelete" class="mr-2">
+                            <span class="text-sm">Can Delete Content</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" name="canUpload" class="mr-2">
+                            <span class="text-sm">Can Upload Files</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="flex justify-end space-x-4">
+                    <button type="button" onclick="deleteUser()" class="px-6 py-2 bg-red-500/20 text-red-400 hover:bg-red-500/30 rounded-lg">
+                        Delete User
+                    </button>
+                    <button type="submit" class="cyber-button px-6">
+                        Save Changes
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    
+    <script>
+        // Initialize DataTable
+        $(document).ready(function() {
+            $('#usersTable').DataTable({
+                ajax: {
+                    url: 'api/get-users.php', // This would be your backend API
+                    dataSrc: ''
+                },
+                columns: [
+                    { 
+                        data: null,
+                        render: function(data, type, row) {
+                            return `
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-10 h-10 rounded-full bg-gradient-to-r from-cyan-500 to-purple-500 flex items-center justify-center">
+                                        <i class="fas fa-user text-white"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-medium">${row.fullName}</div>
+                                        <div class="text-sm text-gray-400">${row.email}</div>
+                                    </div>
+                                </div>
+                            `;
+                        }
+                    },
+                    { 
+                        data: 'role',
+                        render: function(data) {
+                            const colors = {
+                                'admin': 'bg-purple-500/20 text-purple-400',
+                                'user': 'bg-blue-500/20 text-blue-400',
+                                'client': 'bg-green-500/20 text-green-400',
+                                'moderator': 'bg-yellow-500/20 text-yellow-400'
+                            };
+                            return `<span class="badge ${colors[data] || 'bg-gray-500/20 text-gray-400'}">${data.charAt(0).toUpperCase() + data.slice(1)}</span>`;
+                        }
+                    },
+                    { 
+                        data: 'status',
+                        render: function(data) {
+                            const colors = {
+                                'active': 'bg-green-500/20 text-green-400',
+                                'suspended': 'bg-red-500/20 text-red-400',
+                                'pending': 'bg-yellow-500/20 text-yellow-400',
+                                'inactive': 'bg-gray-500/20 text-gray-400'
+                            };
+                            return `<span class="badge ${colors[data] || 'bg-gray-500/20 text-gray-400'}">${data.charAt(0).toUpperCase() + data.slice(1)}</span>`;
+                        }
+                    },
+                    { 
+                        data: 'lastLogin',
+                        render: function(data) {
+                            return data ? new Date(data).toLocaleString() : 'Never';
+                        }
+                    },
+                    { 
+                        data: 'createdAt',
+                        render: function(data) {
+                            return new Date(data).toLocaleDateString();
+                        }
+                    },
+                    {
+                        data: null,
+                        render: function(data) {
+                            return `
+                                <div class="flex space-x-2">
+                                    <button onclick="editUser('${data.email}')" class="p-2 text-cyan-400 hover:bg-cyan-500/20 rounded-lg">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button onclick="suspendUser('${data.email}')" class="p-2 text-yellow-400 hover:bg-yellow-500/20 rounded-lg">
+                                        <i class="fas fa-pause"></i>
+                                    </button>
+                                    <button onclick="deleteUserPrompt('${data.email}')" class="p-2 text-red-400 hover:bg-red-500/20 rounded-lg">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            `;
+                        }
+                    }
+                ],
+                order: [[4, 'desc']]
+            });
+        });
+        
+        // Load user stats
+        function loadUserStats() {
+            const users = JSON.parse(localStorage.getItem('users') || '[]');
+            
+            document.getElementById('totalUsers').textContent = users.length;
+            document.getElementById('activeUsers').textContent = users.filter(u => u.status === 'active').length;
+            document.getElementById('pendingUsers').textContent = users.filter(u => u.status === 'pending').length;
+            document.getElementById('adminUsers').textContent = users.filter(u => u.role === 'admin').length;
+        }
+        
+        // Edit user
+        function editUser(email) {
+            const users = JSON.parse(localStorage.getItem('users') || '[]');
+            const user = users.find(u => u.email === email);
+            
+            if (!user) return;
+            
+            // Populate form
+            const form = document.getElementById('editUserForm');
+            form.elements.fullName.value = user.fullName;
+            form.elements.email.value = user.email;
+            form.elements.role.value = user.role;
+            form.elements.status.value = user.status;
+            
+            // Store current user email for reference
+            form.dataset.currentEmail = email;
+            
+            // Show modal
+            document.getElementById('editUserModal').classList.remove('hidden');
+        }
+        
+        // Close edit modal
+        function closeEditModal() {
+            document.getElementById('editUserModal').classList.add('hidden');
+            document.getElementById('editUserForm').reset();
+            document.getElementById('passwordSection').classList.add('hidden');
+        }
+        
+        // Toggle password section
+        function togglePasswordSection() {
+            document.getElementById('passwordSection').classList.toggle('hidden');
+        }
+        
+        // Save user changes
+        document.getElementById('editUserForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const currentEmail = this.dataset.currentEmail;
+            
+            // Update user in localStorage
+            const users = JSON.parse(localStorage.getItem('users') || '[]');
+            const userIndex = users.findIndex(u => u.email === currentEmail);
+            
+            if (userIndex !== -1) {
+                // Update user data
+                users[userIndex].fullName = formData.get('fullName');
+                users[userIndex].email = formData.get('email');
+                users[userIndex].role = formData.get('role');
+                users[userIndex].status = formData.get('status');
+                users[userIndex].updatedAt = new Date().toISOString();
+                
+                // Update password if provided
+                const newPassword = formData.get('newPassword');
+                if (newPassword) {
+                    users[userIndex].password = newPassword;
+                    users[userIndex].forcePasswordChange = formData.get('forceChange') ? true : false;
+                }
+                
+                localStorage.setItem('users', JSON.stringify(users));
+                
+                alert('User updated successfully!');
+                closeEditModal();
+                
+                // Refresh table
+                $('#usersTable').DataTable().ajax.reload();
+                loadUserStats();
+            }
+        });
+        
+        // Suspend user
+        function suspendUser(email) {
+            if (confirm(`Are you sure you want to suspend ${email}?`)) {
+                const users = JSON.parse(localStorage.getItem('users') || '[]');
+                const userIndex = users.findIndex(u => u.email === email);
+                
+                if (userIndex !== -1) {
+                    users[userIndex].status = 'suspended';
+                    localStorage.setItem('users', JSON.stringify(users));
+                    
+                    alert('User suspended successfully!');
+                    $('#usersTable').DataTable().ajax.reload();
+                    loadUserStats();
+                }
+            }
+        }
+        
+        // Delete user prompt
+        function deleteUserPrompt(email) {
+            if (confirm(`Are you sure you want to delete ${email}? This action cannot be undone.`)) {
+                deleteUser(email);
+            }
+        }
+        
+        // Delete user
+        function deleteUser(email) {
+            const users = JSON.parse(localStorage.getItem('users') || '[]');
+            const filteredUsers = users.filter(u => u.email !== email);
+            
+            localStorage.setItem('users', JSON.stringify(filteredUsers));
+            
+            alert('User deleted successfully!');
+            $('#usersTable').DataTable().ajax.reload();
+            loadUserStats();
+        }
+        
+        // Export users
+        function exportUsers() {
+            const users = JSON.parse(localStorage.getItem('users') || '[]');
+            
+            // Convert to CSV
+            const headers = ['Name', 'Email', 'Role', 'Status', 'Created', 'Last Login'];
+            const csvData = users.map(user => [
+                user.fullName,
+                user.email,
+                user.role,
+                user.status,
+                user.createdAt,
+                user.lastLogin || 'Never'
+            ]);
+            
+            const csv = [headers, ...csvData].map(row => row.join(',')).join('\n');
+            
+            // Create download link
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `users-export-${new Date().toISOString().split('T')[0]}.csv`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            loadUserStats();
+        });
+    </script>
+</body>
+</html>
