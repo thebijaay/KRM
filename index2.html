@@ -1,3 +1,1440 @@
+Add this code(<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jay Prasad Majhi - AI & Cybersecurity Expert</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600;700&family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'JetBrains Mono', monospace;
+            background: #000;
+            color: #fff;
+            overflow: hidden;
+            height: 100vh;
+            width: 100vw;
+        }
+        
+        /* Loading Screen */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(5, 5, 15, 0.85);
+            backdrop-filter: blur(5px);
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .loading-container {
+            max-width: 1000px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+            z-index: 3;
+        }
+        
+        /* Tech Background Styles */
+        .tech-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+            pointer-events: none;
+        }
+        
+        /* Binary Rain Effect */
+        .binary-rain {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent 95%, rgba(0, 243, 255, 0.1) 100%);
+            opacity: 0.3;
+        }
+        
+        .binary-rain::before {
+            content: "01010101 00110011 10101010 11001100 01010101 00110011 10101010 11001100";
+            position: absolute;
+            top: -100%;
+            width: 100%;
+            color: rgba(0, 243, 255, 0.5);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            line-height: 1.5;
+            letter-spacing: 2px;
+            animation: binaryRain 15s linear infinite;
+            text-shadow: 0 0 10px rgba(0, 243, 255, 0.3);
+        }
+        
+        @keyframes binaryRain {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100vh); }
+        }
+        
+        /* Neural Network */
+        .neural-network {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .neuron {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: rgba(0, 243, 255, 0.8);
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(0, 243, 255, 0.5);
+            animation: neuronPulse 2s infinite;
+        }
+        
+        .neuron::after {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: -4px;
+            right: -4px;
+            bottom: -4px;
+            border: 1px solid rgba(0, 243, 255, 0.3);
+            border-radius: 50%;
+            animation: neuronRing 3s infinite;
+        }
+        
+        @keyframes neuronPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        
+        @keyframes neuronRing {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(2); opacity: 0; }
+        }
+        
+        /* Code Windows */
+        .code-window {
+            position: absolute;
+            width: 200px;
+            background: rgba(10, 15, 30, 0.9);
+            border: 1px solid rgba(0, 243, 255, 0.3);
+            border-radius: 8px;
+            overflow: hidden;
+            backdrop-filter: blur(5px);
+            animation: floatWindow 20s infinite linear;
+        }
+        
+        .code-window:nth-child(3) {
+            animation-delay: 0s;
+            animation-duration: 25s;
+        }
+        
+        .code-window:nth-child(4) {
+            animation-delay: 10s;
+            animation-duration: 30s;
+        }
+        
+        .code-header {
+            background: rgba(0, 20, 40, 0.9);
+            padding: 8px 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            border-bottom: 1px solid rgba(0, 243, 255, 0.2);
+        }
+        
+        .code-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+        
+        .code-dot.red { background: #ff5f56; }
+        .code-dot.yellow { background: #ffbd2e; }
+        .code-dot.green { background: #27ca3f; }
+        
+        .code-title {
+            color: rgba(0, 243, 255, 0.8);
+            font-size: 11px;
+            font-family: 'JetBrains Mono', monospace;
+            margin-left: 8px;
+        }
+        
+        .code-content {
+            padding: 12px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            line-height: 1.6;
+        }
+        
+        .code-line {
+            display: block;
+            color: rgba(0, 243, 255, 0.7);
+            margin-bottom: 4px;
+        }
+        
+        @keyframes floatWindow {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            25% {
+                transform: translate(20px, 20px) rotate(1deg);
+            }
+            50% {
+                transform: translate(0, 40px) rotate(0deg);
+            }
+            75% {
+                transform: translate(-20px, 20px) rotate(-1deg);
+            }
+        }
+        
+        /* Data Packets */
+        .data-packet {
+            position: absolute;
+            background: rgba(0, 243, 255, 0.1);
+            border: 1px solid rgba(0, 243, 255, 0.3);
+            border-radius: 6px;
+            padding: 8px 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            animation: movePacket 30s infinite linear;
+            backdrop-filter: blur(3px);
+        }
+        
+        .data-packet:nth-child(5) { animation-delay: 0s; animation-duration: 25s; }
+        .data-packet:nth-child(6) { animation-delay: 10s; animation-duration: 30s; }
+        .data-packet:nth-child(7) { animation-delay: 20s; animation-duration: 35s; }
+        
+        .packet-icon {
+            font-size: 14px;
+        }
+        
+        .packet-text {
+            color: rgba(0, 243, 255, 0.8);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            font-weight: 600;
+        }
+        
+        @keyframes movePacket {
+            0% {
+                transform: translateX(-100px);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(calc(100vw + 100px));
+                opacity: 0;
+            }
+        }
+        
+        /* Circuit Lines */
+        .circuit-line {
+            position: absolute;
+            background: rgba(0, 243, 255, 0.1);
+        }
+        
+        .circuit-line.horizontal {
+            width: 100%;
+            height: 1px;
+            animation: circuitGlowHorizontal 8s infinite linear;
+        }
+        
+        .circuit-line.vertical {
+            width: 1px;
+            height: 100%;
+            animation: circuitGlowVertical 8s infinite linear;
+        }
+        
+        .circuit-line.diagonal-1 {
+            width: 150%;
+            height: 1px;
+            top: 20%;
+            left: -25%;
+            transform: rotate(45deg);
+            animation: circuitGlowDiagonal 12s infinite linear;
+        }
+        
+        .circuit-line.diagonal-2 {
+            width: 150%;
+            height: 1px;
+            top: 80%;
+            left: -25%;
+            transform: rotate(-45deg);
+            animation: circuitGlowDiagonal 12s infinite linear reverse;
+        }
+        
+        @keyframes circuitGlowHorizontal {
+            0% { box-shadow: 0 0 5px rgba(0, 243, 255, 0.3); }
+            50% { box-shadow: 0 0 20px rgba(0, 243, 255, 0.8); }
+            100% { box-shadow: 0 0 5px rgba(0, 243, 255, 0.3); }
+        }
+        
+        @keyframes circuitGlowVertical {
+            0% { box-shadow: 0 0 5px rgba(157, 0, 255, 0.3); }
+            50% { box-shadow: 0 0 20px rgba(157, 0, 255, 0.8); }
+            100% { box-shadow: 0 0 5px rgba(157, 0, 255, 0.3); }
+        }
+        
+        @keyframes circuitGlowDiagonal {
+            0% { box-shadow: 0 0 5px rgba(0, 243, 255, 0.3); }
+            50% { box-shadow: 0 0 20px rgba(157, 0, 255, 0.8); }
+            100% { box-shadow: 0 0 5px rgba(0, 243, 255, 0.3); }
+        }
+        
+        /* Glowing Orbs */
+        .glowing-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(40px);
+            opacity: 0.3;
+        }
+        
+        .orb-1 {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(0, 243, 255, 0.4) 0%, transparent 70%);
+            top: -150px;
+            right: -150px;
+            animation: orbFloat 20s infinite ease-in-out;
+        }
+        
+        .orb-2 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(157, 0, 255, 0.3) 0%, transparent 70%);
+            bottom: -200px;
+            left: -200px;
+            animation: orbFloat 25s infinite ease-in-out reverse;
+        }
+        
+        .orb-3 {
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(255, 0, 255, 0.2) 0%, transparent 70%);
+            top: 50%;
+            left: 30%;
+            animation: orbFloat 30s infinite ease-in-out;
+        }
+        
+        @keyframes orbFloat {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(50px, 50px) scale(1.1); }
+            66% { transform: translate(-50px, -50px) scale(0.9); }
+        }
+        
+        /* Add connection lines between neurons */
+        .neural-network::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(to right, rgba(0, 243, 255, 0.1) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0, 243, 255, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            opacity: 0.2;
+        }
+        
+        /* Animated Logo */
+        .loading-logo {
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .logo-circle {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .logo-inner {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #00f3ff 0%, #9d00ff 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            animation: pulse 2s infinite;
+        }
+        
+        .logo-inner i {
+            font-size: 50px;
+            color: white;
+        }
+        
+        .logo-orbits {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .orbit {
+            position: absolute;
+            border: 2px solid rgba(0, 243, 255, 0.3);
+            border-radius: 50%;
+            animation: orbit 3s linear infinite;
+        }
+        
+        .orbit-1 {
+            width: 150px;
+            height: 150px;
+            top: 15px;
+            left: 15px;
+            animation-delay: 0s;
+        }
+        
+        .orbit-2 {
+            width: 180px;
+            height: 180px;
+            top: 0;
+            left: 0;
+            animation-delay: 0.5s;
+        }
+        
+        .orbit-3 {
+            width: 210px;
+            height: 210px;
+            top: -15px;
+            left: -15px;
+            animation-delay: 1s;
+        }
+        
+        @keyframes orbit {
+            0% { transform: rotate(0deg); border-color: rgba(0, 243, 255, 0.3); }
+            50% { border-color: rgba(157, 0, 255, 0.3); }
+            100% { transform: rotate(360deg); border-color: rgba(0, 243, 255, 0.3); }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { 
+                transform: translate(-50%, -50%) scale(1); 
+                box-shadow: 0 0 30px rgba(0, 243, 255, 0.5); 
+            }
+            50% { 
+                transform: translate(-50%, -50%) scale(1.05); 
+                box-shadow: 0 0 50px rgba(0, 243, 255, 0.8), 0 0 80px rgba(157, 0, 255, 0.4); 
+            }
+        }
+        
+        /* Name Display */
+        .loading-name {
+            margin-bottom: 20px;
+        }
+        
+        .name-text {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 52px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #00f3ff 0%, #9d00ff 50%, #ff00ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 2px;
+            animation: textGlow 2s infinite alternate;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .name-text::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 10%;
+            width: 80%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #00f3ff, #9d00ff, transparent);
+            border-radius: 2px;
+        }
+        
+        @keyframes textGlow {
+            0% { 
+                text-shadow: 0 0 20px rgba(0, 243, 255, 0.3); 
+            }
+            100% { 
+                text-shadow: 0 0 40px rgba(157, 0, 255, 0.5), 0 0 60px rgba(255, 0, 255, 0.2); 
+            }
+        }
+        
+        /* Rotating Roles */
+        .loading-roles {
+            margin-bottom: 40px;
+            height: 40px;
+        }
+        
+        .role-container {
+            position: relative;
+            display: inline-block;
+            height: 40px;
+            overflow: hidden;
+        }
+        
+        .role {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 26px;
+            color: #00f3ff;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+            text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+        }
+        
+        .role.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Loading Progress */
+        .loading-progress {
+            margin-bottom: 40px;
+            padding: 0 20px;
+        }
+        
+        .progress-text {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: #8888cc;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .progress-bar {
+            height: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            border: 1px solid rgba(0, 243, 255, 0.1);
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #00f3ff 0%, #9d00ff 100%);
+            width: 0%;
+            transition: width 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .progress-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            animation: progressShine 2s infinite;
+        }
+        
+        @keyframes progressShine {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(200%); }
+        }
+        
+        .progress-steps {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: #666699;
+        }
+        
+        .progress-steps .step {
+            transition: all 0.3s ease;
+            position: relative;
+            padding-top: 20px;
+        }
+        
+        .progress-steps .step::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 10px;
+            height: 10px;
+            background: #666699;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        
+        .progress-steps .step.active {
+            color: #00f3ff;
+        }
+        
+        .progress-steps .step.active::before {
+            background: #00f3ff;
+            box-shadow: 0 0 10px #00f3ff;
+        }
+        
+        /* Enter Button */
+        .enter-button {
+            background: linear-gradient(135deg, #00f3ff 0%, #9d00ff 100%);
+            border: none;
+            border-radius: 50px;
+            padding: 20px 60px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: white;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        
+        .enter-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            background: linear-gradient(135deg, #666 0%, #999 100%);
+        }
+        
+        .enter-button:not(:disabled):hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 243, 255, 0.3), 0 0 50px rgba(157, 0, 255, 0.2);
+            letter-spacing: 2px;
+        }
+        
+        .button-text {
+            position: relative;
+            z-index: 2;
+            transition: letter-spacing 0.3s ease;
+        }
+        
+        .button-glow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transform: translateX(-100%);
+        }
+        
+        .enter-button:not(:disabled):hover .button-glow {
+            animation: buttonShine 1s;
+        }
+        
+        @keyframes buttonShine {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        /* Loading Stats */
+        .loading-stats {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .stat {
+            text-align: center;
+            min-width: 180px;
+            margin: 10px;
+            padding: 15px;
+            background: rgba(10, 15, 30, 0.5);
+            border-radius: 10px;
+            border: 1px solid rgba(0, 243, 255, 0.1);
+        }
+        
+        .stat-value {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 36px;
+            font-weight: 700;
+            color: #00f3ff;
+            margin-bottom: 5px;
+            text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+        }
+        
+        .stat-label {
+            font-size: 13px;
+            color: #8888cc;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* Terminal Output */
+        .terminal-output {
+            background: rgba(5, 10, 20, 0.9);
+            border: 1px solid rgba(0, 243, 255, 0.2);
+            border-radius: 10px;
+            padding: 15px;
+            text-align: left;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            max-height: 200px;
+            overflow-y: auto;
+            margin-top: 20px;
+            box-shadow: 0 0 30px rgba(0, 10, 30, 0.5);
+        }
+        
+        .terminal-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(0, 243, 255, 0.1);
+        }
+        
+        .terminal-dots {
+            display: flex;
+            gap: 5px;
+            margin-right: 10px;
+        }
+        
+        .terminal-dots .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+        
+        .terminal-dots .red { background: #ff5f56; }
+        .terminal-dots .yellow { background: #ffbd2e; }
+        .terminal-dots .green { background: #27ca3f; }
+        
+        .terminal-title {
+            color: #8888cc;
+            font-size: 12px;
+        }
+        
+        .terminal-content {
+            color: #00f3ff;
+            line-height: 1.6;
+        }
+        
+        .terminal-line {
+            margin-bottom: 5px;
+            animation: typeWriter 0.5s steps(40) forwards;
+            opacity: 0;
+        }
+        
+        @keyframes typeWriter {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .name-text {
+                font-size: 36px;
+            }
+            
+            .role {
+                font-size: 20px;
+            }
+            
+            .logo-circle {
+                width: 140px;
+                height: 140px;
+            }
+            
+            .logo-inner {
+                width: 90px;
+                height: 90px;
+            }
+            
+            .enter-button {
+                padding: 16px 40px;
+                font-size: 16px;
+            }
+            
+            .stat-value {
+                font-size: 28px;
+            }
+            
+            .stat {
+                min-width: 150px;
+            }
+            
+            .code-window {
+                width: 150px;
+                font-size: 9px;
+            }
+            
+            .data-packet {
+                padding: 6px 10px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .name-text {
+                font-size: 28px;
+            }
+            
+            .role {
+                font-size: 18px;
+            }
+            
+            .loading-stats {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .enter-button {
+                padding: 14px 30px;
+                font-size: 14px;
+            }
+            
+            .progress-steps {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+            
+            .progress-steps .step {
+                width: 40%;
+                text-align: center;
+            }
+            
+            .tech-background {
+                display: none; /* Hide complex background on very small screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="loading-screen">
+        <!-- Tech Background Container -->
+        <div class="tech-background">
+            <!-- Binary Code Rain -->
+            <div class="binary-rain"></div>
+            
+            <!-- Neural Network Connections -->
+            <div class="neural-network">
+                <div class="neuron" style="top: 20%; left: 15%;"></div>
+                <div class="neuron" style="top: 40%; left: 30%;"></div>
+                <div class="neuron" style="top: 60%; left: 20%;"></div>
+                <div class="neuron" style="top: 30%; left: 50%;"></div>
+                <div class="neuron" style="top: 70%; left: 40%;"></div>
+                <div class="neuron" style="top: 50%; left: 70%;"></div>
+                <div class="neuron" style="top: 25%; left: 85%;"></div>
+                <div class="neuron" style="top: 75%; left: 65%;"></div>
+                <div class="neuron" style="top: 45%; left: 90%;"></div>
+            </div>
+            
+            <!-- Floating Code Windows -->
+            <div class="code-window" style="top: 10%; left: 10%;">
+                <div class="code-header">
+                    <span class="code-dot red"></span>
+                    <span class="code-dot yellow"></span>
+                    <span class="code-dot green"></span>
+                    <span class="code-title">ai_system.py</span>
+                </div>
+                <div class="code-content">
+                    <span class="code-line">def neural_network():</span>
+                    <span class="code-line">    layers = [Dense(256)]</span>
+                    <span class="code-line">    return Sequential(layers)</span>
+                </div>
+            </div>
+            
+            <div class="code-window" style="top: 60%; left: 80%;">
+                <div class="code-header">
+                    <span class="code-dot red"></span>
+                    <span class="code-dot yellow"></span>
+                    <span class="code-dot green"></span>
+                    <span class="code-title">security.js</span>
+                </div>
+                <div class="code-content">
+                    <span class="code-line">encryptData(data) {</span>
+                    <span class="code-line">    return AES.encrypt(data, key);</span>
+                    <span class="code-line">}</span>
+                </div>
+            </div>
+            
+            <!-- Data Packets -->
+            <div class="data-packet" style="top: 20%; left: -50px;">
+                <div class="packet-icon">🔒</div>
+                <div class="packet-text">ENCRYPTED</div>
+            </div>
+            
+            <div class="data-packet" style="top: 50%; left: -80px;">
+                <div class="packet-icon">🤖</div>
+                <div class="packet-text">AI_MODEL</div>
+            </div>
+            
+            <div class="data-packet" style="top: 80%; left: -60px;">
+                <div class="packet-icon">💾</div>
+                <div class="packet-text">DATA_900M</div>
+            </div>
+            
+            <!-- Circuit Lines -->
+            <div class="circuit-line horizontal" style="top: 30%;"></div>
+            <div class="circuit-line vertical" style="left: 30%;"></div>
+            <div class="circuit-line diagonal-1"></div>
+            <div class="circuit-line diagonal-2"></div>
+            
+            <!-- Glowing Orbs -->
+            <div class="glowing-orb orb-1"></div>
+            <div class="glowing-orb orb-2"></div>
+            <div class="glowing-orb orb-3"></div>
+        </div>
+        
+        <div class="loading-container">
+            <!-- Animated Logo -->
+            <div class="loading-logo">
+                <div class="logo-circle">
+                    <div class="logo-inner">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div class="logo-orbits">
+                        <div class="orbit orbit-1"></div>
+                        <div class="orbit orbit-2"></div>
+                        <div class="orbit orbit-3"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Name Display -->
+            <div class="loading-name">
+                <h1 class="name-text glitch-text" data-text="JAY PRASAD MAJHI">JAY PRASAD MAJHI</h1>
+            </div>
+            
+            <!-- Rotating Roles -->
+            <div class="loading-roles">
+                <div class="role-container">
+                    <div class="role active" id="role-ai">AI Specialist</div>
+                    <div class="role" id="role-cyber">Cybersecurity Expert</div>
+                    <div class="role" id="role-it">IT Consultant</div>
+                    <div class="role" id="role-dev">Full Stack Developer</div>
+                    <div class="role" id="role-data">Data Scientist</div>
+                </div>
+            </div>
+            
+            <!-- Loading Progress -->
+            <div class="loading-progress">
+                <div class="progress-text">
+                    <span id="progress-status">Initializing Neural Networks...</span>
+                    <span id="progress-percent">0%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+                <div class="progress-steps">
+                    <div class="step" data-step="1">AI Systems</div>
+                    <div class="step" data-step="2">Security Protocols</div>
+                    <div class="step" data-step="3">Database</div>
+                    <div class="step" data-step="4">Networks</div>
+                    <div class="step" data-step="5">Interface</div>
+                </div>
+            </div>
+            
+            <!-- Enter Button -->
+            <button class="enter-button" id="enterButton" disabled>
+                <span class="button-text">ENTER PORTFOLIO</span>
+                <div class="button-glow"></div>
+            </button>
+            
+            <!-- Loading Stats -->
+            <div class="loading-stats">
+                <div class="stat">
+                    <div class="stat-value" id="stat-db">0</div>
+                    <div class="stat-label">AI Database Entries</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value" id="stat-security">0%</div>
+                    <div class="stat-label">Security Level</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value" id="stat-systems">0/5</div>
+                    <div class="stat-label">Systems Online</div>
+                </div>
+            </div>
+            
+            <!-- Terminal Output -->
+            <div class="terminal-output">
+                <div class="terminal-header">
+                    <div class="terminal-dots">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+                    <div class="terminal-title">jay_majhi_system.log</div>
+                </div>
+                <div class="terminal-content" id="terminalContent">
+                    <div class="terminal-line">> Initializing Jay Prasad Majhi AI Systems...</div>
+                    <div class="terminal-line">> Loading cybersecurity protocols...</div>
+                    <div class="terminal-line">> Establishing secure connection...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Loading Screen JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            const loadingScreen = document.getElementById('loadingScreen');
+            const enterButton = document.getElementById('enterButton');
+            const progressFill = document.getElementById('progress-fill');
+            const progressPercent = document.getElementById('progress-percent');
+            const progressStatus = document.getElementById('progress-status');
+            const terminalContent = document.getElementById('terminalContent');
+            const roles = ['AI Specialist', 'Cybersecurity Expert', 'IT Consultant', 'Full Stack Developer', 'Data Scientist'];
+            let currentRole = 0;
+            let progress = 0;
+            let databaseCount = 0;
+            let securityLevel = 0;
+            let systemsOnline = 0;
+            
+            // Initialize terminal
+            addTerminalLine('> Starting system initialization...');
+            addTerminalLine('> Booting neural networks...');
+            addTerminalLine('> Loading cybersecurity protocols...');
+            
+            // Start role rotation
+            rotateRoles();
+            
+            // Start loading progress
+            const loadingInterval = setInterval(updateProgress, 100);
+            
+            // Initialize tech background
+            initTechBackground();
+            
+            // Update progress steps
+            function updateProgressSteps() {
+                const steps = document.querySelectorAll('.progress-steps .step');
+                steps.forEach((step, index) => {
+                    const stepNum = parseInt(step.getAttribute('data-step'));
+                    if (progress >= (stepNum - 1) * 20) {
+                        step.classList.add('active');
+                    } else {
+                        step.classList.remove('active');
+                    }
+                });
+            }
+            
+            // Update progress function
+            function updateProgress() {
+                if (progress < 100) {
+                    // Increment progress with random speed
+                    progress += Math.random() * 2;
+                    if (progress > 100) progress = 100;
+                    
+                    // Update progress bar
+                    progressFill.style.width = progress + '%';
+                    progressPercent.textContent = Math.floor(progress) + '%';
+                    
+                    // Update progress steps
+                    updateProgressSteps();
+                    
+                    // Update status text
+                    if (progress < 20) {
+                        progressStatus.textContent = 'Initializing Neural Networks...';
+                    } else if (progress < 40) {
+                        progressStatus.textContent = 'Loading Security Protocols...';
+                    } else if (progress < 60) {
+                        progressStatus.textContent = 'Accessing 900M+ Database...';
+                    } else if (progress < 80) {
+                        progressStatus.textContent = 'Establishing Networks...';
+                    } else if (progress < 95) {
+                        progressStatus.textContent = 'Launching Interface...';
+                    } else {
+                        progressStatus.textContent = 'Finalizing System...';
+                    }
+                    
+                    // Update stats
+                    if (progress < 40) {
+                        databaseCount = Math.floor(progress * 22500000); // 900M at 100%
+                        document.getElementById('stat-db').textContent = formatNumber(databaseCount);
+                    } else if (progress < 70) {
+                        securityLevel = Math.floor((progress - 40) * 3.33);
+                        document.getElementById('stat-security').textContent = securityLevel + '%';
+                    } else {
+                        systemsOnline = Math.min(5, Math.floor((progress - 70) / 6));
+                        document.getElementById('stat-systems').textContent = systemsOnline + '/5';
+                    }
+                    
+                    // Add terminal lines at certain progress points
+                    if (Math.floor(progress) === 20) {
+                        addTerminalLine('> Neural networks initialized successfully');
+                        addTerminalLine('> Loading machine learning models...');
+                    }
+                    if (Math.floor(progress) === 40) {
+                        addTerminalLine('> Security protocols loaded: Level 5 encryption active');
+                        addTerminalLine('> Firewall established...');
+                    }
+                    if (Math.floor(progress) === 60) {
+                        addTerminalLine('> Database loaded: 900M+ AI training entries');
+                        addTerminalLine('> Data analysis systems online...');
+                    }
+                    if (Math.floor(progress) === 80) {
+                        addTerminalLine('> Network connections established');
+                        addTerminalLine('> Interface rendering...');
+                    }
+                    if (Math.floor(progress) === 95) {
+                        addTerminalLine('> All systems operational');
+                        addTerminalLine('> Welcome to Jay Prasad Majhi portfolio...');
+                    }
+                    
+                } else {
+                    // Loading complete
+                    clearInterval(loadingInterval);
+                    
+                    // Update button
+                    enterButton.disabled = false;
+                    enterButton.innerHTML = '<span class="button-text">ENTER PORTFOLIO</span><div class="button-glow"></div>';
+                    
+                    // Add final terminal line
+                    addTerminalLine('> System ready. Portfolio initialized.');
+                    addTerminalLine('> Press ENTER or click button to continue');
+                    
+                    // Add click event to enter button
+                    enterButton.addEventListener('click', enterPortfolio);
+                    
+                    // Add keyboard shortcut
+                    document.addEventListener('keydown', function(e) {
+                        if (e.key === 'Enter' && !enterButton.disabled) {
+                            enterPortfolio();
+                        }
+                    });
+                }
+            }
+            
+            // Initialize tech background
+            function initTechBackground() {
+                // Create neural connections
+                createNeuralConnections();
+                
+                // Generate multiple binary rain streams
+                generateBinaryRain();
+                
+                // Add more data packets
+                generateDataPackets();
+                
+                // Animate code windows content
+                animateCodeWindows();
+            }
+            
+            // Create neural connections
+            function createNeuralConnections() {
+                const neurons = document.querySelectorAll('.neuron');
+                const network = document.querySelector('.neural-network');
+                
+                neurons.forEach((neuron1, i) => {
+                    neurons.forEach((neuron2, j) => {
+                        if (i < j && Math.random() > 0.7) { // Random connections
+                            const rect1 = neuron1.getBoundingClientRect();
+                            const rect2 = neuron2.getBoundingClientRect();
+                            
+                            const x1 = rect1.left + rect1.width/2;
+                            const y1 = rect1.top + rect1.height/2;
+                            const x2 = rect2.left + rect2.width/2;
+                            const y2 = rect2.top + rect2.height/2;
+                            
+                            const distance = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+                            const angle = Math.atan2(y2 - y1, x2 - x1) * 180 / Math.PI;
+                            
+                            const connection = document.createElement('div');
+                            connection.className = 'neural-connection';
+                            connection.style.cssText = `
+                                position: absolute;
+                                left: ${x1}px;
+                                top: ${y1}px;
+                                width: ${distance}px;
+                                height: 1px;
+                                background: linear-gradient(90deg, 
+                                    transparent 0%, 
+                                    rgba(0, 243, 255, ${0.1 + Math.random() * 0.2}) 50%, 
+                                    transparent 100%);
+                                transform: rotate(${angle}deg);
+                                transform-origin: left center;
+                                z-index: -1;
+                                animation: connectionPulse ${3 + Math.random() * 4}s infinite linear;
+                            `;
+                            
+                            network.appendChild(connection);
+                        }
+                    });
+                });
+                
+                // Add CSS for connection animation
+                const style = document.createElement('style');
+                style.textContent = `
+                    @keyframes connectionPulse {
+                        0%, 100% { opacity: 0.1; }
+                        50% { opacity: 0.5; }
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+            
+            // Generate binary rain
+            function generateBinaryRain() {
+                const binaryRain = document.querySelector('.binary-rain');
+                
+                // Create multiple streams
+                for (let i = 0; i < 5; i++) {
+                    const stream = document.createElement('div');
+                    stream.className = 'binary-stream';
+                    stream.style.cssText = `
+                        position: absolute;
+                        left: ${20 + i * 20}%;
+                        width: 2px;
+                        height: 200%;
+                        background: linear-gradient(to bottom, 
+                            transparent 0%, 
+                            rgba(0, 243, 255, 0.3) 10%, 
+                            transparent 20%);
+                        animation: binaryStream ${10 + Math.random() * 10}s linear infinite;
+                        animation-delay: ${Math.random() * 5}s;
+                    `;
+                    binaryRain.appendChild(stream);
+                }
+                
+                // Add CSS for binary stream animation
+                const style = document.createElement('style');
+                style.textContent = `
+                    @keyframes binaryStream {
+                        0% { transform: translateY(-100%); }
+                        100% { transform: translateY(100vh); }
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+            
+            // Generate data packets
+            function generateDataPackets() {
+                const background = document.querySelector('.tech-background');
+                
+                // Add more random data packets
+                for (let i = 0; i < 5; i++) {
+                    const packet = document.createElement('div');
+                    packet.className = 'data-packet-random';
+                    
+                    const icons = ['🔐', '⚡', '💻', '🌐', '📡', '🔧', '🛡️'];
+                    const types = ['SECURE', 'FAST', 'AI', 'NETWORK', 'SYSTEM', 'TOOL', 'SHIELD'];
+                    
+                    packet.innerHTML = `
+                        <div class="packet-icon">${icons[Math.floor(Math.random() * icons.length)]}</div>
+                        <div class="packet-text">${types[Math.floor(Math.random() * types.length)]}</div>
+                    `;
+                    
+                    packet.style.cssText = `
+                        position: absolute;
+                        top: ${Math.random() * 80 + 10}%;
+                        left: ${-100 - Math.random() * 100}px;
+                        background: rgba(${Math.random() * 100}, ${Math.random() * 200 + 55}, 255, 0.1);
+                        border: 1px solid rgba(${Math.random() * 100}, ${Math.random() * 200 + 55}, 255, 0.3);
+                        border-radius: 6px;
+                        padding: 6px 10px;
+                        display: flex;
+                        align-items: center;
+                        gap: 6px;
+                        animation: moveRandomPacket ${20 + Math.random() * 20}s linear infinite;
+                        animation-delay: ${Math.random() * 10}s;
+                        backdrop-filter: blur(2px);
+                    `;
+                    
+                    background.appendChild(packet);
+                }
+                
+                // Add CSS for random packet animation
+                const style = document.createElement('style');
+                style.textContent = `
+                    @keyframes moveRandomPacket {
+                        0% {
+                            transform: translateX(-100px) translateY(${Math.random() * 50 - 25}px);
+                            opacity: 0;
+                        }
+                        10% {
+                            opacity: 0.7;
+                        }
+                        90% {
+                            opacity: 0.7;
+                        }
+                        100% {
+                            transform: translateX(calc(100vw + 200px)) translateY(${Math.random() * 50 - 25}px);
+                            opacity: 0;
+                        }
+                    }
+                    
+                    .data-packet-random {
+                        font-family: 'JetBrains Mono', monospace;
+                        font-size: 10px;
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+            
+            // Animate code windows
+            function animateCodeWindows() {
+                const codeWindows = document.querySelectorAll('.code-window');
+                
+                codeWindows.forEach(window => {
+                    const content = window.querySelector('.code-content');
+                    const lines = content.querySelectorAll('.code-line');
+                    
+                    // Animate each line typing effect
+                    lines.forEach((line, index) => {
+                        const originalText = line.textContent;
+                        line.textContent = '';
+                        
+                        setTimeout(() => {
+                            let charIndex = 0;
+                            const typeChar = () => {
+                                if (charIndex < originalText.length) {
+                                    line.textContent += originalText.charAt(charIndex);
+                                    charIndex++;
+                                    setTimeout(typeChar, 30 + Math.random() * 50);
+                                }
+                            };
+                            typeChar();
+                        }, 1000 + index * 500);
+                    });
+                });
+            }
+            
+            // Enter portfolio function
+            function enterPortfolio() {
+                // Add transition effect
+                loadingScreen.style.opacity = '0';
+                loadingScreen.style.transform = 'scale(1.1)';
+                loadingScreen.style.transition = 'all 1s ease';
+                
+                // Add terminal farewell
+                addTerminalLine('> Launching main portfolio interface...');
+                addTerminalLine('> Goodbye. Welcome to Jay Prasad Majhi.');
+                
+                // Remove loading screen after transition
+                setTimeout(function() {
+                    loadingScreen.style.display = 'none';
+                    // Initialize main website here
+                    initializeMainWebsite();
+                }, 1000);
+            }
+            
+            // Rotate roles function
+            function rotateRoles() {
+                const roleElements = document.querySelectorAll('.role');
+                
+                // Hide all roles
+                roleElements.forEach(role => {
+                    role.classList.remove('active');
+                    role.style.opacity = '0';
+                    role.style.transform = 'translateY(20px)';
+                });
+                
+                // Show current role
+                roleElements[currentRole].classList.add('active');
+                roleElements[currentRole].style.opacity = '1';
+                roleElements[currentRole].style.transform = 'translateY(0)';
+                
+                // Update to next role
+                currentRole = (currentRole + 1) % roles.length;
+                
+                // Schedule next rotation
+                setTimeout(rotateRoles, 2000);
+            }
+            
+            // Add terminal line function
+            function addTerminalLine(text) {
+                const line = document.createElement('div');
+                line.className = 'terminal-line';
+                line.textContent = text;
+                terminalContent.appendChild(line);
+                
+                // Auto scroll to bottom
+                terminalContent.scrollTop = terminalContent.scrollHeight;
+                
+                // Animation for new line
+                setTimeout(() => {
+                    line.style.animation = 'typeWriter 0.5s steps(40) forwards';
+                }, 10);
+            }
+            
+            // Format number with commas
+            function formatNumber(num) {
+                if (num >= 1000000) {
+                    return (num / 1000000).toFixed(1) + 'M';
+                }
+                return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            }
+            
+            // Initialize main website (placeholder function)
+            function initializeMainWebsite() {
+                // This would load your actual portfolio website
+                document.body.innerHTML = `
+                    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; background: #0a0a15; color: white; text-align: center; padding: 20px;">
+                        <h1 style="font-family: 'Orbitron', sans-serif; font-size: 48px; margin-bottom: 20px; background: linear-gradient(135deg, #00f3ff 0%, #9d00ff 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Jay Prasad Majhi</h1>
+                        <p style="font-size: 20px; margin-bottom: 30px; max-width: 800px; line-height: 1.6;">
+                            AI Specialist | Cybersecurity Expert | IT Consultant<br>
+                            Full Stack Developer | Data Scientist
+                        </p>
+                        <div style="background: rgba(0, 243, 255, 0.1); padding: 30px; border-radius: 15px; max-width: 800px; border: 1px solid rgba(0, 243, 255, 0.2);">
+                            <h2 style="margin-bottom: 15px; color: #00f3ff;">Portfolio Loaded Successfully</h2>
+                            <p style="margin-bottom: 20px;">This is where your actual portfolio content would be displayed.</p>
+                            <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 30px;">
+                                <div style="background: rgba(10, 15, 30, 0.7); padding: 20px; border-radius: 10px; width: 200px;">
+                                    <h3 style="color: #9d00ff;">AI Projects</h3>
+                                    <p>Machine Learning, Neural Networks, NLP</p>
+                                </div>
+                                <div style="background: rgba(10, 15, 30, 0.7); padding: 20px; border-radius: 10px; width: 200px;">
+                                    <h3 style="color: #9d00ff;">Cybersecurity</h3>
+                                    <p>Network Security, Ethical Hacking, Cryptography</p>
+                                </div>
+                                <div style="background: rgba(10, 15, 30, 0.7); padding: 20px; border-radius: 10px; width: 200px;">
+                                    <h3 style="color: #9d00ff;">IT Consulting</h3>
+                                    <p>System Architecture, Cloud Solutions, DevOps</p>
+                                </div>
+                            </div>
+                        </div>
+                        <button id="backToLoading" style="margin-top: 40px; background: linear-gradient(135deg, #9d00ff 0%, #00f3ff 100%); border: none; padding: 15px 40px; border-radius: 50px; color: white; font-family: 'Orbitron', sans-serif; font-size: 16px; cursor: pointer; transition: all 0.3s;">
+                            Back to Loading Screen
+                        </button>
+                    </div>
+                `;
+                
+                // Add back button functionality
+                document.getElementById('backToLoading').addEventListener('click', function() {
+                    location.reload();
+                });
+            }
+        });
+    </script>
+</body>
+</html>)
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
