@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify OTP | Jay Prasad Majhi Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-cyan: #00f3ff;
+            --primary-blue: #0066ff;
+            --primary-purple: #9d00ff;
+            --bg-dark: #0a0a0f;
+            --bg-darker: #050508;
+        }
+        
+        body {
+            background-color: var(--bg-dark);
+            color: #ffffff;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, var(--primary-cyan) 0%, var(--primary-purple) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .glass-card {
+            background: rgba(20, 20, 30, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 243, 255, 0.1);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        
+        .cyber-button {
+            position: relative;
+            padding: 12px 30px;
+            background: transparent;
+            border: 2px solid var(--primary-cyan);
+            color: var(--primary-cyan);
+            font-weight: 600;
+            letter-spacing: 1px;
+            cursor: pointer;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border-radius: 10px;
+        }
+        
+        .cyber-button:hover {
+            background: rgba(0, 243, 255, 0.1);
+            box-shadow: 0 0 20px rgba(0, 243, 255, 0.3);
+        }
+        
+        .otp-input {
+            width: 60px;
+            height: 70px;
+            font-size: 2rem;
+            text-align: center;
+            background: rgba(20, 20, 30, 0.8);
+            border: 2px solid rgba(0, 243, 255, 0.2);
+            border-radius: 10px;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .otp-input:focus {
+            border-color: var(--primary-cyan);
+            box-shadow: 0 0 20px rgba(0, 243, 255, 0.2);
+            outline: none;
+        }
+        
+        .otp-input.filled {
+            border-color: var(--primary-cyan);
+            background: rgba(0, 243, 255, 0.1);
+        }
+        
+        .countdown {
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center">
+    <!-- Background -->
+    <div class="fixed inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-900"></div>
+    
+    <div class="relative z-10 w-full max-w-md px-4">
+        <!-- Header -->
+        <div class="text-center mb-8">
+            <div class="flex items-center justify-center mb-4">
+                <div class="w-16 h-16 rounded-2xl bg-gradient-to-r from-cyan-500 to-purple-500 flex items-center justify-center mr-4">
+                    <i class="fas fa-shield-check text-white text-2xl"></i>
+                </div>
+                <div class="text-left">
+                    <h1 class="text-3xl font-bold gradient-text">VERIFY OTP</h1>
+                    <p class="text-cyan-400 text-sm">Two-Factor Authentication</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- OTP Form -->
+        <div class="glass-card p-8">
+            <!-- Messages -->
+            <div id="messageContainer" class="mb-6 hidden">
+                <div id="message" class="p-4 rounded-lg"></div>
+            </div>
+            
+            <!-- Verification Type -->
+            <div id="verificationInfo" class="mb-8 p-4 bg-gray-800/50 rounded-lg">
+                <div class="flex items-center mb-2">
+                    <i class="fas fa-envelope text-cyan-400 mr-2"></i>
+                    <span id="userEmail" class="font-medium"></span>
+                </div>
+                <div id="verificationType" class="text-sm text-gray-400"></div>
+            </div>
+            
+            <!-- OTP Inputs -->
+            <div class="mb-8">
+                <div class="text-center mb-6">
+                    <p class="text-gray-300 mb-2">Enter the 6-digit code sent to your email</p>
+                    <p class="text-sm text-gray-400">Code expires in <span id="countdown" class="countdown text-cyan-400">05:00</span></p>
+                </div>
+                
+                <div class="flex justify-center space-x-4 mb-6">
+                    <input type="text" maxlength="1" class="otp-input" data-index="0" oninput="moveToNext(this)">
+                    <input type="text" maxlength="1" class="otp-input" data-index="1" oninput="moveToNext(this)">
+                    <input type="text" maxlength="1" class="otp-input" data-index="2" oninput="moveToNext(this)">
+                    <div class="w-4"></div>
+                    <input type="text" maxlength="1" class="otp-input" data-index="3" oninput="moveToNext(this)">
+                    <input type="text" maxlength="1" class="otp-input" data-index="4" oninput="moveToNext(this)">
+                    <input type="text" maxlength="1" class="otp-input" data-index="5" oninput="moveToNext(this)">
+                </div>
+                
+                <!-- Hidden OTP Field -->
+                <input type="hidden" id="fullOTP">
+                
+                <!-- Verify Button -->
+                <button onclick="verifyOTP()" class="cyber-button w-full mb-4" id="verifyButton">
+                    <i class="fas fa-check-circle mr-2"></i> Verify & Continue
+                </button>
+            </div>
+            
+            <!-- Resend & Back Options -->
+            <div class="space-y-4">
+                <div class="text-center">
+                    <button onclick="resendOTP()" id="resendButton" class="text-cyan-400 hover:text-cyan-300 text-sm" disabled>
+                        <i class="fas fa-redo mr-1"></i> 
+                        Resend Code <span id="resendTimer">(60s)</span>
+                    </button>
+                </div>
+                
+                <div class="text-center">
+                    <a href="#" onclick="changeEmail()" class="text-cyan-400 hover:text-cyan-300 text-sm">
+                        <i class="fas fa-edit mr-1"></i> Change Email Address
+                    </a>
+                </div>
+                
+                <div class="text-center">
+                    <a href="index.html" class="text-gray-400 hover:text-gray-300 text-sm">
+                        <i class="fas fa-arrow-left mr-1"></i> Back to Login
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Security Notice -->
+        <div class="mt-8 text-center">
+            <div class="glass-card p-4">
+                <div class="flex items-center justify-center space-x-2 text-sm text-gray-400">
+                    <i class="fas fa-shield-alt text-green-400"></i>
+                    <span>OTP verification ensures your account security</span>
+                    <i class="fas fa-lock text-green-400"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Change Email Modal -->
+    <div id="emailModal" class="fixed inset-0 bg-black/80 flex items-center justify-center z-50 hidden">
+        <div class="glass-card p-8 m-4 max-w-md w-full">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold gradient-text">Change Email</h3>
+                <button onclick="closeEmailModal()" class="text-gray-400 hover:text-white">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            
+            <div class="mb-6">
+                <label class="block text-sm font-medium text-gray-400 mb-2">
+                    New Email Address
+                </label>
+                <input type="email" id="newEmail" class="cyber-input" placeholder="new@example.com">
+            </div>
+            
+            <button onclick="updateEmail()" class="cyber-button w-full">
+                Update Email & Resend OTP
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Get URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const email = urlParams.get('email');
+        const type = urlParams.get('type') || 'register';
+        
+        // State variables
+        let countdownInterval;
+        let resendInterval;
+        let timeLeft = 300; // 5 minutes in seconds
+        let resendTime = 60; // 60 seconds for resend
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set email
+            if (email) {
+                document.getElementById('userEmail').textContent = email;
+                
+                // Set verification type
+                const typeText = type === 'register' 
+                    ? 'Account Registration Verification' 
+                    : 'Login Verification';
+                document.getElementById('verificationType').textContent = typeText;
+                
+                // Start countdown
+                startCountdown();
+                startResendTimer();
+                
+                // Auto-focus first OTP input
+                document.querySelector('.otp-input').focus();
+            } else {
+                // No email provided, redirect to login
+                window.location.href = 'index.html';
+            }
+        });
+        
+        // Move to next OTP input
+        function moveToNext(input) {
+            const index = parseInt(input.dataset.index);
+            const value = input.value;
+            
+            // Validate input (numbers only)
+            if (!/^\d*$/.test(value)) {
+                input.value = '';
+                return;
+            }
+            
+            // Update OTP input style
+            if (value) {
+                input.classList.add('filled');
+            } else {
+                input.classList.remove('filled');
+            }
+            
+            // Move to next input if value entered
+            if (value && index < 5) {
+                document.querySelector(`.otp-input[data-index="${index + 1}"]`).focus();
+            }
+            
+            // Update hidden OTP field
+            updateFullOTP();
+        }
+        
+        // Update full OTP
+        function updateFullOTP() {
+            let otp = '';
+            for (let i = 0; i < 6; i++) {
+                const input = document.querySelector(`.otp-input[data-index="${i}"]`);
+                otp += input.value || '';
+            }
+            document.getElementById('fullOTP').value = otp;
+        }
+        
+        // Start countdown timer
+        function startCountdown() {
+            clearInterval(countdownInterval);
+            
+            countdownInterval = setInterval(() => {
+                timeLeft--;
+                
+                const minutes = Math.floor(timeLeft / 60);
+                const seconds = timeLeft % 60;
+                
+                document.getElementById('countdown').textContent = 
+                    `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                
+                if (timeLeft <= 0) {
+                    clearInterval(countdownInterval);
+                    showMessage('OTP has expired. Please request a new code.', 'error');
+                    document.getElementById('verifyButton').disabled = true;
+                }
+            }, 1000);
+        }
+        
+        // Start resend timer
+        function startResendTimer() {
+            clearInterval(resendInterval);
+            document.getElementById('resendButton').disabled = true;
+            
+            resendInterval = setInterval(() => {
+                resendTime--;
+                document.getElementById('resendTimer').textContent = `(${resendTime}s)`;
+                
+                if (resendTime <= 0) {
+                    clearInterval(resendInterval);
+                    document.getElementById('resendButton').disabled = false;
+                    document.getElementById('resendTimer').textContent = '';
+                }
+            }, 1000);
+        }
+        
+        // Verify OTP
+        function verifyOTP() {
+            const enteredOTP = document.getElementById('fullOTP').value;
+            
+            // Validate OTP length
+            if (enteredOTP.length !== 6) {
+                showMessage('Please enter the complete 6-digit code.', 'error');
+                return;
+            }
+            
+            // Get stored OTP
+            const storedOTP = localStorage.getItem('pendingOTP');
+            const storedEmail = localStorage.getItem('pendingEmail');
+            
+            // Show loading
+            const verifyBtn = document.getElementById('verifyButton');
+            const originalText = verifyBtn.innerHTML;
+            verifyBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Verifying...';
+            verifyBtn.disabled = true;
+            
+            // Simulate verification
+            setTimeout(() => {
+                if (storedOTP && enteredOTP === storedOTP && email === storedEmail) {
+                    // OTP verified successfully
+                    
+                    if (type === 'register') {
+                        // Complete registration
+                        completeRegistration();
+                    } else {
+                        // Complete login
+                        completeLogin();
+                    }
+                } else {
+                    showMessage('Invalid OTP. Please try again.', 'error');
+                    verifyBtn.innerHTML = originalText;
+                    verifyBtn.disabled = false;
+                    
+                    // Clear OTP inputs
+                    clearOTPInputs();
+                }
+            }, 1500);
+        }
+        
+        // Complete registration
+        function completeRegistration() {
+            const userData = JSON.parse(localStorage.getItem('pendingUser'));
+            
+            if (!userData) {
+                showMessage('Registration data not found. Please start over.', 'error');
+                return;
+            }
+            
+            // Mark user as verified
+            userData.verified = true;
+            userData.verifiedAt = new Date().toISOString();
+            
+            // Save user to database (localStorage for demo)
+            const users = JSON.parse(localStorage.getItem('users') || '[]');
+            users.push(userData);
+            localStorage.setItem('users', JSON.stringify(users));
+            
+            // Clear temporary data
+            localStorage.removeItem('pendingUser');
+            localStorage.removeItem('pendingOTP');
+            localStorage.removeItem('pendingEmail');
+            
+            // Set login session
+            localStorage.setItem('userRole', userData.role);
+            localStorage.setItem('userEmail', userData.email);
+            localStorage.setItem('isLoggedIn', 'true');
+            localStorage.setItem('lastLogin', new Date().toLocaleString());
+            
+            // Show success and redirect
+            showMessage('Account verified successfully! Redirecting to dashboard...', 'success');
+            
+            setTimeout(() => {
+                if (userData.role === 'admin') {
+                    window.location.href = 'admin-dashboard.html';
+                } else {
+                    window.location.href = 'dashboard.html';
+                }
+            }, 2000);
+        }
+        
+        // Complete login
+        function completeLogin() {
+            // Clear OTP data
+            localStorage.removeItem('pendingOTP');
+            localStorage.removeItem('pendingEmail');
+            
+            // Check if admin
+            if (email === 'it@jayprasad.com.np') {
+                window.location.href = 'admin-dashboard.html';
+            } else {
+                window.location.href = 'dashboard.html';
+            }
+        }
+        
+        // Resend OTP
+        function resendOTP() {
+            // Generate new OTP
+            const newOTP = Math.floor(100000 + Math.random() * 900000).toString();
+            
+            // Show loading
+            const resendBtn = document.getElementById('resendButton');
+            resendBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-1"></i> Sending...';
+            resendBtn.disabled = true;
+            
+            // Simulate sending OTP
+            setTimeout(() => {
+                // Store new OTP
+                localStorage.setItem('pendingOTP', newOTP);
+                localStorage.setItem('pendingEmail', email);
+                
+                // Reset timers
+                timeLeft = 300;
+                resendTime = 60;
+                
+                // Restart timers
+                startCountdown();
+                startResendTimer();
+                
+                // Clear OTP inputs
+                clearOTPInputs();
+                
+                // Show success message
+                showMessage('New OTP sent to your email!', 'success');
+                
+                // Reset button
+                setTimeout(() => {
+                    resendBtn.innerHTML = '<i class="fas fa-redo mr-1"></i> Resend Code';
+                }, 1000);
+            }, 1500);
+        }
+        
+        // Clear OTP inputs
+        function clearOTPInputs() {
+            for (let i = 0; i < 6; i++) {
+                const input = document.querySelector(`.otp-input[data-index="${i}"]`);
+                input.value = '';
+                input.classList.remove('filled');
+            }
+            document.querySelector('.otp-input').focus();
+        }
+        
+        // Change email
+        function changeEmail() {
+            document.getElementById('emailModal').classList.remove('hidden');
+            document.getElementById('newEmail').value = email;
+            document.getElementById('newEmail').focus();
+        }
+        
+        // Close email modal
+        function closeEmailModal() {
+            document.getElementById('emailModal').classList.add('hidden');
+        }
+        
+        // Update email
+        function updateEmail() {
+            const newEmail = document.getElementById('newEmail').value;
+            
+            if (!newEmail || !newEmail.includes('@')) {
+                showMessage('Please enter a valid email address.', 'error');
+                return;
+            }
+            
+            // Update email in URL
+            const newUrl = new URL(window.location);
+            newUrl.searchParams.set('email', newEmail);
+            window.history.replaceState({}, '', newUrl);
+            
+            // Update displayed email
+            document.getElementById('userEmail').textContent = newEmail;
+            
+            // Close modal and resend OTP
+            closeEmailModal();
+            resendOTP();
+        }
+        
+        // Show message
+        function showMessage(text, type) {
+            const container = document.getElementById('messageContainer');
+            const message = document.getElementById('message');
+            
+            message.textContent = text;
+            message.className = 'p-4 rounded-lg ';
+            
+            switch(type) {
+                case 'error':
+                    message.className += 'bg-red-500/20 border border-red-500 text-red-300';
+                    break;
+                case 'success':
+                    message.className += 'bg-green-500/20 border border-green-500 text-green-300';
+                    break;
+            }
+            
+            container.classList.remove('hidden');
+            setTimeout(() => {
+                container.classList.add('hidden');
+            }, 3000);
+        }
+        
+        // Handle keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            // Ctrl+R to resend
+            if (e.ctrlKey && e.key === 'r') {
+                e.preventDefault();
+                if (!document.getElementById('resendButton').disabled) {
+                    resendOTP();
+                }
+            }
+            
+            // ESC to close modal
+            if (e.key === 'Escape') {
+                closeEmailModal();
+            }
+        });
+    </script>
+</body>
+</html>
