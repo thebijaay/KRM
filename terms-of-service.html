@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - Jay Prasad Majhi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-cyan: #00f3ff;
+            --primary-blue: #0066ff;
+            --primary-purple: #9d00ff;
+            --bg-dark: #0a0a0f;
+            --bg-darker: #050508;
+        }
+        
+        body {
+            background-color: var(--bg-dark);
+            color: #ffffff;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            line-height: 1.8;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, var(--primary-cyan) 0%, var(--primary-purple) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .glass-card {
+            background: rgba(20, 20, 30, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 243, 255, 0.1);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        
+        .cyber-button {
+            position: relative;
+            padding: 12px 30px;
+            background: transparent;
+            border: 2px solid var(--primary-cyan);
+            color: var(--primary-cyan);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border-radius: 10px;
+        }
+        
+        .cyber-button:hover {
+            background: rgba(0, 243, 255, 0.1);
+            box-shadow: 0 0 20px rgba(0, 243, 255, 0.3);
+        }
+        
+        .section-card {
+            transition: transform 0.3s ease;
+        }
+        
+        .section-card:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Navigation -->
+    <nav class="glass-card fixed top-4 left-4 right-4 z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-lg bg-gradient-to-r from-cyan-500 to-purple-500 flex items-center justify-center">
+                        <i class="fas fa-file-contract text-white"></i>
+                    </div>
+                    <div>
+                        <div class="text-xl font-bold gradient-text">JAY PRASAD MAJHI</div>
+                        <div class="text-xs text-cyan-400">Terms of Service</div>
+                    </div>
+                </a>
+                <div class="flex space-x-4">
+                    <a href="index.html" class="text-gray-300 hover:text-cyan-400 transition">← Back to Home</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mx-auto px-4 pt-24 pb-16 max-w-6xl">
+        <!-- Header -->
+        <div class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">Terms of Service</h1>
+            <p class="text-gray-400 text-lg">Effective Date: December 14, 2024</p>
+            <div class="flex justify-center space-x-4 mt-8">
+                <button onclick="downloadPDF('terms')" class="cyber-button">
+                    <i class="fas fa-download mr-2"></i> Download PDF
+                </button>
+                <button onclick="printPage()" class="cyber-button">
+                    <i class="fas fa-print mr-2"></i> Print Terms
+                </button>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="glass-card p-8 md:p-12 space-y-12">
+            <!-- Agreement -->
+            <section class="section-card glass-card p-6 rounded-xl">
+                <h2 class="text-2xl font-bold mb-4 text-cyan-400">1. Agreement to Terms</h2>
+                <p class="text-gray-300">
+                    By accessing and using the services provided by Jay Prasad Majhi ("we," "us," or "our"), including but not limited to AI development, cybersecurity consulting, web development, and related services (collectively, the "Services"), you agree to be bound by these Terms of Service and all applicable laws and regulations.
+                </p>
+                <p class="text-gray-300 mt-4">
+                    If you do not agree with any part of these terms, you must not access or use our Services. These terms apply to all visitors, users, and others who access or use the Services.
+                </p>
+            </section>
+
+            <!-- Services Description -->
+            <section class="section-card glass-card p-6 rounded-xl">
+                <h2 class="text-2xl font-bold mb-4 text-cyan-400">2. Services Description</h2>
+                <div class="space-y-4">
+                    <div>
+                        <h3 class="text-xl font-bold mb-2 text-cyan-300">2.1 AI Development Services</h3>
+                        <p class="text-gray-300">
+                            We provide artificial intelligence development services including machine learning model development, neural network design, AI integration, and custom AI solutions. Our AI services leverage a 900M+ question-answer database for enhanced performance and accuracy.
+                        </p>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2 text-cyan-300">2.2 Cybersecurity Services</h3>
+                        <p class="text-gray-300">
+                            Our cybersecurity services include security assessments, vulnerability testing, threat detection, network security implementation, incident response, and comprehensive security consulting for businesses of all sizes.
+                        </p>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2 text-cyan-300">2.3 Web Development Services</h3>
+                        <p class="text-gray-300">
+                            We offer full-stack web development services including custom website design, e-commerce solutions, web application development, and progressive web applications using modern technologies and frameworks.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- User Responsibilities -->
+            <section class="section-card glass-card p-6 rounded-xl">
+                <h2 class="text-2xl font-bold mb-4 text-cyan-400">3. User Responsibilities</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="p-4 bg-gray-900/50 rounded-lg">
+                        <h4 class="font-bold text-cyan-300 mb-2">Account Security</h4>
+                        <p class="text-sm text-gray-400">You are responsible for maintaining the confidentiality of your account credentials.</p>
+                    </div>
+                    <div class="p-4 bg-gray-900/50 rounded-lg">
+                        <h4 class="font-bold text-cyan-300 mb-2">Accurate Information</h4>
+                        <p class="text-sm text-gray-400">You must provide accurate and complete information when using our Services.</p>
+                    </div>
+                    <div class="p-4 bg-gray-900/50 rounded-lg">
+                        <h4 class="font-bold text-cyan-300 mb-2">Compliance</h4>
+                        <p class="text-sm text-gray-400">You agree to comply with all applicable laws and regulations.</p>
+                    </div>
+                    <div class="p-4 bg-gray-900/50 rounded-lg">
+                        <h4 class="font-bold text-cyan-300 mb-2">Prohibited Activities</h4>
+                        <p class="text-sm text-gray-400">You may not use our Services for any illegal or unauthorized purpose.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Intellectual Property -->
+            <section class="section-card glass-card p-6 rounded-xl">
+                <h2 class="text-2xl font-bold mb-4 text-cyan-400">4. Intellectual Property Rights</h2>
+                <p class="text-gray-300 mb-4">
+                    All intellectual property rights in the Services, including but not limited to software, algorithms, designs, documentation, and content, are owned by Jay Prasad Majhi or our licensors.
+                </p>
+                <div class="space-y-3">
+                    <div class="flex items-start space-x-3">
+                        <i class="fas fa-code text-cyan-400 mt-1"></i>
+                        <div>
+                            <h4 class="font-bold text-cyan-300">Software and Code</h4>
+                            <p class="text-gray-400 text-sm">All source code, algorithms, and software provided as part of our Services are protected by copyright and other intellectual property laws.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-3">
+                        <i class="fas fa-brain text-cyan-400 mt-1"></i>
+                        <div>
+                            <h4 class="font-bold text-cyan-300">AI Models and Data</h4>
+                            <p class="text-gray-400 text-sm">AI models, training data, and algorithms developed as part of our Services remain our intellectual property unless otherwise agreed in writing.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-3">
+                        <i class="fas fa-shield-alt text-cyan-400 mt-1"></i>
+                        <div>
+                            <h4 class="font-bold text-cyan-300">Cybersecurity Tools</h4>
+                            <p class="text-gray-400 text-sm">Security tools, methodologies, and documentation developed by us are protected intellectual property.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Payment Terms -->
+            <section class="section-card glass-card p-6 rounded-xl">
+                <h2 class="text-2xl font-bold mb-4 text-cyan-400">5. Payment Terms</h2>
+                <div class="space-y-4">
+                    <div>
+                        <h3 class="text-xl font-bold mb-2 text-cyan-300">5.1 Service Fees</h3>
+                        <p class="text-gray-300">
+                            Fees for our Services are as specified in your service agreement or project proposal. All fees are quoted in US dollars unless otherwise specified.
+                        </p>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2 text-cyan-300">5.2 Payment Schedule</h3>
+                        <p class="text-gray-300">
+                            Payment terms will be specified in your service agreement. Typically, we require a deposit before work begins, with milestone payments throughout the project duration.
+                        </p>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2 text-cyan-300">5.3 Late Payments</h3>
+                        <p class="text-gray-300">
+                            Late payments may be subject to interest charges at the rate of 1.5% per month or the maximum rate permitted by law, whichever is lower.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Confidentiality -->
+            <section class="section-card glass-card p-6 rounded-xl">
+                <h2 class="text-2xl font-bold mb-4 text-cyan-400">6. Confidentiality</h2>
+                <p class="text-gray-300 mb-4">
+                    Both parties agree to maintain the confidentiality of proprietary information received from the other party that is marked as confidential or would normally be considered confidential under the circumstances.
+                </p>
+                <div class="space-y-3">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 rounded-full bg-cyan-500/20 flex items-center justify-center">
+                            <i class="fas fa-lock text-cyan-400"></i>
+                        </div>
+                        <span class="text-gray-300">Client data and business information</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 rounded-full bg-cyan-500/20 flex items-center justify-center">
+                            <i class="fas fa-code text-cyan-400"></i>
+                        </div>
+                        <span class="text-gray-300">Proprietary algorithms and source code</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 rounded-full bg-cyan-500/20 flex items-center justify-center">
+                            <i class="fas fa-chart-line text-cyan-400"></i>
+                        </div>
+                        <span class="text-gray-300">Business strategies and financial information</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Limitation of Liability -->
+            <section class="section-card glass-card p-6 rounded-xl">
+                <h2 class="text-2xl font-bold mb-4 text-cyan-400">7. Limitation of Liability</h2>
+                <p class="text-gray-300 mb-4">
+                    To the maximum extent permitted by applicable law, in no event shall Jay Prasad Majhi be liable for any indirect, punitive, incidental, special, consequential, or exemplary damages, including without limitation damages for loss of profits, goodwill, use, data, or other intangible losses, arising out of or relating to the use of, or inability to use, the Services.
+                </p>
+                <div class="bg-gray-900/50 p-4 rounded-lg">
+                    <p class="text-gray-300 text-sm">
+                        <strong>Note:</strong> Our total cumulative liability to you for all claims arising from or related to the Services shall not exceed the total amount paid by you to us for the Services in the six (6) months preceding the claim.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Termination -->
+            <section class="section-card glass-card p-6 rounded-xl">
+                <h2 class="text-2xl font-bold mb-4 text-cyan-400">8. Termination</h2>
+                <div class="space-y-4">
+                    <div>
+                        <h3 class="text-xl font-bold mb-2 text-cyan-300">8.1 Termination Rights</h3>
+                        <p class="text-gray-300">
+                            We may terminate or suspend your access to our Services immediately, without prior notice or liability, for any reason whatsoever, including without limitation if you breach the Terms.
+                        </p>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2 text-cyan-300">8.2 Effect of Termination</h3>
+                        <p class="text-gray-300">
+                            Upon termination, your right to use the Services will immediately cease. All provisions of the Terms which by their nature should survive termination shall survive termination, including, without limitation, ownership provisions, warranty disclaimers, indemnity, and limitations of liability.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Governing Law -->
+            <section class="section-card glass-card p-6 rounded-xl">
+                <h2 class="text-2xl font-bold mb-4 text-cyan-400">9. Governing Law</h2>
+                <p class="text-gray-300">
+                    These Terms shall be governed and construed in accordance with the laws of Nepal and the United States, without regard to its conflict of law provisions. Any disputes arising under or in connection with these Terms shall be subject to the exclusive jurisdiction of the courts located in Kathmandu, Nepal.
+                </p>
+            </section>
+
+            <!-- Changes to Terms -->
+            <section class="section-card glass-card p-6 rounded-xl">
+                <h2 class="text-2xl font-bold mb-4 text-cyan-400">10. Changes to Terms</h2>
+                <p class="text-gray-300">
+                    We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a revision is material, we will provide at least 30 days' notice prior to any new terms taking effect. What constitutes a material change will be determined at our sole discretion.
+                </p>
+            </section>
+
+            <!-- Contact -->
+            <section class="section-card glass-card p-6 rounded-xl">
+                <h2 class="text-2xl font-bold mb-4 text-cyan-400">11. Contact Information</h2>
+                <div class="space-y-3">
+                    <div class="flex items-center space-x-3">
+                        <i class="fas fa-envelope text-cyan-400"></i>
+                        <a href="mailto:intelligence@jayprasad.com.np" class="text-gray-300 hover:text-cyan-400 transition">intelligence@jayprasad.com.np</a>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <i class="fas fa-phone text-cyan-400"></i>
+                        <span class="text-gray-300">+977 9812345678</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <i class="fas fa-map-marker-alt text-cyan-400"></i>
+                        <span class="text-gray-300">Kathmandu, Nepal / Los Angeles, USA</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Acceptance -->
+        <div class="glass-card p-8 mt-8 text-center">
+            <h3 class="text-2xl font-bold mb-4 gradient-text">Acceptance of Terms</h3>
+            <p class="text-gray-400 mb-6">By using our Services, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service.</p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                <button onclick="downloadPDF('terms')" class="cyber-button">
+                    <i class="fas fa-file-pdf mr-2"></i> Download PDF
+                </button>
+                <button onclick="downloadTXT('terms')" class="cyber-button">
+                    <i class="fas fa-file-alt mr-2"></i> Download TXT
+                </button>
+                <button onclick="downloadDOC('terms')" class="cyber-button">
+                    <i class="fas fa-file-word mr-2"></i> Download DOC
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="glass-card mt-8 border-t border-gray-800">
+        <div class="container mx-auto px-6 py-8">
+            <div class="text-center">
+                <p class="text-gray-400">© 2024 Jay Prasad Majhi. All rights reserved.</p>
+                <p class="text-gray-500 text-sm mt-2">Version 3.0 | Last Updated: December 14, 2024</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function downloadPDF(type) {
+            const content = document.querySelector('.glass-card').innerText;
+            const blob = new Blob([content], { type: 'application/pdf' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `jay-prasad-majhi-${type}-of-service.pdf`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }
+
+        function downloadTXT(type) {
+            const content = document.querySelector('.glass-card').innerText;
+            const blob = new Blob([content], { type: 'text/plain' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `jay-prasad-majhi-${type}-of-service.txt`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }
+
+        function downloadDOC(type) {
+            const content = document.querySelector('.glass-card').innerHTML;
+            const blob = new Blob([content], { type: 'application/msword' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `jay-prasad-majhi-${type}-of-service.doc`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }
+
+        function printPage() {
+            window.print();
+        }
+
+        // Add section navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                section.addEventListener('click', function() {
+                    this.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
