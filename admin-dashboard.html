@@ -10,32 +10,32 @@
     <link href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" rel="stylesheet">
     <style>
         :root {
-            --primary-cyan: #00f3ff;
-            --primary-blue: #0066ff;
-            --primary-purple: #9d00ff;
-            --bg-dark: #0a0a0f;
-            --bg-darker: #050508;
+            --primary-blue: #0d6efd;
+            --primary-orange: #fd7e14;
+            --bg-light: #ffffff;
+            --bg-lighter: #f8f9fa;
+            --text-dark: #212529;
         }
         
         body {
-            background-color: var(--bg-dark);
-            color: #ffffff;
+            background-color: var(--bg-lighter);
+            color: var(--text-dark);
             font-family: 'Inter', system-ui, -apple-system, sans-serif;
         }
         
         .gradient-text {
-            background: linear-gradient(135deg, var(--primary-cyan) 0%, var(--primary-purple) 100%);
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-orange) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
         
         .glass-card {
-            background: rgba(20, 20, 30, 0.8);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(0, 243, 255, 0.1);
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 0, 0, 0.1);
             border-radius: 15px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         
         .sidebar {
@@ -62,13 +62,13 @@
         }
         
         .nav-item:hover {
-            background: rgba(0, 243, 255, 0.1);
-            border-left-color: var(--primary-cyan);
+            background: rgba(13, 110, 253, 0.1);
+            border-left-color: var(--primary-blue);
         }
         
         .nav-item.active {
-            background: rgba(0, 243, 255, 0.1);
-            border-left-color: var(--primary-cyan);
+            background: rgba(13, 110, 253, 0.1);
+            border-left-color: var(--primary-blue);
         }
         
         .stat-card {

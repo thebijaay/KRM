@@ -46,33 +46,33 @@
 
       .swiper-button-next,
       .swiper-button-prev {
-        color: #00f3ff;
+        color: #0d6efd;
       }
 
       .swiper-pagination-bullet {
-        background-color: #00f3ff;
+        background-color: #0d6efd;
       }
       
       /* Additional Styles for Jay Prasad Majhi's Info */
       .cyber-gradient {
-        background: linear-gradient(135deg, #00f3ff 0%, #9d00ff 50%, #ff00ff 100%);
+        background: linear-gradient(135deg, #0d6efd 0%, #fd7e14 100%);
       }
       
       .gradient-text {
-        background: linear-gradient(135deg, #00f3ff 0%, #9d00ff 50%, #ff00ff 100%);
+        background: linear-gradient(135deg, #0d6efd 0%, #fd7e14 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
       }
       
       .ai-badge {
-        background: rgba(0, 243, 255, 0.1);
-        border: 1px solid rgba(0, 243, 255, 0.3);
+        background: rgba(13, 110, 253, 0.1);
+        border: 1px solid rgba(13, 110, 253, 0.3);
         backdrop-filter: blur(10px);
       }
       
       .cyber-button {
-        background: linear-gradient(135deg, #00f3ff 0%, #9d00ff 100%);
+        background: #0d6efd;
         border: none;
         color: white;
         font-weight: 600;
@@ -81,26 +81,27 @@
       
       .cyber-button:hover {
         transform: translateY(-2px);
-        box-shadow: 0 10px 20px rgba(0, 243, 255, 0.3);
+        background: #fd7e14;
+        box-shadow: 0 10px 20px rgba(253, 126, 20, 0.5);
       }
       
       .glass-card {
-        background: rgba(20, 20, 30, 0.8);
-        backdrop-filter: blur(20px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(0, 0, 0, 0.1);
         border-radius: 20px;
       }
       
       .skill-bar {
         height: 10px;
-        background: rgba(255, 255, 255, 0.1);
+        background: rgba(0, 0, 0, 0.1);
         border-radius: 5px;
         overflow: hidden;
       }
       
       .skill-progress {
         height: 100%;
-        background: linear-gradient(90deg, #00f3ff 0%, #9d00ff 100%);
+        background: linear-gradient(90deg, #0d6efd 0%, #fd7e14 100%);
         border-radius: 5px;
       }
       
@@ -118,8 +119,8 @@
         width: 12px;
         height: 12px;
         border-radius: 50%;
-        background: #00f3ff;
-        border: 3px solid #111;
+        background: #0d6efd;
+        border: 3px solid #fff;
       }
       
       .timeline-node::after {
@@ -129,7 +130,7 @@
         top: 20px;
         bottom: -30px;
         width: 2px;
-        background: #00f3ff;
+        background: #0d6efd;
       }
       
       .timeline-node:last-child::after {
@@ -138,19 +139,19 @@
     </style>
     <script src="./matter.js" defer></script>
   </head>
-  <body class="bg-[#111] text-white font-['Inter']">
+  <body class="bg-white text-gray-800 font-['Inter']">
     <!-- Loading Screen (from second code) -->
-    <div id="loadingScreen" class="loading-screen fixed inset-0 z-50 bg-[#05050f] flex items-center justify-center" style="display: none;">
+    <div id="loadingScreen" class="loading-screen fixed inset-0 z-50 bg-white flex items-center justify-center" style="display: none;">
       <div class="text-center">
-        <div class="w-32 h-32 mx-auto mb-8 rounded-full bg-gradient-to-r from-cyan-500 to-purple-500 flex items-center justify-center animate-pulse">
+        <div class="w-32 h-32 mx-auto mb-8 rounded-full bg-gradient-to-r from-blue-500 to-orange-500 flex items-center justify-center animate-pulse">
           <i class="fas fa-brain text-white text-4xl"></i>
         </div>
         <h1 class="text-4xl md:text-6xl font-bold mb-4 gradient-text">JAY PRASAD MAJHI</h1>
-        <p class="text-xl text-cyan-400 mb-8">Initializing AI Systems...</p>
-        <div class="w-64 h-2 bg-gray-800 rounded-full overflow-hidden mx-auto">
-          <div class="h-full bg-gradient-to-r from-cyan-500 to-purple-500 w-0" id="loadingBar"></div>
+        <p class="text-xl text-blue-500 mb-8">Initializing AI Systems...</p>
+        <div class="w-64 h-2 bg-gray-200 rounded-full overflow-hidden mx-auto">
+          <div class="h-full bg-gradient-to-r from-blue-500 to-orange-500 w-0" id="loadingBar"></div>
         </div>
-        <p class="text-gray-400 mt-4" id="loadingText">Loading Cybersecurity Protocols</p>
+        <p class="text-gray-500 mt-4" id="loadingText">Loading Cybersecurity Protocols</p>
       </div>
     </div>
 
@@ -328,6 +329,36 @@
             />
           </svg>
         </button>
+      </div>
+    </section>
+
+    <!-- Quick Links Section -->
+    <section id="quick-links" class="max-w-screen-xl mx-auto px-4 py-16">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <a href="#about" onclick="scrollToSection('about')" class="group block text-center">
+          <div class="w-24 h-24 mx-auto mb-4 rounded-full bg-blue-100 flex items-center justify-center group-hover:bg-blue-500 transition">
+            <i class="fas fa-user text-blue-500 text-3xl group-hover:text-white transition"></i>
+          </div>
+          <h3 class="text-xl font-bold group-hover:text-blue-500 transition">About Me</h3>
+        </a>
+        <a href="#services" onclick="scrollToSection('services')" class="group block text-center">
+          <div class="w-24 h-24 mx-auto mb-4 rounded-full bg-orange-100 flex items-center justify-center group-hover:bg-orange-500 transition">
+            <i class="fas fa-cogs text-orange-500 text-3xl group-hover:text-white transition"></i>
+          </div>
+          <h3 class="text-xl font-bold group-hover:text-orange-500 transition">Services</h3>
+        </a>
+        <a href="#works" onclick="scrollToSection('works')" class="group block text-center">
+          <div class="w-24 h-24 mx-auto mb-4 rounded-full bg-blue-100 flex items-center justify-center group-hover:bg-blue-500 transition">
+            <i class="fas fa-briefcase text-blue-500 text-3xl group-hover:text-white transition"></i>
+          </div>
+          <h3 class="text-xl font-bold group-hover:text-blue-500 transition">Portfolio</h3>
+        </a>
+        <a href="#contact" onclick="scrollToSection('contact')" class="group block text-center">
+          <div class="w-24 h-24 mx-auto mb-4 rounded-full bg-orange-100 flex items-center justify-center group-hover:bg-orange-500 transition">
+            <i class="fas fa-envelope text-orange-500 text-3xl group-hover:text-white transition"></i>
+          </div>
+          <h3 class="text-xl font-bold group-hover:text-orange-500 transition">Contact</h3>
+        </a>
       </div>
     </section>
     

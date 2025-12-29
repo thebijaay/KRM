@@ -9,40 +9,40 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary-cyan: #00f3ff;
-            --primary-blue: #0066ff;
-            --primary-purple: #9d00ff;
-            --bg-dark: #0a0a0f;
-            --bg-darker: #050508;
+            --primary-blue: #0d6efd;
+            --primary-orange: #fd7e14;
+            --bg-light: #ffffff;
+            --bg-lighter: #f8f9fa;
+            --text-dark: #212529;
         }
         
         body {
-            background-color: var(--bg-dark);
-            color: #ffffff;
+            background-color: var(--bg-lighter);
+            color: var(--text-dark);
             font-family: 'Inter', system-ui, -apple-system, sans-serif;
         }
         
         .gradient-text {
-            background: linear-gradient(135deg, var(--primary-cyan) 0%, var(--primary-purple) 100%);
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-orange) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
         
         .glass-card {
-            background: rgba(20, 20, 30, 0.8);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(0, 243, 255, 0.1);
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 0, 0, 0.1);
             border-radius: 20px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         
         .cyber-button {
             position: relative;
             padding: 12px 30px;
-            background: transparent;
-            border: 2px solid var(--primary-cyan);
-            color: var(--primary-cyan);
+            background: var(--primary-blue);
+            border: none;
+            color: white;
             font-weight: 600;
             letter-spacing: 1px;
             cursor: pointer;
@@ -52,24 +52,24 @@
         }
         
         .cyber-button:hover {
-            background: rgba(0, 243, 255, 0.1);
-            box-shadow: 0 0 20px rgba(0, 243, 255, 0.3);
+            background: var(--primary-orange);
+            box-shadow: 0 0 20px rgba(253, 126, 20, 0.5);
         }
         
         .cyber-input {
-            background: rgba(20, 20, 30, 0.8);
-            border: 1px solid rgba(0, 243, 255, 0.2);
+            background: var(--bg-light);
+            border: 1px solid #ced4da;
             border-radius: 10px;
             padding: 15px 20px;
-            color: var(--text-primary);
+            color: var(--text-dark);
             transition: all 0.3s ease;
             width: 100%;
         }
         
         .cyber-input:focus {
             outline: none;
-            border-color: var(--primary-cyan);
-            box-shadow: 0 0 20px rgba(0, 243, 255, 0.2);
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 10px rgba(13, 110, 253, 0.25);
         }
         
         .security-badge {
