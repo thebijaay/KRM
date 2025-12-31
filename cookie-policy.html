@@ -3,47 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cookie Policy | Jay Prasad Majhi</title>
-    <link rel="icon" type="image/png" href="favicon.png">
+    <title>Cookie Policy - Jay Prasad Majhi</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary-blue: #0d6efd;
-            --primary-orange: #fd7e14;
-            --bg-light: #ffffff;
-            --bg-lighter: #f8f9fa;
-            --text-dark: #212529;
+            --primary-cyan: #00f3ff;
+            --primary-blue: #0066ff;
+            --primary-purple: #9d00ff;
+            --bg-dark: #0a0a0f;
+            --bg-darker: #050508;
         }
         
         body {
-            background-color: var(--bg-lighter);
-            color: var(--text-dark);
+            background-color: var(--bg-dark);
+            color: #ffffff;
             font-family: 'Inter', system-ui, -apple-system, sans-serif;
             line-height: 1.8;
         }
         
         .gradient-text {
-            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-orange) 100%);
+            background: linear-gradient(135deg, var(--primary-cyan) 0%, var(--primary-purple) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
         
         .glass-card {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(0, 0, 0, 0.1);
+            background: rgba(20, 20, 30, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 243, 255, 0.1);
             border-radius: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
         }
         
         .cyber-button {
             position: relative;
             padding: 12px 30px;
-            background: var(--primary-blue);
-            border: none;
-            color: white;
+            background: transparent;
+            border: 2px solid var(--primary-cyan);
+            color: var(--primary-cyan);
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -54,8 +53,8 @@
         }
         
         .cyber-button:hover {
-            background: var(--primary-orange);
-            box-shadow: 0 0 20px rgba(253, 126, 20, 0.5);
+            background: rgba(0, 243, 255, 0.1);
+            box-shadow: 0 0 20px rgba(0, 243, 255, 0.3);
         }
         
         .cookie-type {
@@ -64,7 +63,7 @@
         }
         
         .cookie-type:hover {
-            border-left-color: var(--primary-blue);
+            border-left-color: var(--primary-cyan);
             transform: translateX(10px);
         }
         
