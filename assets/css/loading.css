@@ -10,7 +10,7 @@
     --primary-green: #00ff9d;
     --primary-yellow: #ffcc00;
     --primary-red: #ff3366;
-    
+
     --gradient-cyber: linear-gradient(135deg, var(--primary-cyan) 0%, var(--primary-purple) 50%, var(--primary-pink) 100%);
     --gradient-ocean: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-cyan) 100%);
     --gradient-neon: linear-gradient(135deg, var(--primary-pink) 0%, var(--primary-yellow) 100%);

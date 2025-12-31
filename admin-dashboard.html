@@ -1,115 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard | Jay Prasad Majhi</title>
-    <link rel="icon" type="image/png" href="favicon.png">
-    <script src="https://cdn.tailwindcss.com"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary Meta Tags -->
+    <title>Jay Prasad Majhi – AI & Cybersecurity Expert</title>
+    <meta name="description" content="Jay Prasad Majhi - AI Developer, Cybersecurity Specialist & IT Consultant. Certified Cybersecurity professional with 900M+ AI database expertise." />
+    <meta name="author" content="Jay Prasad Majhi" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.png" type="image/png" sizes="16x16" />
+    <link rel="icon" href="favicon.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="favicon.png" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://jayprasadmajhi.com/" />
+    <meta property="og:title" content="Jay Prasad Majhi – AI & Cybersecurity Expert" />
+    <meta property="og:description" content="AI Developer, Cybersecurity Specialist & IT Consultant with 900M+ AI database expertise." />
+    <meta property="og:image" content="assets/images/name-logo.svg" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://jayprasadmajhi.com/" />
+    <meta property="twitter:title" content="Jay Prasad Majhi – AI & Cybersecurity Expert" />
+    <meta property="twitter:description" content="AI Developer, Cybersecurity Specialist & IT Consultant with 900M+ AI database expertise." />
+    <meta property="twitter:image" content="assets/images/name-logo.svg" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Jay Prasad Majhi",
+        "url": "https://jayprasadmajhi.com",
+        "jobTitle": "AI & Cybersecurity Expert"
+      }
+    </script>
+
+    <!-- External Libraries -->
+    <link rel="stylesheet" href="font.css" />
+    <link rel="stylesheet" href="output.css" />
+    <link rel="stylesheet" href="style.css" />
+    <!-- Link Swiper's CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" rel="stylesheet">
-    <style>
-        :root {
-            --primary-cyan: #00f3ff;
-            --primary-blue: #0066ff;
-            --primary-purple: #9d00ff;
-            --bg-dark: #0a0a0f;
-            --bg-darker: #050508;
-        }
-        
-        body {
-            background-color: var(--bg-dark);
-            color: #ffffff;
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-        }
-        
-        .gradient-text {
-            background: linear-gradient(135deg, var(--primary-cyan) 0%, var(--primary-purple) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .glass-card {
-            background: rgba(20, 20, 30, 0.8);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(0, 243, 255, 0.1);
-            border-radius: 15px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-        }
-        
-        .sidebar {
-            width: 280px;
-            transition: all 0.3s ease;
-        }
-        
-        .sidebar.collapsed {
-            width: 80px;
-        }
-        
-        .main-content {
-            margin-left: 280px;
-            transition: all 0.3s ease;
-        }
-        
-        .main-content.expanded {
-            margin-left: 80px;
-        }
-        
-        .nav-item {
-            transition: all 0.3s ease;
-            border-left: 3px solid transparent;
-        }
-        
-        .nav-item:hover {
-            background: rgba(0, 243, 255, 0.1);
-            border-left-color: var(--primary-cyan);
-        }
-        
-        .nav-item.active {
-            background: rgba(0, 243, 255, 0.1);
-            border-left-color: var(--primary-cyan);
-        }
-        
-        .stat-card {
-            transition: transform 0.3s ease;
-        }
-        
-        .stat-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .badge {
-            font-size: 0.75rem;
-            padding: 0.25rem 0.75rem;
-            border-radius: 9999px;
-        }
-        
-        .badge-success {
-            background: rgba(34, 197, 94, 0.2);
-            color: #4ade80;
-            border: 1px solid rgba(34, 197, 94, 0.3);
-        }
-        
-        .badge-warning {
-            background: rgba(234, 179, 8, 0.2);
-            color: #fbbf24;
-            border: 1px solid rgba(234, 179, 8, 0.3);
-        }
-        
-        .badge-danger {
-            background: rgba(239, 68, 68, 0.2);
-            color: #f87171;
-            border: 1px solid rgba(239, 68, 68, 0.3);
-        }
-        
-        .badge-info {
-            background: rgba(59, 130, 246, 0.2);
-            color: #60a5fa;
-            border: 1px solid rgba(59, 130, 246, 0.3);
-        }
-    </style>
-</head>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet">
+  </head>
 <body class="min-h-screen">
     <!-- Sidebar -->
     <div id="sidebar" class="sidebar fixed left-0 top-0 h-full glass-card z-40">
