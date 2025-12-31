@@ -1,0 +1,1255 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="favicon.png">
+    <title>Homepage | Jay Prasad Majhi</title>
+    
+    <!-- Meta Tags -->
+    <meta name="description" content="Jay Prasad Majhi - AI Developer, Cybersecurity Specialist & IT Consultant. Certified Cybersecurity professional with 900M+ AI database expertise.">
+    <meta name="keywords" content="AI Developer, Cybersecurity Expert, Machine Learning, Artificial Intelligence, Web Development, IT Consultant, Cybersecurity Certified, Python Developer, React Expert">
+    <meta name="author" content="Jay Prasad Majhi - AI Developer, Cybersecurity Specialist & IT Consultant">
+    <meta property="og:title" content="Jay Prasad Majhi | AI & Cybersecurity Expert">
+    <meta property="og:description" content="Leading AI Developer and Cybersecurity Specialist with global expertise.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://jayprasadmajhi.com">
+    
+    <!-- External Libraries -->
+    <link rel="stylesheet" href="font.css" />
+    <link rel="stylesheet" href="output.css" />
+    <link rel="stylesheet" href="style.css" />
+    <!-- Link Swiper's CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet">
+
+    <!-- Demo styles -->
+    <style>
+      .swiper {
+        width: 100%;
+        height: 100%;
+      }
+
+      .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .swiper-button-next,
+      .swiper-button-prev {
+        color: #00f3ff;
+      }
+
+      .swiper-pagination-bullet {
+        background-color: #00f3ff;
+      }
+      
+      /* Additional Styles for Jay Prasad Majhi's Info */
+      .cyber-gradient {
+        background: linear-gradient(135deg, #00f3ff 0%, #9d00ff 50%, #ff00ff 100%);
+      }
+      
+      .gradient-text {
+        background: linear-gradient(135deg, #00f3ff 0%, #9d00ff 50%, #ff00ff 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      
+      .ai-badge {
+        background: rgba(0, 243, 255, 0.1);
+        border: 1px solid rgba(0, 243, 255, 0.3);
+        backdrop-filter: blur(10px);
+      }
+      
+      .cyber-button {
+        background: linear-gradient(135deg, #00f3ff 0%, #9d00ff 100%);
+        border: none;
+        color: white;
+        font-weight: 600;
+        transition: all 0.3s ease;
+      }
+      
+      .cyber-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(0, 243, 255, 0.3);
+      }
+      
+      .glass-card {
+        background: rgba(20, 20, 30, 0.8);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+      }
+      
+      .skill-bar {
+        height: 10px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 5px;
+        overflow: hidden;
+      }
+      
+      .skill-progress {
+        height: 100%;
+        background: linear-gradient(90deg, #00f3ff 0%, #9d00ff 100%);
+        border-radius: 5px;
+      }
+      
+      .timeline-node {
+        position: relative;
+        padding-left: 30px;
+        margin-bottom: 30px;
+      }
+      
+      .timeline-node::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 5px;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: #00f3ff;
+        border: 3px solid #111;
+      }
+      
+      .timeline-node::after {
+        content: '';
+        position: absolute;
+        left: 5px;
+        top: 20px;
+        bottom: -30px;
+        width: 2px;
+        background: #00f3ff;
+      }
+      
+      .timeline-node:last-child::after {
+        display: none;
+      }
+    </style>
+    <script src="./matter.js" defer></script>
+  </head>
+  <body class="bg-[#111] text-white font-['Inter']">
+    <!-- Loading Screen (from second code) -->
+    <div id="loadingScreen" class="loading-screen fixed inset-0 z-50 bg-[#05050f] flex items-center justify-center" style="display: none;">
+      <div class="text-center">
+        <div class="w-32 h-32 mx-auto mb-8 rounded-full bg-gradient-to-r from-cyan-500 to-purple-500 flex items-center justify-center animate-pulse">
+          <i class="fas fa-brain text-white text-4xl"></i>
+        </div>
+        <h1 class="text-4xl md:text-6xl font-bold mb-4 gradient-text">JAY PRASAD MAJHI</h1>
+        <p class="text-xl text-cyan-400 mb-8">Initializing AI Systems...</p>
+        <div class="w-64 h-2 bg-gray-800 rounded-full overflow-hidden mx-auto">
+          <div class="h-full bg-gradient-to-r from-cyan-500 to-purple-500 w-0" id="loadingBar"></div>
+        </div>
+        <p class="text-gray-400 mt-4" id="loadingText">Loading Cybersecurity Protocols</p>
+      </div>
+    </div>
+
+    <section class="flex flex-col justify-between h-screen">
+      <header
+        class="z-10 pointer-events-none flex items-center justify-between w-full px-4 mt-4 max-w-screen-xl mx-auto"
+      >
+        <!-- Logo with AI/Cyber theme -->
+        <div class="flex items-center gap-4">
+          <div class="w-16 h-16 rounded-full bg-gradient-to-r from-cyan-500 to-purple-500 flex items-center justify-center">
+            <i class="fas fa-brain text-white text-2xl"></i>
+          </div>
+          <div>
+            <div class="text-xl font-bold font-['Orbitron']">JAY PRASAD MAJHI</div>
+            <div class="text-xs text-cyan-400 font-['JetBrains Mono']">AI & CYBERSECURITY EXPERT</div>
+          </div>
+        </div>
+        <div class="flex gap-4 pointer-events-auto">
+          <!-- Theme Toggle -->
+          <button id="themeToggle" class="w-10 h-10 rounded-full glass-card flex items-center justify-center hover:bg-white/10 transition">
+            <i class="fas fa-moon text-cyan-400"></i>
+          </button>
+          
+          <!-- Contact Icons -->
+          <a href="tel:+9779812345678"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="feather feather-phone hover:text-cyan-400 transition"
+            >
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+              ></path></svg
+          ></a>
+          <a
+            href="https://wa.me/9779812345678?text=Hi, I'm interested in your AI/Cybersecurity services"
+            target="_blank"
+          >
+            <svg
+              aria-hidden="true"
+              focusable="false"
+              data-prefix="fab"
+              data-icon="whatsapp"
+              class="svg-inline--fa fa-whatsapp fa-w-14 hover:text-green-400 transition"
+              role="img"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 448 512"
+            >
+              <path
+                fill="currentColor"
+                d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"
+              ></path>
+            </svg>
+          </a>
+        </div>
+      </header>
+      <div class="absolute inset-0 hidden md:block" id="wrapper-canvas"></div>
+      <div class="flex -mt-10 relative">
+        <div class="w-full px-4 max-w-screen-xl mx-auto">
+          <!-- AI/Cyber themed graphic -->
+          <div class="pointer-events-none absolute top-0 left-1/2 -translate-y-[80px] sm:-translate-y-[180px] -translate-x-1/2 w-[300px] sm:w-[400px] md:w-[650px]">
+            <div class="relative w-full h-full">
+              <!-- Neural network visualization -->
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div class="w-64 h-64 border-2 border-cyan-500/30 rounded-full animate-spin-slow"></div>
+                <div class="w-48 h-48 border-2 border-purple-500/30 rounded-full absolute animate-spin-slow-reverse"></div>
+                <div class="w-32 h-32 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 rounded-full absolute"></div>
+              </div>
+            </div>
+          </div>
+          <div class="relative ml-4 md:ml-12">
+            <h1
+              class="pointer-events-none text-4xl md:text-[64px] font-['Space Grotesk'] font-bold mr-12 gradient-text"
+            >
+              Jay Prasad Majhi
+            </h1>
+            <p
+              class="pointer-events-none font-['JetBrains Mono'] italic my-4 md:my-8 text-cyan-400"
+            >
+              <span id="typed-roles"></span>
+            </p>
+            <div class="flex flex-wrap gap-4 mb-6">
+              <span class="ai-badge px-3 py-1 rounded-full text-sm">AI Developer</span>
+              <span class="ai-badge px-3 py-1 rounded-full text-sm">Cybersecurity Expert</span>
+              <span class="ai-badge px-3 py-1 rounded-full text-sm">Certified Professional</span>
+              <span class="ai-badge px-3 py-1 rounded-full text-sm">900M+ AI Database</span>
+            </div>
+            <p class="text-gray-300 max-w-2xl mb-8">
+              Certified Cybersecurity Expert • AI/ML Specialist • Full Stack Developer • 
+              Cybersecurity Consultant with 900M+ AI Database Access • Transforming Businesses with 
+              Cutting-Edge AI Solutions & Military-Grade Security Infrastructure
+            </p>
+            <button
+              onclick="scrollToSection('contact')"
+              class="cyber-button py-3 px-8 rounded-lg font-bold relative hover:scale-110 ease-in-out duration-100 group"
+            >
+              Start Project
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="absolute top-1/2 -translate-y-1/2 -right-7 group-hover:-right-8 ease-in-out duration-100"
+                width="44"
+                height="44"
+                viewBox="0 0 100 100"
+              >
+                <path
+                  fill="#fff"
+                  d="m 88.999835,1002.3621 c 0,-0.4628 -0.2799,-1.0773 -0.5639,-1.3755 l -15.9997,-17.00026 c -0.747,-0.7723 -1.9572,-0.8618 -2.8281,-0.078 -0.7786,0.7007 -0.798,2.0673 -0.078,2.8282 l 12.8435,13.62516 -69.37347,0 c -1.1046,0 -2,0.8954 -2,2 0,1.1046 0.8954,2.0001 2,2.0001 l 69.37347,0 -12.8435,13.6252 c -0.7199,0.7608 -0.6688,2.0938 0.078,2.8281 0.7885,0.7752 2.0925,0.7062 2.8281,-0.078 l 15.9997,-17.0002 c 0.4701,-0.4611 0.556,-0.9052 0.5639,-1.3748 z"
+                  transform="translate(0,-952.36218)"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <ul class="ml-auto space-y-6 text-[#b0b2c3] absolute right-8">
+          <li>
+            <a
+              href="https://www.linkedin.com/in/thebijaay"
+              target="_blank"
+              class="hover:text-[#0077b5] transition"
+            >
+              <i class="fab fa-linkedin text-2xl"></i>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/thebijaay" target="_blank" class="hover:text-white transition">
+              <i class="fab fa-github text-2xl"></i>
+            </a>
+          </li>
+          <li>
+            <a href="https://twitter.com/jayprasad" target="_blank" class="hover:text-[#1DA1F2] transition">
+              <i class="fab fa-twitter text-2xl"></i>
+            </a>
+          </li>
+          <li>
+            <a href="mailto:intelligence@jayprasad.com.np" target="_blank" class="hover:text-cyan-400 transition">
+              <i class="fas fa-envelope text-2xl"></i>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.youtube.com/@jayprasad" target="_blank" class="hover:text-[#FF0000] transition">
+              <i class="fab fa-youtube text-2xl"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div
+        class="relative self-center after:content-[''] after:absolute after:w-[2px] after:h-5 after:bg-[#444] after:left-1/2 after:-translate-x-1/2 after:top-[100px]"
+      >
+        <button
+          onclick="scrollToSection('works')"
+          class="cyber-button py-3 px-8 rounded-lg font-bold relative hover:scale-110 ease-in-out duration-100 group mb-20"
+        >
+          Latest Works
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="absolute rotate-90 left-1/2 -translate-x-1/2 top-11 group-hover:top-12 ease-in-out duration-100"
+            width="44"
+            height="44"
+            viewBox="0 0 100 100"
+          >
+            <path
+              fill="#fff"
+              d="m 88.999835,1002.3621 c 0,-0.4628 -0.2799,-1.0773 -0.5639,-1.3755 l -15.9997,-17.00026 c -0.747,-0.7723 -1.9572,-0.8618 -2.8281,-0.078 -0.7786,0.7007 -0.798,2.0673 -0.078,2.8282 l 12.8435,13.62516 -69.37347,0 c -1.1046,0 -2,0.8954 -2,2 0,1.1046 0.8954,2.0001 2,2.0001 l 69.37347,0 -12.8435,13.6252 c -0.7199,0.7608 -0.6688,2.0938 0.078,2.8281 0.7885,0.7752 2.0925,0.7062 2.8281,-0.078 l 15.9997,-17.0002 c 0.4701,-0.4611 0.556,-0.9052 0.5639,-1.3748 z"
+              transform="translate(0,-952.36218)"
+            />
+          </svg>
+        </button>
+      </div>
+    </section>
+    
+    <!-- Works Section -->
+    <section id="works" class="max-w-screen-xl mx-auto px-4 relative pb-8 sm:pb-16">
+      <h2
+        class="text-3xl sm:text-[40px] bg-[#111] relative z-10 font-bold px-4 py-2 w-max mx-auto text-center text-cyan-400 sm:border-b-2 border-cyan-400"
+      >
+        Latest Works
+      </h2>
+      
+      <!-- AI Development Projects -->
+      <div
+        class="flex flex-col sm:flex-row gap-4 mt-8 sm:gap-[80px] items-center sm:mt-20 relative"
+      >
+        <div
+          class="h-[1px] left-1/4 right-1/2 bg-cyan-400 absolute top-1/2 hidden sm:block"
+        ></div>
+        <div
+          class="w-4 h-4 rounded-full border-[3px] border-cyan-400 absolute left-1/2 -translate-x-1/2 bg-[#111] z-10 hover:scale-110 ease-in-out duration-100 hidden sm:block"
+        ></div>
+        <a
+          href="#"
+          class="flex w-full relative justify-center sm:justify-start"
+        >
+          <div
+            class="flex flex-col items-center relative group sm:hover:scale-105 ease-in-out duration-200"
+          >
+            <div class="max-w-[400px] w-full mr-auto relative z-10 drop-shadow-[0_0px_60px_rgba(59,130,246,0.6)] glass-card p-6 rounded-2xl">
+              <div class="w-20 h-20 rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-500 flex items-center justify-center mb-6 mx-auto">
+                <i class="fas fa-robot text-white text-3xl"></i>
+              </div>
+              <h3 class="text-2xl font-bold text-center mb-4">AI Chat System</h3>
+              <p class="text-gray-300 text-center">Advanced AI chatbot powered by 900M+ Q/A database</p>
+            </div>
+            <span
+              class="flex group-hover:-top-14 ease-jump duration-200 bg-cyan-500 sm:absolute left-1/2 sm:-translate-x-1/2 top-5 px-2 py-1 text-sm sm:text-base mt-2 rounded w-max items-center gap-1 after:hidden sm:after:block after:w-4 after:h-4 after:bg-inherit after:absolute after:left-1/2 after:-translate-x-1/2 after:rotate-45 after:-bottom-2"
+              >AI Chat System
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="feather feather-external-link"
+              >
+                <path
+                  d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                ></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+            </span>
+          </div>
+        </a>
+
+        <div class="w-full">
+          <h3 class="text-cyan-400 font-bold text-2xl md:text-4xl">
+            AI Chat System
+          </h3>
+          <span class="text-cyan-400 text-base md:text-lg"
+            >(Powered by 900M+ Database)</span
+          >
+          <p class="text-justify text-sm md:text-base mt-2">
+            Advanced AI chatbot system with natural language processing, machine learning capabilities,
+            and access to 900 million+ question-answer database for intelligent responses.
+          </p>
+
+          <ul class="flex flex-wrap gap-2 mt-2">
+            <li
+              class="border rounded-[50px] border-cyan-400/30 px-[10px] py-[5px] text-sm md:text-base"
+            >
+              #python
+            </li>
+            <li
+              class="border rounded-[50px] border-cyan-400/30 px-[10px] py-[5px] text-sm md:text-base"
+            >
+              #tensorflow
+            </li>
+            <li
+              class="border rounded-[50px] border-cyan-400/30 px-[10px] py-[5px] text-sm md:text-base"
+            >
+              #nlp
+            </li>
+            <li
+              class="border rounded-[50px] border-cyan-400/30 px-[10px] py-[5px] text-sm md:text-base"
+            >
+              #machine-learning
+            </li>
+            <li
+              class="border rounded-[50px] border-cyan-400/30 px-[10px] py-[5px] text-sm md:text-base"
+            >
+              #ai
+            </li>
+            <li
+              class="border rounded-[50px] border-cyan-400/30 px-[10px] py-[5px] text-sm md:text-base"
+            >
+              #chatbot
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Cybersecurity Projects -->
+      <div
+        class="flex flex-col sm:flex-row gap-4 mt-12 sm:gap-[80px] items-center sm:mt-20 relative"
+      >
+        <div class="order-2 sm:order-1 w-full">
+          <h3 class="text-green-400 font-bold text-2xl md:text-4xl">
+            Security Audit Platform
+          </h3>
+          <span class="text-green-400 text-base md:text-lg"
+            >(Cybersecurity Solution)</span
+          >
+          <p class="text-justify text-sm md:text-base mt-2">
+            Comprehensive cybersecurity audit platform with real-time threat detection,
+            vulnerability assessment, and security compliance monitoring for enterprises.
+          </p>
+
+          <ul class="flex flex-wrap gap-2 mt-2">
+            <li
+              class="border rounded-[50px] border-green-400/30 px-[10px] py-[5px] text-sm md:text-base"
+            >
+              #cybersecurity
+            </li>
+            <li
+              class="border rounded-[50px] border-green-400/30 px-[10px] py-[5px] text-sm md:text-base"
+            >
+              #network-security
+            </li>
+            <li
+              class="border rounded-[50px] border-green-400/30 px-[10px] py-[5px] text-sm md:text-base"
+            >
+              #threat-detection
+            </li>
+            <li
+              class="border rounded-[50px] border-green-400/30 px-[10px] py-[5px] text-sm md:text-base"
+            >
+              #encryption
+            </li>
+            <li
+              class="border rounded-[50px] border-green-400/30 px-[10px] py-[5px] text-sm md:text-base"
+            >
+              #penetration-testing
+            </li>
+          </ul>
+        </div>
+        <div
+          class="h-[1px] left-1/2 right-1/4 bg-cyan-400 absolute top-1/2 hidden sm:block"
+        ></div>
+        <div
+          class="w-4 h-4 rounded-full border-[3px] border-green-400 absolute left-1/2 -translate-x-1/2 bg-[#111] z-10 hover:scale-110 ease-in-out duration-100 hidden sm:block"
+        ></div>
+        <a
+          href="#"
+          class="order-1 sm:order-2 flex w-full relative justify-center sm:justify-start"
+        >
+          <div
+            class="flex flex-col items-center relative group sm:hover:scale-105 ease-in-out duration-200 sm:ml-auto"
+          >
+            <div class="max-w-[400px] w-full relative z-10 drop-shadow-[0_0px_60px_rgba(59,130,246,0.6)] glass-card p-6 rounded-2xl">
+              <div class="w-20 h-20 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-500 flex items-center justify-center mb-6 mx-auto">
+                <i class="fas fa-shield-alt text-white text-3xl"></i>
+              </div>
+              <h3 class="text-2xl font-bold text-center mb-4">Security Platform</h3>
+              <p class="text-gray-300 text-center">Enterprise cybersecurity solutions</p>
+            </div>
+            <span
+              class="flex group-hover:-top-14 ease-jump duration-200 text-black bg-green-400 sm:absolute left-1/2 sm:-translate-x-1/2 top-5 px-2 py-1 text-sm sm:text-base mt-2 rounded w-max items-center gap-1 after:hidden sm:after:block after:w-4 after:h-4 after:bg-inherit after:absolute after:left-1/2 after:-translate-x-1/2 after:rotate-45 after:-bottom-2"
+              >Security Platform
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="feather feather-external-link"
+              >
+                <path
+                  d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                ></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+            </span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Web Development Projects -->
+      <div
+        class="flex flex-col sm:flex-row gap-4 mt-12 sm:gap-[80px] items-center sm:mt-20 relative"
+      >
+        <div
+          class="h-[1px] left-1/4 right-1/2 bg-cyan-400 absolute top-1/2 hidden sm:block"
+        ></div>
+        <div
+          class="w-4 h-4 rounded-full border-[3px] border-purple-500 absolute left-1/2 -translate-x-1/2 bg-[#111] z-10 hover:scale-110 ease-in-out duration-100 hidden sm:block"
+        ></div>
+        <a
+          href="#"
+          class="flex w-full relative justify-center sm:justify-start"
+        >
+          <div
+            class="flex flex-col items-center relative group hover:scale-105 ease-in-out sm:mr-auto duration-200"
+          >
+            <div class="max-w-[400px] w-full mr-auto relative z-10 drop-shadow-[0_0px_60px_rgba(59,130,246,0.6)] glass-card p-6 rounded-2xl">
+              <div class="w-20 h-20 rounded-2xl bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center mb-6 mx-auto">
+                <i class="fas fa-code text-white text-3xl"></i>
+              </div>
+              <h3 class="text-2xl font-bold text-center mb-4">Full Stack Platform</h3>
+              <p class="text-gray-300 text-center">Modern web application with AI integration</p>
+            </div>
+            <span
+              class="flex group-hover:-top-14 ease-jump duration-200 bg-purple-500 sm:absolute left-1/2 sm:-translate-x-1/2 top-5 px-2 py-1 text-sm sm:text-base mt-2 rounded w-max items-center gap-1 after:hidden sm:after:block after:w-4 after:h-4 after:bg-inherit after:absolute after:left-1/2 after:-translate-x-1/2 after:rotate-45 after:-bottom-2"
+              >Web Platform
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="feather feather-external-link"
+              >
+                <path
+                  d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                ></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+            </span>
+          </div>
+        </a>
+
+        <div class="w-full">
+          <h3 class="text-purple-500 font-bold text-2xl md:text-4xl">
+            Full Stack Platform
+          </h3>
+          <span class="text-purple-500 text-base md:text-lg"
+            >(AI-Powered Web Application)</span
+          >
+          <p class="text-justify text-sm md:text-base mt-2">
+            Modern, responsive web platform with AI integration, real-time analytics,
+            and advanced user interface. Built with cutting-edge technologies for optimal performance.
+          </p>
+
+          <ul class="flex flex-wrap gap-2 mt-2">
+            <li
+              class="border rounded-[50px] border-purple-500/30 px-[10px] py-[5px] text-sm md:text-base"
+            >
+              #react.js
+            </li>
+            <li
+              class="border rounded-[50px] border-purple-500/30 px-[10px] py-[5px] text-sm md:text-base"
+            >
+              #node.js
+            </li>
+            <li
+              class="border rounded-[50px] border-purple-500/30 px-[10px] py-[5px] text-sm md:text-base"
+            >
+              #mongodb
+            </li>
+            <li
+              class="border rounded-[50px] border-purple-500/30 px-[10px] py-[5px] text-sm md:text-base"
+            >
+              #typescript
+            </li>
+            <li
+              class="border rounded-[50px] border-purple-500/30 px-[10px] py-[5px] text-sm md:text-base"
+            >
+              #tailwind
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div
+        class="w-[2px] hidden sm:block bg-cyan-400 absolute top-0 bottom-0 left-1/2 -translate-x-1/2"
+      ></div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about" class="max-w-screen-xl mx-auto px-4 py-20">
+      <h2
+        class="text-3xl sm:text-[40px] bg-[#111] relative z-10 font-bold px-4 py-2 w-max mx-auto text-center text-cyan-400 sm:border-2 border-cyan-400 rounded-md mb-16"
+      >
+        About Me
+      </h2>
+      
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div class="glass-card p-8 rounded-3xl">
+          <h3 class="text-2xl font-bold mb-6 gradient-text">Who I Am</h3>
+          <p class="text-gray-300 mb-4">
+            I am <span class="gradient-text font-bold">Jay Prasad Majhi</span>, AI Developer and 
+            Cybersecurity Specialist with extensive expertise in creating cutting-edge 
+            artificial intelligence solutions and implementing military-grade security 
+            infrastructure.
+          </p>
+          <p class="text-gray-300 mb-4">
+            With access to a massive 900 million+ question-answer AI database, I develop 
+            intelligent systems that transform businesses and secure digital assets against 
+            modern cyber threats.
+          </p>
+          <p class="text-gray-300">
+            My mission is to bridge the gap between innovative AI technology and 
+            enterprise-grade security, delivering solutions that are both powerful and 
+            protected.
+          </p>
+          
+          <div class="mt-8 grid grid-cols-3 gap-4">
+            <div class="text-center">
+              <div class="text-3xl font-bold gradient-text">3+</div>
+              <div class="text-sm text-gray-400">Years Experience</div>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl font-bold gradient-text">50+</div>
+              <div class="text-sm text-gray-400">Projects Completed</div>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl font-bold gradient-text">900M+</div>
+              <div class="text-sm text-gray-400">AI Database</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="glass-card p-8 rounded-3xl">
+          <h3 class="text-2xl font-bold mb-6 gradient-text">Core Expertise</h3>
+          <div class="space-y-4">
+            <div>
+              <div class="flex justify-between mb-2">
+                <span class="font-medium">Artificial Intelligence</span>
+                <span class="text-cyan-400 font-bold">95%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 95%"></div>
+              </div>
+            </div>
+            
+            <div>
+              <div class="flex justify-between mb-2">
+                <span class="font-medium">Cybersecurity</span>
+                <span class="text-cyan-400 font-bold">98%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 98%"></div>
+              </div>
+            </div>
+            
+            <div>
+              <div class="flex justify-between mb-2">
+                <span class="font-medium">Web Development</span>
+                <span class="text-cyan-400 font-bold">92%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 92%"></div>
+              </div>
+            </div>
+            
+            <div>
+              <div class="flex justify-between mb-2">
+                <span class="font-medium">Cloud Architecture</span>
+                <span class="text-cyan-400 font-bold">90%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 90%"></div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="mt-8">
+            <h4 class="font-bold mb-4">Professional Journey</h4>
+            <div class="space-y-6">
+              <div class="timeline-node">
+                <h5 class="text-lg font-bold">Founder & Lead AI Developer</h5>
+                <p class="text-cyan-400 text-sm">Trio IT | 2022 - Present</p>
+                <p class="text-gray-300 text-sm">Leading AI development and cybersecurity solutions</p>
+              </div>
+              
+              <div class="timeline-node">
+                <h5 class="text-lg font-bold">Cybersecurity Consultant</h5>
+                <p class="text-cyan-400 text-sm">Multiple Organizations | 2021 - Present</p>
+                <p class="text-gray-300 text-sm">Providing expert cybersecurity consulting</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Services Section -->
+    <section id="services" class="max-w-screen-xl mx-auto px-4 py-20">
+      <h2
+        class="text-3xl sm:text-[40px] bg-[#111] relative z-10 font-bold px-4 py-2 w-max mx-auto text-center text-cyan-400 sm:border-2 border-cyan-400 rounded-md mb-16"
+      >
+        My Services
+      </h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- AI Development Service -->
+        <div class="glass-card p-8 rounded-3xl hover-3d">
+          <div class="w-16 h-16 rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-500 flex items-center justify-center mb-6">
+            <i class="fas fa-robot text-white text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-4">AI Development</h3>
+          <p class="text-gray-400 mb-6">
+            Advanced AI solutions including machine learning models, neural networks, 
+            and intelligent automation systems.
+          </p>
+          <ul class="space-y-3 mb-6">
+            <li class="flex items-center text-sm">
+              <i class="fas fa-check text-green-400 mr-3"></i>
+              <span>Custom AI Models</span>
+            </li>
+            <li class="flex items-center text-sm">
+              <i class="fas fa-check text-green-400 mr-3"></i>
+              <span>Machine Learning Systems</span>
+            </li>
+            <li class="flex items-center text-sm">
+              <i class="fas fa-check text-green-400 mr-3"></i>
+              <span>AI Integration</span>
+            </li>
+          </ul>
+        </div>
+        
+        <!-- Cybersecurity Service -->
+        <div class="glass-card p-8 rounded-3xl hover-3d">
+          <div class="w-16 h-16 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-500 flex items-center justify-center mb-6">
+            <i class="fas fa-shield-alt text-white text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-4">Cybersecurity</h3>
+          <p class="text-gray-400 mb-6">
+            Complete security solutions including threat detection, vulnerability assessment, 
+            and enterprise-grade security infrastructure.
+          </p>
+          <ul class="space-y-3 mb-6">
+            <li class="flex items-center text-sm">
+              <i class="fas fa-check text-green-400 mr-3"></i>
+              <span>Security Audits</span>
+            </li>
+            <li class="flex items-center text-sm">
+              <i class="fas fa-check text-green-400 mr-3"></i>
+              <span>Threat Protection</span>
+            </li>
+            <li class="flex items-center text-sm">
+              <i class="fas fa-check text-green-400 mr-3"></i>
+              <span>Network Security</span>
+            </li>
+          </ul>
+        </div>
+        
+        <!-- Web Development Service -->
+        <div class="glass-card p-8 rounded-3xl hover-3d">
+          <div class="w-16 h-16 rounded-2xl bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center mb-6">
+            <i class="fas fa-code text-white text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-4">Web Development</h3>
+          <p class="text-gray-400 mb-6">
+            Modern, responsive websites and web applications with AI integration, 
+            advanced animations, and cutting-edge technologies.
+          </p>
+          <ul class="space-y-3 mb-6">
+            <li class="flex items-center text-sm">
+              <i class="fas fa-check text-green-400 mr-3"></i>
+              <span>Full Stack Development</span>
+            </li>
+            <li class="flex items-center text-sm">
+              <i class="fas fa-check text-green-400 mr-3"></i>
+              <span>AI-Powered Websites</span>
+            </li>
+            <li class="flex items-center text-sm">
+              <i class="fas fa-check text-green-400 mr-3"></i>
+              <span>E-commerce Solutions</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section class="max-w-screen-xl mx-auto pb-12">
+      <h2
+        class="text-3xl sm:text-[40px] bg-[#111] sm:w-max relative z-10 font-bold px-4 py-2 mx-auto text-center text-cyan-400 sm:border-2 border-cyan-400 rounded-md"
+      >
+        What clients are saying?
+      </h2>
+      <div class="swiper mySwiper !py-14">
+        <div class="swiper-wrapper items-center">
+          <div class="swiper-slide px-4">
+            <div
+              class="flex flex-col md:flex-row w-full md:max-w-[800px] items-center rounded-lg p-9 glass-card cursor-grab"
+            >
+              <div class="w-24 h-24 md:w-32 md:h-32 rounded-full bg-gradient-to-r from-cyan-500 to-purple-500 flex items-center justify-center mb-6 md:mb-0">
+                <i class="fas fa-user text-white text-4xl"></i>
+              </div>
+              <div
+                class="testimonial-text ml-6 text-left pt-6 md:pt-0 relative"
+              >
+                <p class="text-sm md:text-base mb-2">
+                  "Jay's AI solutions transformed our business operations. The cybersecurity implementation was flawless and the AI integration boosted our efficiency by 300%."
+                </p>
+                <h2
+                  class="text-right text-cyan-400 font-bold text-xl md:text-2xl"
+                >
+                  Tech Enterprise CEO
+                </h2>
+                <h5 class="text-right text-cyan-400 text-sm md:text-base">
+                  Fortune 500 Company
+                </h5>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide px-4">
+            <div
+              class="flex flex-col md:flex-row max-w-[800px] items-center rounded-lg p-9 glass-card cursor-grab"
+            >
+              <div class="w-24 h-24 md:w-32 md:h-32 rounded-full bg-gradient-to-r from-green-500 to-emerald-500 flex items-center justify-center mb-6 md:mb-0">
+                <i class="fas fa-user-shield text-white text-4xl"></i>
+              </div>
+              <div
+                class="testimonial-text ml-6 text-left pt-6 md:pt-0 relative"
+              >
+                <p class="text-sm md:text-base mb-2">
+                  "As a cybersecurity consultant, Jay helped us implement military-grade security. His expertise in AI-powered threat detection is exceptional."
+                </p>
+                <h2
+                  class="text-right text-green-400 font-bold text-xl md:text-2xl"
+                >
+                  Security Director
+                </h2>
+                <h5 class="text-right text-green-400 text-sm md:text-base">
+                  Banking Institution
+                </h5>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="max-w-screen-xl mx-auto px-4 pb-12">
+      <h2
+        class="text-3xl sm:text-[40px] bg-[#111] relative z-10 font-bold px-4 py-2 w-max mx-auto text-center text-cyan-400 sm:border-2 border-cyan-400 rounded-md"
+      >
+        Let's Connect
+      </h2>
+      <div class="flex flex-col md:flex-row items-center mt-10 gap-12">
+        <div class="w-full glass-card p-8 rounded-3xl">
+          <h3 class="text-2xl font-bold mb-6 gradient-text">Contact Information</h3>
+          <div class="space-y-6">
+            <!-- Email -->
+            <div class="flex items-start space-x-4">
+              <div class="w-12 h-12 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500 flex items-center justify-center">
+                <i class="fas fa-envelope text-white"></i>
+              </div>
+              <div>
+                <h4 class="font-bold mb-1">Primary Email</h4>
+                <a href="mailto:intelligence@jayprasad.com.np" class="text-cyan-400 hover:underline">
+                  intelligence@jayprasad.com.np
+                </a>
+                <p class="text-sm text-gray-400 mt-1">For all business inquiries</p>
+              </div>
+            </div>
+            
+            <!-- Business Email -->
+            <div class="flex items-start space-x-4">
+              <div class="w-12 h-12 rounded-xl bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center">
+                <i class="fas fa-briefcase text-white"></i>
+              </div>
+              <div>
+                <h4 class="font-bold mb-1">Business Email</h4>
+                <a href="mailto:it@jayprasad.com.np" class="text-cyan-400 hover:underline">
+                  it@jayprasad.com.np
+                </a>
+                <p class="text-sm text-gray-400 mt-1">IT services & support</p>
+              </div>
+            </div>
+            
+            <!-- Phone -->
+            <div class="flex items-start space-x-4">
+              <div class="w-12 h-12 rounded-xl bg-gradient-to-r from-green-500 to-emerald-500 flex items-center justify-center">
+                <i class="fas fa-phone text-white"></i>
+              </div>
+              <div>
+                <h4 class="font-bold mb-1">Phone & WhatsApp</h4>
+                <a href="tel:+9779812345678" class="text-cyan-400 hover:underline">
+                  +977 9812345678
+                </a>
+                <p class="text-sm text-gray-400 mt-1">Available for calls & WhatsApp</p>
+              </div>
+            </div>
+            
+            <!-- Location -->
+            <div class="flex items-start space-x-4">
+              <div class="w-12 h-12 rounded-xl bg-gradient-to-r from-yellow-500 to-orange-500 flex items-center justify-center">
+                <i class="fas fa-map-marker-alt text-white"></i>
+              </div>
+              <div>
+                <h4 class="font-bold mb-1">Location</h4>
+                <p>Kathmandu, Nepal / Los Angeles, USA</p>
+                <p class="text-sm text-gray-400 mt-1">Serving clients globally</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="mt-8 pt-8 border-t border-gray-700">
+            <h4 class="font-bold mb-4">Connect Socially</h4>
+            <div class="flex space-x-4">
+              <a href="https://www.linkedin.com/in/thebijaay" target="_blank" 
+                 class="w-12 h-12 rounded-lg bg-blue-600 flex items-center justify-center hover:scale-110 transition">
+                <i class="fab fa-linkedin-in text-white"></i>
+              </a>
+              <a href="https://github.com/thebijaay" target="_blank" 
+                 class="w-12 h-12 rounded-lg bg-gray-800 flex items-center justify-center hover:scale-110 transition">
+                <i class="fab fa-github text-white"></i>
+              </a>
+              <a href="https://twitter.com/jayprasad" target="_blank" 
+                 class="w-12 h-12 rounded-lg bg-cyan-500 flex items-center justify-center hover:scale-110 transition">
+                <i class="fab fa-twitter text-white"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <form class="w-full glass-card p-8 rounded-3xl" name="contactUS" netlify>
+          <h3 class="text-2xl font-bold mb-6 gradient-text">Send Message</h3>
+          <label
+            for="name"
+            class="block mb-2 text-sm font-medium text-gray-300"
+            >Name</label
+          >
+          <div class="relative mb-4">
+            <div
+              class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none"
+            >
+              <i class="fas fa-user text-gray-500"></i>
+            </div>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              class="bg-gray-900 border-2 border-gray-700 outline-none text-white text-sm rounded-lg focus:ring-cyan-500 focus:border-cyan-500 block w-full ps-10 p-2.5 placeholder-gray-500"
+              placeholder="Enter your name"
+              required
+            />
+          </div>
+          <label
+            for="email"
+            class="block mb-2 text-sm font-medium text-gray-300"
+            >Your Email</label
+          >
+          <div class="relative mb-4">
+            <div
+              class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none"
+            >
+              <i class="fas fa-envelope text-gray-500"></i>
+            </div>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="bg-gray-900 border-2 border-gray-700 outline-none text-white text-sm rounded-lg focus:ring-cyan-500 focus:border-cyan-500 block w-full ps-10 p-2.5 placeholder-gray-500"
+              placeholder="name@company.com"
+              required
+            />
+          </div>
+          
+          <label
+            for="service"
+            class="block mb-2 text-sm font-medium text-gray-300"
+            >Service Interest</label
+          >
+          <div class="relative mb-4">
+            <div
+              class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none"
+            >
+              <i class="fas fa-cogs text-gray-500"></i>
+            </div>
+            <select
+              id="service"
+              name="service"
+              class="bg-gray-900 border-2 border-gray-700 outline-none text-white text-sm rounded-lg focus:ring-cyan-500 focus:border-cyan-500 block w-full ps-10 p-2.5"
+            >
+              <option value="">Select Service</option>
+              <option value="ai-development">AI Development</option>
+              <option value="cybersecurity">Cybersecurity</option>
+              <option value="web-development">Web Development</option>
+              <option value="consultation">Consultation</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          
+          <label
+            for="message"
+            class="block mb-2 text-sm font-medium text-gray-300"
+            >Message</label
+          >
+          <div class="relative mb-4">
+            <textarea
+              id="message"
+              name="message"
+              rows="6"
+              class="bg-gray-900 border-2 border-gray-700 outline-none text-white text-sm rounded-lg focus:ring-cyan-500 focus:border-cyan-500 block w-full p-2.5 placeholder-gray-500"
+              placeholder="Tell me about your project..."
+              required
+            ></textarea>
+          </div>
+          <button
+            type="submit"
+            class="w-full cyber-button py-3 rounded-lg font-medium text-lg focus:outline-none"
+          >
+            <i class="fas fa-paper-plane mr-2"></i> Send Message
+          </button>
+        </form>
+      </div>
+    </section>
+    
+    <footer class="flex flex-col items-center pb-10">
+      <p class="text-xs text-gray-300">Jay Prasad Majhi © <span id="currentYear"></span></p>
+      <div class="my-4">
+        <div class="w-16 h-16 rounded-full bg-gradient-to-r from-cyan-500 to-purple-500 flex items-center justify-center">
+          <i class="fas fa-brain text-white text-2xl"></i>
+        </div>
+      </div>
+      <ul class="mx-auto flex items-center justify-center gap-6 text-[#b0b2c3]">
+        <li>
+          <a href="https://www.linkedin.com/in/thebijaay" target="_blank" class="hover:text-[#0077b5] transition">
+            <i class="fab fa-linkedin text-xl"></i>
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/thebijaay" target="_blank" class="hover:text-white transition">
+            <i class="fab fa-github text-xl"></i>
+          </a>
+        </li>
+        <li>
+          <a href="https://twitter.com/jayprasad" target="_blank" class="hover:text-[#1DA1F2] transition">
+            <i class="fab fa-twitter text-xl"></i>
+          </a>
+        </li>
+        <li>
+          <a href="mailto:intelligence@jayprasad.com.np" target="_blank" class="hover:text-cyan-400 transition">
+            <i class="fas fa-envelope text-xl"></i>
+          </a>
+        </li>
+        <li>
+          <a href="https://wa.me/9779812345678" target="_blank" class="hover:text-green-400 transition">
+            <i class="fab fa-whatsapp text-xl"></i>
+          </a>
+        </li>
+      </ul>
+      <div class="mt-6 text-center text-gray-500 text-xs">
+        <p>Website powered by advanced AI systems and cybersecurity protocols</p>
+        <p class="mt-1">AI Database: 900M+ | Cybersecurity Certified (CC)</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        loop: true,
+        autoplay: {
+          delay: 5000,
+        },
+      });
+      
+      // Initialize Typed.js for roles
+      document.addEventListener('DOMContentLoaded', function() {
+        if (typeof Typed !== 'undefined') {
+          new Typed('#typed-roles', {
+            strings: [
+              'AI Developer',
+              'Cybersecurity Expert',
+              'IT Consultant',
+              'Full Stack Developer',
+              'Machine Learning Specialist'
+            ],
+            typeSpeed: 50,
+            backSpeed: 30,
+            backDelay: 1500,
+            loop: true,
+            showCursor: true,
+            cursorChar: '|'
+          });
+        }
+        
+        // Set current year
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // Loading screen simulation
+        const loadingScreen = document.getElementById('loadingScreen');
+        const loadingBar = document.getElementById('loadingBar');
+        const loadingText = document.getElementById('loadingText');
+        
+        // Show loading screen
+        loadingScreen.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        
+        const loadingStates = [
+          { text: 'Loading Cybersecurity Protocols', width: 20 },
+          { text: 'Initializing AI Systems', width: 40 },
+          { text: 'Accessing 900M+ Database', width: 60 },
+          { text: 'Establishing Neural Networks', width: 80 },
+          { text: 'Finalizing Interface', width: 100 }
+        ];
+        
+        let currentState = 0;
+        
+        function updateLoading() {
+          if (currentState < loadingStates.length) {
+            const state = loadingStates[currentState];
+            loadingBar.style.width = state.width + '%';
+            loadingText.textContent = state.text;
+            currentState++;
+            setTimeout(updateLoading, 600);
+          } else {
+            // Loading complete
+            setTimeout(() => {
+              loadingScreen.style.opacity = '0';
+              loadingScreen.style.transition = 'opacity 0.5s ease';
+              setTimeout(() => {
+                loadingScreen.style.display = 'none';
+                document.body.style.overflow = 'auto';
+              }, 500);
+            }, 500);
+          }
+        }
+        
+        // Start loading
+        setTimeout(updateLoading, 500);
+        
+        // Theme toggle
+        const themeToggle = document.getElementById('themeToggle');
+        if (themeToggle) {
+          themeToggle.addEventListener('click', function() {
+            const isDark = document.body.classList.toggle('bg-white');
+            document.body.classList.toggle('text-black');
+            const icon = this.querySelector('i');
+            if (isDark) {
+              icon.classList.remove('fa-moon');
+              icon.classList.add('fa-sun');
+              icon.classList.remove('text-cyan-400');
+              icon.classList.add('text-yellow-500');
+            } else {
+              icon.classList.remove('fa-sun');
+              icon.classList.add('fa-moon');
+              icon.classList.remove('text-yellow-500');
+              icon.classList.add('text-cyan-400');
+            }
+          });
+        }
+        
+        // Add animations
+        const style = document.createElement('style');
+        style.textContent = `
+          @keyframes spin-slow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+          }
+          @keyframes spin-slow-reverse {
+            from { transform: rotate(360deg); }
+            to { transform: rotate(0deg); }
+          }
+          .animate-spin-slow {
+            animation: spin-slow 20s linear infinite;
+          }
+          .animate-spin-slow-reverse {
+            animation: spin-slow-reverse 15s linear infinite;
+          }
+          .hover-3d {
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+          }
+          .hover-3d:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5),
+                        0 0 30px rgba(0, 243, 255, 0.2);
+          }
+          .ease-jump {
+            transition: top 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+          }
+        `;
+        document.head.appendChild(style);
+      });
+      
+      // Scroll to section function
+      function scrollToSection(sectionId) {
+        const section = document.getElementById(sectionId);
+        if (section) {
+          window.scrollTo({
+            top: section.offsetTop - 100,
+            behavior: 'smooth'
+          });
+        }
+      }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.12.0/matter.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/matter-wrap@0.2.0/build/matter-wrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/matter-attractors@0.1.6/build/matter-attractors.min.js"></script>
+  </body>
+</html>
