@@ -1,69 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Management | Admin Portal</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary Meta Tags -->
+    <title>Jay Prasad Majhi – AI & Cybersecurity Expert</title>
+    <meta name="description" content="Jay Prasad Majhi - AI Developer, Cybersecurity Specialist & IT Consultant. Certified Cybersecurity professional with 900M+ AI database expertise." />
+    <meta name="author" content="Jay Prasad Majhi" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.png" type="image/png" sizes="16x16" />
+    <link rel="icon" href="favicon.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="favicon.png" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://jayprasadmajhi.com/" />
+    <meta property="og:title" content="Jay Prasad Majhi – AI & Cybersecurity Expert" />
+    <meta property="og:description" content="AI Developer, Cybersecurity Specialist & IT Consultant with 900M+ AI database expertise." />
+    <meta property="og:image" content="assets/images/name-logo.svg" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://jayprasadmajhi.com/" />
+    <meta property="twitter:title" content="Jay Prasad Majhi – AI & Cybersecurity Expert" />
+    <meta property="twitter:description" content="AI Developer, Cybersecurity Specialist & IT Consultant with 900M+ AI database expertise." />
+    <meta property="twitter:image" content="assets/images/name-logo.svg" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Jay Prasad Majhi",
+        "url": "https://jayprasadmajhi.com",
+        "jobTitle": "AI & Cybersecurity Expert"
+      }
+    </script>
+
+    <!-- External Libraries -->
+    <link rel="stylesheet" href="font.css" />
+    <link rel="stylesheet" href="output.css" />
+    <link rel="stylesheet" href="style.css" />
+    <!-- Link Swiper's CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" rel="stylesheet">
-    <style>
-        :root {
-            --primary-cyan: #00f3ff;
-            --primary-blue: #0066ff;
-            --primary-purple: #9d00ff;
-            --bg-dark: #0a0a0f;
-            --bg-darker: #050508;
-        }
-        
-        body {
-            background-color: var(--bg-dark);
-            color: #ffffff;
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-        }
-        
-        .glass-card {
-            background: rgba(20, 20, 30, 0.8);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(0, 243, 255, 0.1);
-            border-radius: 15px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-        }
-        
-        .dataTables_wrapper {
-            color: white !important;
-        }
-        
-        .dataTables_wrapper .dataTables_filter input {
-            background: rgba(20, 20, 30, 0.8) !important;
-            border: 1px solid rgba(0, 243, 255, 0.2) !important;
-            color: white !important;
-            border-radius: 10px;
-            padding: 8px 15px;
-        }
-        
-        .dataTables_wrapper .dataTables_length select {
-            background: rgba(20, 20, 30, 0.8) !important;
-            border: 1px solid rgba(0, 243, 255, 0.2) !important;
-            color: white !important;
-            border-radius: 10px;
-            padding: 5px;
-        }
-        
-        .dataTables_wrapper .dataTables_paginate .paginate_button {
-            background: rgba(20, 20, 30, 0.8) !important;
-            border: 1px solid rgba(0, 243, 255, 0.2) !important;
-            color: white !important;
-            border-radius: 5px;
-            margin: 0 2px;
-        }
-        
-        .dataTables_wrapper .dataTables_paginate .paginate_button.current {
-            background: rgba(0, 243, 255, 0.2) !important;
-            border-color: var(--primary-cyan) !important;
-        }
-    </style>
-</head>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet">
+  </head>
 <body class="min-h-screen">
     <!-- Similar sidebar structure as admin dashboard -->
     <!-- Focus on user management features -->
