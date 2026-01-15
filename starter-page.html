@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Jay Prasad Majhi - AI & Cybersecurity Expert</title>
+  <meta name="description" content="Jay Prasad Majhi - AI Developer, Cybersecurity Specialist & IT Consultant with 900M+ AI database expertise">
+  <meta name="keywords" content="AI developer, cybersecurity expert, web development, IT services, machine learning">
+  
+  <!-- Favicons -->
+  <link href="assets/images/favicon.png" rel="icon">
+  <link href="assets/images/favicon.png" rel="apple-touch-icon">
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+  
+  <!-- Custom styles for this page -->
+  <style>
+    /* Custom styles for Jay Prasad Majhi portfolio */
+    body {
+      background-color: #111;
+      color: white;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+    
+    .portfolio-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .portfolio-section {
+      padding: 80px 0;
+    }
+    
+    .portfolio-title {
+      font-size: 3rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 60px;
+      color: #00f3ff;
+      position: relative;
+      padding-bottom: 20px;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    
+    .portfolio-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 4px;
+      background: linear-gradient(90deg, #00f3ff 0%, #9d00ff 100%);
+      border-radius: 2px;
+    }
+    
+    .hero-section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 80px;
+    }
+    
+    .hero-content {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .hero-title {
+      font-size: 4rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+      background: linear-gradient(135deg, #00f3ff 0%, #9d00ff 50%, #ff00ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    
+    .hero-subtitle {
+      font-size: 1.5rem;
+      color: #00f3ff;
+      margin-bottom: 32px;
+      font-family: 'JetBrains Mono', monospace;
+      font-style: italic;
+    }
+    
+    .badge-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    
+    .badge {
+      padding: 8px 16px;
+      background: rgba(0, 243, 255, 0.1);
+      border: 1px solid rgba(0, 243, 255, 0.3);
+      backdrop-filter: blur(10px);
+      border-radius: 50px;
+      font-size: 0.875rem;
+    }
+    
+    .hero-description {
+      font-size: 1.125rem;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 40px;
+      line-height: 1.6;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .hero-button {
+      background: linear-gradient(135deg, #00f3ff 0%, #9d00ff 100%);
+      border: none;
+      color: white;
+      padding: 16px 32px;
+      border-radius: 8px;
+      font-size: 1.125rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    
+    .hero-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(0, 243, 255, 0.3);
+      color: white;
+    }
+    
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-top: 40px;
+    }
+    
+    .social-links a {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 1.5rem;
+      transition: all 0.3s ease;
+    }
+    
+    .social-links a:hover {
+      color: #00f3ff;
+      transform: translateY(-5px);
+    }
+    
+    .service-card {
+      background: rgba(20, 20, 30, 0.8);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 40px;
+      transition: all 0.4s ease;
+      height: 100%;
+    }
+    
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5),
+                  0 0 30px rgba(0, 243, 255, 0.2);
+    }
+    
+    .service-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+    
+    .icon-ai {
+      background: linear-gradient(135deg, #00f3ff 0%, #0066ff 100%);
+    }
+    
+    .icon-security {
+      background: linear-gradient(135deg, #00ff88 0%, #00cc66 100%);
+    }
+    
+    .icon-web {
+      background: linear-gradient(135deg, #9d00ff 0%, #ff00ff 100%);
+    }
+    
+    .service-icon i {
+      color: white;
+      font-size: 1.75rem;
+    }
+    
+    .service-card h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    
+    .service-card p {
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+    
+    .service-features {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .service-features li {
+      display: flex;
+      align-items: center;
+      margin-bottom: 12px;
+      color: rgba(255, 255, 255, 0.8);
+    }
+    
+    .service-features i {
+      color: #00ff88;
+      margin-right: 12px;
+    }
+    
+    .contact-info {
+      background: rgba(20, 20, 30, 0.8);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 40px;
+      height: 100%;
+    }
+    
+    .contact-info h3 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+      background: linear-gradient(135deg, #00f3ff 0%, #9d00ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 32px;
+      gap: 20px;
+    }
+    
+    .contact-details h4 {
+      font-size: 1.125rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    
+    .contact-details a {
+      color: #00f3ff;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+    
+    .contact-details a:hover {
+      text-decoration: underline;
+    }
+    
+    .contact-details p {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.875rem;
+      margin-top: 4px;
+    }
+    
+    .spiderman-promotion {
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+      padding: 60px 0;
+      position: relative;
+      overflow: hidden;
+      border-radius: 20px;
+      margin-top: 40px;
+    }
+    
+    .spiderman-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #ff0000 0%, #0000ff 50%, #ffffff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-align: center;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    
+    .spiderman-card {
+      background: rgba(20, 20, 30, 0.8);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 0, 0, 0.2);
+      border-radius: 20px;
+      padding: 40px;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .spiderman-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #ff0000 0%, #0000ff 100%);
+    }
+    
+    .visit-spiderman-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #ff0000 0%, #0000ff 100%);
+      color: white;
+      padding: 12px 30px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    
+    .visit-spiderman-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(255, 0, 0, 0.3);
+      color: white;
+    }
+    
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 2.5rem;
+      }
+      
+      .portfolio-title {
+        font-size: 2rem;
+      }
+      
+      .portfolio-section {
+        padding: 60px 0;
+      }
+      
+      .hero-section {
+        padding-top: 100px;
+      }
+      
+      .spiderman-title {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+
+<body class="starter-page-page">
+
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <h1 class="sitename">SpIdErMaN</h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html#hero">Home</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+          <li><a href="starter-page.html" class="active">Jay Prasad Majhi</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title dark-background" data-aos="fade">
+      <div class="heading">
+        <div class="container">
+          <div class="row d-flex justify-content-center text-center">
+            <div class="col-lg-8">
+              <h1>Jay Prasad Majhi</h1>
+              <p class="mb-0">AI Developer & Cybersecurity Expert | Certified Professional with 900M+ AI Database</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <nav class="breadcrumbs">
+        <div class="container">
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li class="current">Jay Prasad Majhi</li>
+          </ol>
+        </div>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <!-- Hero Section -->
+    <section class="hero-section portfolio-section">
+      <div class="portfolio-container">
+        <div class="hero-content">
+          <h1 class="hero-title">Jay Prasad Majhi</h1>
+          <p class="hero-subtitle">AI Developer • Cybersecurity Expert • IT Consultant</p>
+          
+          <div class="badge-container">
+            <span class="badge">AI Developer</span>
+            <span class="badge">Cybersecurity Expert</span>
+            <span class="badge">Certified Professional</span>
+            <span class="badge">900M+ AI Database</span>
+            <span class="badge">Full Stack Developer</span>
+            <span class="badge">IT Consultant</span>
+          </div>
+          
+          <p class="hero-description">
+            Certified Cybersecurity Expert • AI/ML Specialist • Full Stack Developer • 
+            Cybersecurity Consultant with 900M+ AI Database Access • Transforming Businesses with 
+            Cutting-Edge AI Solutions & Military-Grade Security Infrastructure
+          </p>
+          
+          <a href="#contact" class="hero-button">
+            Start Project
+            <i class="fas fa-arrow-right"></i>
+          </a>
+          
+          <div class="social-links">
+            <a href="https://www.linkedin.com/in/thebijaay" target="_blank" title="LinkedIn">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/thebijaay" target="_blank" title="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://twitter.com/jayprasad" target="_blank" title="Twitter">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="mailto:contact@jayprasad.com.np" title="Email">
+              <i class="fas fa-envelope"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section><!-- End Hero Section -->
+
+    <!-- Services Section -->
+    <section id="services" class="portfolio-section">
+      <div class="portfolio-container">
+        <h2 class="portfolio-title">My Services</h2>
+        
+        <div class="row gy-4">
+          <!-- AI Development Service -->
+          <div class="col-lg-4 col-md-6">
+            <div class="service-card">
+              <div class="service-icon icon-ai">
+                <i class="fas fa-robot"></i>
+              </div>
+              <h3>AI Development</h3>
+              <p>
+                Advanced AI solutions including machine learning models, neural networks, 
+                and intelligent automation systems powered by 900M+ database.
+              </p>
+              <ul class="service-features">
+                <li><i class="fas fa-check"></i> <span>Custom AI Models</span></li>
+                <li><i class="fas fa-check"></i> <span>Machine Learning Systems</span></li>
+                <li><i class="fas fa-check"></i> <span>AI Integration</span></li>
+                <li><i class="fas fa-check"></i> <span>900M+ Database Access</span></li>
+              </ul>
+            </div>
+          </div>
+          
+          <!-- Cybersecurity Service -->
+          <div class="col-lg-4 col-md-6">
+            <div class="service-card">
+              <div class="service-icon icon-security">
+                <i class="fas fa-shield-alt"></i>
+              </div>
+              <h3>Cybersecurity</h3>
+              <p>
+                Complete security solutions including threat detection, vulnerability assessment, 
+                and enterprise-grade security infrastructure.
+              </p>
+              <ul class="service-features">
+                <li><i class="fas fa-check"></i> <span>Security Audits</span></li>
+                <li><i class="fas fa-check"></i> <span>Threat Protection</span></li>
+                <li><i class="fas fa-check"></i> <span>Network Security</span></li>
+                <li><i class="fas fa-check"></i> <span>Penetration Testing</span></li>
+              </ul>
+            </div>
+          </div>
+          
+          <!-- Web Development Service -->
+          <div class="col-lg-4 col-md-6">
+            <div class="service-card">
+              <div class="service-icon icon-web">
+                <i class="fas fa-code"></i>
+              </div>
+              <h3>Web Development</h3>
+              <p>
+                Modern, responsive websites and web applications with AI integration, 
+                advanced animations, and cutting-edge technologies.
+              </p>
+              <ul class="service-features">
+                <li><i class="fas fa-check"></i> <span>Full Stack Development</span></li>
+                <li><i class="fas fa-check"></i> <span>AI-Powered Websites</span></li>
+                <li><i class="fas fa-check"></i> <span>E-commerce Solutions</span></li>
+                <li><i class="fas fa-check"></i> <span>Progressive Web Apps</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- End Services Section -->
+
+    <!-- SpIdErMaN Promotion Section -->
+    <section id="spiderman-promotion" class="portfolio-section">
+      <div class="portfolio-container">
+        <div class="spiderman-promotion">
+          <h2 class="spiderman-title">Professional IT Services</h2>
+          <p class="text-center mb-4" style="color: #ff0000; font-family: 'JetBrains Mono', monospace;">
+            Powered by SpIdErMaN - Your IT Solutions Partner
+          </p>
+          
+          <div class="spiderman-card">
+            <div class="text-center mb-4">
+              <div class="service-icon" style="background: linear-gradient(135deg, #ff0000 0%, #0000ff 100%); margin: 0 auto 20px;">
+                <i class="fas fa-laptop-code"></i>
+              </div>
+              <h3 style="color: #ff0000;">SpIdErMaN IT Services</h3>
+            </div>
+            
+            <p class="text-center">
+              Looking for professional web design, development, hosting, and IT support services? 
+              Visit my dedicated IT services platform for comprehensive digital solutions that 
+              help your business grow and succeed in the digital world.
+            </p>
+            
+            <div class="d-flex flex-wrap justify-content-center gap-2 mb-4">
+              <span class="badge" style="background: rgba(255, 0, 0, 0.1); border-color: rgba(255, 0, 0, 0.3);">Web Design</span>
+              <span class="badge" style="background: rgba(255, 0, 0, 0.1); border-color: rgba(255, 0, 0, 0.3);">Web Development</span>
+              <span class="badge" style="background: rgba(255, 0, 0, 0.1); border-color: rgba(255, 0, 0, 0.3);">Graphic Design</span>
+              <span class="badge" style="background: rgba(255, 0, 0, 0.1); border-color: rgba(255, 0, 0, 0.3);">Web Hosting</span>
+              <span class="badge" style="background: rgba(255, 0, 0, 0.1); border-color: rgba(255, 0, 0, 0.3);">IT Support</span>
+            </div>
+            
+            <div class="text-center">
+              <a href="https://the.jayprasad.com.np" target="_blank" class="visit-spiderman-button">
+                <i class="fas fa-external-link-alt"></i>
+                Visit SpIdErMaN IT Services
+              </a>
+            </div>
+          </div>
+          
+          <div class="text-center mt-4" style="color: rgba(255, 255, 255, 0.7);">
+            <p>For professional IT services contact: <a href="mailto:info@jayprasad.com.np" style="color: #ff0000;">info@jayprasad.com.np</a></p>
+          </div>
+        </div>
+      </div>
+    </section><!-- End SpIdErMaN Promotion Section -->
+
+    <!-- Contact Section -->
+    <section id="contact" class="portfolio-section">
+      <div class="portfolio-container">
+        <h2 class="portfolio-title">Let's Connect</h2>
+        
+        <div class="row gy-4">
+          <div class="col-lg-6">
+            <div class="contact-info">
+              <h3>Contact Information</h3>
+              
+              <div class="contact-item">
+                <div class="service-icon icon-ai">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <div class="contact-details">
+                  <h4>Primary Email</h4>
+                  <a href="mailto:contact@jayprasad.com.np">contact@jayprasad.com.np</a>
+                  <p>For all business inquiries and project discussions</p>
+                </div>
+              </div>
+              
+              <div class="contact-item">
+                <div class="service-icon icon-security">
+                  <i class="fas fa-briefcase"></i>
+                </div>
+                <div class="contact-details">
+                  <h4>Business Email</h4>
+                  <a href="mailto:info@jayprasad.com.np">info@jayprasad.com.np</a>
+                  <p>IT services & professional support</p>
+                </div>
+              </div>
+              
+              <div class="contact-item">
+                <div class="service-icon icon-web">
+                  <i class="fas fa-phone"></i>
+                </div>
+                <div class="contact-details">
+                  <h4>Phone & WhatsApp</h4>
+                  <a href="tel:+9779812345678">+977 9812345678</a>
+                  <p>Available for calls & WhatsApp messages</p>
+                </div>
+              </div>
+              
+              <div class="contact-item">
+                <div class="service-icon" style="background: linear-gradient(135deg, #ffaa00 0%, #ff5500 100%);">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="contact-details">
+                  <h4>Location</h4>
+                  <p>Kathmandu, Nepal / Global Services</p>
+                  <p>Serving clients worldwide</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-lg-6">
+            <div class="service-card">
+              <h3>Send Message</h3>
+              <form name="contact" netlify class="mt-4">
+                <div class="mb-3">
+                  <label for="name" class="form-label">Name</label>
+                  <input type="text" class="form-control form-input" id="name" name="name" placeholder="Enter your name" required>
+                </div>
+                
+                <div class="mb-3">
+                  <label for="email" class="form-label">Your Email</label>
+                  <input type="email" class="form-control form-input" id="email" name="email" placeholder="name@company.com" required>
+                </div>
+                
+                <div class="mb-3">
+                  <label for="service" class="form-label">Service Interest</label>
+                  <select class="form-select form-input" id="service" name="service">
+                    <option value="">Select Service</option>
+                    <option value="ai-development">AI Development</option>
+                    <option value="cybersecurity">Cybersecurity</option>
+                    <option value="web-development">Web Development</option>
+                    <option value="it-services">IT Services (SpIdErMaN)</option>
+                    <option value="consultation">Consultation</option>
+                  </select>
+                </div>
+                
+                <div class="mb-3">
+                  <label for="message" class="form-label">Message</label>
+                  <textarea class="form-control form-input" id="message" name="message" rows="4" placeholder="Tell me about your project..." required></textarea>
+                </div>
+                
+                <button type="submit" class="hero-button w-100">
+                  <i class="fas fa-paper-plane"></i>
+                  Send Message
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main>
+
+  <footer id="footer" class="footer dark-background">
+
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-4 col-md-6 footer-about">
+          <a href="index.html" class="logo d-flex align-items-center">
+            <span class="sitename">SpIdErMaN</span>
+          </a>
+          <div class="footer-contact pt-3">
+            <p>A108 Adam Street</p>
+            <p>New York, NY 535022</p>
+            <p class="mt-3"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
+            <p><strong>Email:</strong> <span>info@the.jayprasad.com.np</span></p>
+          </div>
+          <div class="social-links d-flex mt-4">
+            <a href=""><i class="bi bi-twitter-x"></i></a>
+            <a href=""><i class="bi bi-facebook"></i></a>
+            <a href=""><i class="bi bi-instagram"></i></a>
+            <a href=""><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Useful Links</h4>
+          <ul>
+            <li><a href="index.html#hero">Home</a></li>
+            <li><a href="index.html#about">About us</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-3 footer-links">
+          <h4>Our Services</h4>
+          <ul>
+            <li><a href="index.html#services">Web Design</a></li>
+            <li><a href="index.html#services">Graphic Design</a></li>
+            <li><a href="index.html#services">Web Development</a></li>
+            <li><a href="index.html#services">Web Hosting</a></li>
+            <li><a href="index.html#services">IT Services</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-12 footer-newsletter">
+          <h4>Additional Contacts</h4>
+          <p><strong>Support/Inquiries:</strong> contact@the.jayprasad.com.np</p>
+          <p><strong>Technical Support:</strong> it@the.jayprasad.com.np</p>
+          <div class="mt-3">
+            <a href="https://formspree.io/f/xgoovngj" target="_blank" class="btn btn-outline-light w-100">
+              <i class="bi bi-pencil-square me-2"></i>Use Contact Form
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container copyright text-center mt-4">
+      <p>© 2026 | Designed by <a href="https://jayprasad.com.np" target="_blank" style="text-decoration: none; color: inherit; font-weight: bold;">Bi Jay</a></p>
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+  <!-- Additional Scripts for this page -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Initialize AOS animations
+      if (typeof AOS !== 'undefined') {
+        AOS.init({
+          duration: 1000,
+          once: true
+        });
+      }
+      
+      // Set current year in copyright
+      document.getElementById('currentYear').textContent = new Date().getFullYear();
+      
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          if (this.getAttribute('href') === '#') return;
+          
+          e.preventDefault();
+          const targetId = this.getAttribute('href');
+          const targetElement = document.querySelector(targetId);
+          
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 100,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+    });
+  </script>
+
+</body>
+
+</html>
