@@ -1,0 +1,2040 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary Meta Tags -->
+    <title>Jay Prasad Majhi – AI & Cybersecurity Expert</title>
+    <meta name="description" content="Jay Prasad Majhi - AI Developer, Cybersecurity Specialist & IT Consultant. Certified Cybersecurity professional with 900M+ AI database expertise." />
+    <meta name="author" content="Jay Prasad Majhi" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/favicon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="assets/images/favicon.png" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://jayprasad.com.np/" />
+    <meta property="og:title" content="Jay Prasad Majhi – AI & Cybersecurity Expert" />
+    <meta property="og:description" content="AI Developer, Cybersecurity Specialist & IT Consultant with 900M+ AI database expertise." />
+    <meta property="og:image" content="assets/images/name-logo.svg" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://jayprasadmajhi.com/" />
+    <meta property="twitter:title" content="Jay Prasad Majhi – AI & Cybersecurity Expert" />
+    <meta property="twitter:description" content="AI Developer, Cybersecurity Specialist & IT Consultant with 900M+ AI database expertise." />
+    <meta property="twitter:image" content="assets/images/name-logo.svg" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Jay Prasad Majhi",
+        "url": "https://jayprasadmajhi.com",
+        "jobTitle": "AI & Cybersecurity Expert",
+        "image": "assets/images/name-logo.svg",
+        "email": "contact@jayprasad.com.np",
+        "telephone": "+9779812345678",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Kathmandu",
+            "addressCountry": "NP"
+        },
+        "sameAs": [
+            "https://www.linkedin.com/in/thebijaay",
+            "https://github.com/thebijaay",
+            "https://twitter.com/jayprasad"
+        ]
+    }
+    </script>
+
+    <!-- External Libraries -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet">
+
+    <!-- Demo styles -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #111;
+            color: white;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Loading Screen */
+        .loading-screen {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: #05050f;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .loading-content {
+            text-align: center;
+        }
+
+        .loading-logo {
+            width: 128px;
+            height: 128px;
+            margin: 0 auto 32px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #00f3ff 0%, #9d00ff 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: pulse 2s infinite;
+        }
+
+        .loading-logo i {
+            color: white;
+            font-size: 48px;
+        }
+
+        .loading-title {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #00f3ff 0%, #9d00ff 50%, #ff00ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .loading-subtitle {
+            font-size: 1.25rem;
+            color: #00f3ff;
+            margin-bottom: 32px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .loading-bar-container {
+            width: 256px;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+
+        .loading-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #00f3ff 0%, #9d00ff 100%);
+            width: 0%;
+            transition: width 0.5s ease;
+        }
+
+        .loading-text {
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 16px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 20px 0;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .logo-title {
+            font-size: 0.75rem;
+            color: #00f3ff;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .theme-toggle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .theme-toggle i {
+            color: #00f3ff;
+            font-size: 1.25rem;
+        }
+
+        .contact-icons {
+            display: flex;
+            gap: 12px;
+        }
+
+        .contact-icons a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-icons a:hover {
+            color: #00f3ff;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .hero-content {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            padding-top: 120px;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .hero-text {
+            padding-left: 40px;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, #00f3ff 0%, #9d00ff 50%, #ff00ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: #00f3ff;
+            margin-bottom: 32px;
+            font-family: 'JetBrains Mono', monospace;
+            font-style: italic;
+        }
+
+        .badge-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 32px;
+        }
+
+        .badge {
+            padding: 8px 16px;
+            background: rgba(0, 243, 255, 0.1);
+            border: 1px solid rgba(0, 243, 255, 0.3);
+            backdrop-filter: blur(10px);
+            border-radius: 50px;
+            font-size: 0.875rem;
+        }
+
+        .hero-description {
+            font-size: 1.125rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 40px;
+            line-height: 1.6;
+            max-width: 600px;
+        }
+
+        .hero-button {
+            background: linear-gradient(135deg, #00f3ff 0%, #9d00ff 100%);
+            border: none;
+            color: white;
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-size: 1.125rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .hero-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 243, 255, 0.3);
+        }
+
+        .social-sidebar {
+            position: absolute;
+            right: 40px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .social-sidebar a {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-sidebar a:hover {
+            color: #00f3ff;
+            transform: translateX(-5px);
+        }
+
+        /* Works Section */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 60px;
+            color: #00f3ff;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #00f3ff 0%, #9d00ff 100%);
+            border-radius: 2px;
+        }
+
+        .project-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 80px;
+        }
+
+        .project-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .project-preview {
+            position: relative;
+        }
+
+        .preview-card {
+            background: rgba(20, 20, 30, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            transition: all 0.4s ease;
+        }
+
+        .preview-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5),
+                        0 0 30px rgba(0, 243, 255, 0.2);
+        }
+
+        .preview-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+        }
+
+        .icon-ai {
+            background: linear-gradient(135deg, #00f3ff 0%, #0066ff 100%);
+        }
+
+        .icon-security {
+            background: linear-gradient(135deg, #00ff88 0%, #00cc66 100%);
+        }
+
+        .icon-web {
+            background: linear-gradient(135deg, #9d00ff 0%, #ff00ff 100%);
+        }
+
+        .preview-icon i {
+            color: white;
+            font-size: 2.5rem;
+        }
+
+        .preview-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .preview-description {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .project-details h3 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .project-details .subtitle {
+            font-size: 1.25rem;
+            color: #00f3ff;
+            margin-bottom: 20px;
+        }
+
+        .project-details p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .tech-tag {
+            padding: 8px 16px;
+            border: 1px solid rgba(0, 243, 255, 0.3);
+            border-radius: 50px;
+            font-size: 0.875rem;
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .about-card {
+            background: rgba(20, 20, 30, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+        }
+
+        .about-card h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, #00f3ff 0%, #9d00ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .about-card p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 32px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #00f3ff 0%, #9d00ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: 8px;
+        }
+
+        .skill-item {
+            margin-bottom: 24px;
+        }
+
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .skill-name {
+            font-weight: 600;
+        }
+
+        .skill-percentage {
+            color: #00f3ff;
+            font-weight: 700;
+        }
+
+        .skill-bar {
+            height: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #00f3ff 0%, #9d00ff 100%);
+            border-radius: 5px;
+        }
+
+        .timeline {
+            margin-top: 32px;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 30px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #00f3ff;
+            border: 3px solid #111;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 20px;
+            bottom: -30px;
+            width: 2px;
+            background: #00f3ff;
+        }
+
+        .timeline-item:last-child::after {
+            display: none;
+        }
+
+        .timeline-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .timeline-subtitle {
+            color: #00f3ff;
+            font-size: 0.875rem;
+            margin-bottom: 8px;
+        }
+
+        .timeline-description {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.875rem;
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .service-card {
+            background: rgba(20, 20, 30, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            transition: all 0.4s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5),
+                        0 0 30px rgba(0, 243, 255, 0.2);
+        }
+
+        .service-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+        }
+
+        .service-icon i {
+            color: white;
+            font-size: 1.75rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .service-card p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        .service-features {
+            list-style: none;
+        }
+
+        .service-features li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .service-features i {
+            color: #00ff88;
+            margin-right: 12px;
+        }
+
+        /* Testimonials */
+        .testimonial-slider {
+            position: relative;
+            padding: 40px 0;
+        }
+
+        .testimonial-slide {
+            display: flex;
+            align-items: center;
+            background: rgba(20, 20, 30, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            gap: 40px;
+        }
+
+        .testimonial-avatar {
+            width: 128px;
+            height: 128px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .avatar-1 {
+            background: linear-gradient(135deg, #00f3ff 0%, #9d00ff 100%);
+        }
+
+        .avatar-2 {
+            background: linear-gradient(135deg, #00ff88 0%, #00cc66 100%);
+        }
+
+        .testimonial-avatar i {
+            color: white;
+            font-size: 3rem;
+        }
+
+        .testimonial-content {
+            flex: 1;
+        }
+
+        .testimonial-text {
+            font-size: 1.125rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 24px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            text-align: right;
+        }
+
+        .testimonial-author h4 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #00f3ff;
+            margin-bottom: 4px;
+        }
+
+        .testimonial-author p {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .contact-info-card {
+            background: rgba(20, 20, 30, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 32px;
+            gap: 20px;
+        }
+
+        .contact-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .icon-email {
+            background: linear-gradient(135deg, #00f3ff 0%, #0066ff 100%);
+        }
+
+        .icon-business {
+            background: linear-gradient(135deg, #9d00ff 0%, #ff00ff 100%);
+        }
+
+        .icon-phone {
+            background: linear-gradient(135deg, #00ff88 0%, #00cc66 100%);
+        }
+
+        .icon-location {
+            background: linear-gradient(135deg, #ffaa00 0%, #ff5500 100%);
+        }
+
+        .contact-icon i {
+            color: white;
+            font-size: 1.25rem;
+        }
+
+        .contact-details h4 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .contact-details a {
+            color: #00f3ff;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        .contact-details a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-details p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.875rem;
+            margin-top: 4px;
+        }
+
+        .social-connect {
+            margin-top: 40px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .social-connect h4 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 16px;
+        }
+
+        .social-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-5px);
+        }
+
+        .social-linkedin {
+            background: #0077b5;
+        }
+
+        .social-github {
+            background: #333;
+        }
+
+        .social-twitter {
+            background: #00f3ff;
+        }
+
+        .social-icon i {
+            color: white;
+            font-size: 1.25rem;
+        }
+
+        .contact-form-card {
+            background: rgba(20, 20, 30, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: white;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #00f3ff;
+            box-shadow: 0 0 0 2px rgba(0, 243, 255, 0.2);
+        }
+
+        .form-input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .form-select {
+            width: 100%;
+            padding: 12px 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .form-select:focus {
+            outline: none;
+            border-color: #00f3ff;
+            box-shadow: 0 0 0 2px rgba(0, 243, 255, 0.2);
+        }
+
+        .form-select option {
+            background: #111;
+            color: white;
+        }
+
+        .form-textarea {
+            width: 100%;
+            padding: 12px 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: white;
+            font-size: 1rem;
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .form-textarea:focus {
+            outline: none;
+            border-color: #00f3ff;
+            box-shadow: 0 0 0 2px rgba(0, 243, 255, 0.2);
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #00f3ff 0%, #9d00ff 100%);
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-size: 1.125rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .submit-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 243, 255, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 0 40px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-logo {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 24px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #00f3ff 0%, #9d00ff 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footer-logo i {
+            color: white;
+            font-size: 1.75rem;
+        }
+
+        .copyright {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.875rem;
+            margin-bottom: 32px;
+        }
+
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        .footer-social a {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.25rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .footer-social a:hover {
+            color: #00f3ff;
+        }
+
+        .footer-info {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.75rem;
+            line-height: 1.5;
+        }
+
+        /* SpIdErMaN Promotion Section */
+        .spiderman-promotion {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .spiderman-promotion::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(255, 0, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(0, 0, 255, 0.1) 0%, transparent 50%);
+            z-index: 1;
+        }
+        
+        .spiderman-promotion .container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .spiderman-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ff0000 0%, #0000ff 50%, #ffffff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        
+        .spiderman-subtitle {
+            font-size: 1.2rem;
+            color: #ff0000;
+            text-align: center;
+            margin-bottom: 3rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .spiderman-card {
+            background: rgba(20, 20, 30, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 0, 0, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .spiderman-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ff0000 0%, #0000ff 100%);
+        }
+        
+        .spiderman-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5),
+                        0 0 30px rgba(255, 0, 0, 0.2);
+            border-color: rgba(255, 0, 0, 0.4);
+        }
+        
+        .spiderman-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, #ff0000 0%, #0000ff 100%);
+        }
+        
+        .spiderman-card h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #ff0000;
+            text-align: center;
+        }
+        
+        .spiderman-card p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .service-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .service-badge {
+            padding: 6px 12px;
+            background: rgba(255, 0, 0, 0.1);
+            border: 1px solid rgba(255, 0, 0, 0.3);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: #ff0000;
+        }
+        
+        .visit-spiderman-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #ff0000 0%, #0000ff 100%);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            margin: 0 auto;
+            display: block;
+            width: fit-content;
+        }
+        
+        .visit-spiderman-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 0, 0, 0.3);
+            color: white;
+        }
+        
+        .contact-spiderman-box {
+            background: rgba(20, 20, 30, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 0, 0, 0.2);
+            border-radius: 20px;
+            padding: 30px;
+            margin-top: 40px;
+            text-align: center;
+        }
+        
+        .contact-spiderman-box h4 {
+            color: #ff0000;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .spiderman-email-link {
+            color: #ff0000;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .spiderman-email-link:hover {
+            color: #0000ff;
+            text-decoration: underline;
+        }
+
+        /* Animations */
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.05);
+                opacity: 0.8;
+            }
+        }
+
+        @keyframes spin-slow {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes spin-slow-reverse {
+            from {
+                transform: rotate(360deg);
+            }
+            to {
+                transform: rotate(0deg);
+            }
+        }
+
+        .animate-spin-slow {
+            animation: spin-slow 20s linear infinite;
+        }
+
+        .animate-spin-slow-reverse {
+            animation: spin-slow-reverse 15s linear infinite;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .hero-text {
+                padding-left: 0;
+            }
+            
+            .social-sidebar {
+                display: none;
+            }
+            
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .spiderman-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .project-item {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .testimonial-slide {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .testimonial-author {
+                text-align: center;
+            }
+            
+            .header-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .spiderman-card {
+                padding: 30px;
+            }
+            
+            .spiderman-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 16px;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.125rem;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .about-card,
+            .service-card,
+            .contact-info-card,
+            .contact-form-card {
+                padding: 30px;
+            }
+            
+            .spiderman-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <i class="fas fa-brain"></i>
+            </div>
+            <h1 class="loading-title">JAY PRASAD MAJHI</h1>
+            <p class="loading-subtitle">Initializing AI Systems...</p>
+            <div class="loading-bar-container">
+                <div class="loading-bar" id="loadingBar"></div>
+            </div>
+            <p class="loading-text" id="loadingText">Loading Cybersecurity Protocols</p>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo-container">
+                <img src="assets/images/favicon.png" alt="Jay Prasad Majhi Logo" class="logo-img">
+                <div class="logo-text">
+                    <div class="logo-name">JAY PRASAD MAJHI</div>
+                    <div class="logo-title">AI & CYBERSECURITY EXPERT</div>
+                </div>
+            </div>
+            <div class="header-actions">
+                <button id="themeToggle" class="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="contact-icons">
+                    <a href="tel:+9779812345678" title="Call">
+                        <i class="fas fa-phone"></i>
+                    </a>
+                    <a href="https://wa.me/9779812345678?text=Hi, I'm interested in your AI/Cybersecurity services" 
+                       target="_blank" title="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="hero-grid">
+                <div class="hero-text">
+                    <h1 class="hero-title">Jay Prasad Majhi</h1>
+                    <p class="hero-subtitle" id="typed-roles">AI Developer</p>
+                    <div class="badge-container">
+                        <span class="badge">AI Developer</span>
+                        <span class="badge">Cybersecurity Expert</span>
+                        <span class="badge">Certified Professional</span>
+                        <span class="badge">900M+ AI Database</span>
+                    </div>
+                    <p class="hero-description">
+                        Certified Cybersecurity Expert • AI/ML Specialist • Full Stack Developer • 
+                        Cybersecurity Consultant with 900M+ AI Database Access • Transforming Businesses with 
+                        Cutting-Edge AI Solutions & Military-Grade Security Infrastructure
+                    </p>
+                    <button class="hero-button" onclick="scrollToSection('contact')">
+                        Start Project
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Social Sidebar -->
+        <div class="social-sidebar">
+            <a href="https://www.linkedin.com/in/thebijaay" target="_blank" title="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/thebijaay" target="_blank" title="GitHub">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://twitter.com/jayprasad" target="_blank" title="Twitter">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="mailto:intelligence@jayprasad.com.np" title="Email">
+                <i class="fas fa-envelope"></i>
+            </a>
+            <a href="https://www.youtube.com/@jayprasad" target="_blank" title="YouTube">
+                <i class="fab fa-youtube"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Works Section -->
+    <section id="works" class="section">
+        <div class="container">
+            <h2 class="section-title">Latest Works</h2>
+            
+            <!-- Project 1 -->
+            <div class="project-grid">
+                <div class="project-item">
+                    <div class="project-preview">
+                        <div class="preview-card">
+                            <div class="preview-icon icon-ai">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <h3 class="preview-title">AI Chat System</h3>
+                            <p class="preview-description">Advanced AI chatbot powered by 900M+ Q/A database</p>
+                        </div>
+                    </div>
+                    <div class="project-details">
+                        <h3>AI Chat System</h3>
+                        <p class="subtitle">(Powered by 900M+ Database)</p>
+                        <p>
+                            Advanced AI chatbot system with natural language processing, machine learning capabilities,
+                            and access to 900 million+ question-answer database for intelligent responses.
+                        </p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">#python</span>
+                            <span class="tech-tag">#tensorflow</span>
+                            <span class="tech-tag">#nlp</span>
+                            <span class="tech-tag">#machine-learning</span>
+                            <span class="tech-tag">#ai</span>
+                            <span class="tech-tag">#chatbot</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-item">
+                    <div class="project-details">
+                        <h3 style="color: #00ff88;">Security Audit Platform</h3>
+                        <p class="subtitle" style="color: #00ff88;">(Cybersecurity Solution)</p>
+                        <p>
+                            Comprehensive cybersecurity audit platform with real-time threat detection,
+                            vulnerability assessment, and security compliance monitoring for enterprises.
+                        </p>
+                        <div class="tech-tags">
+                            <span class="tech-tag" style="border-color: rgba(0, 255, 136, 0.3);">#cybersecurity</span>
+                            <span class="tech-tag" style="border-color: rgba(0, 255, 136, 0.3);">#network-security</span>
+                            <span class="tech-tag" style="border-color: rgba(0, 255, 136, 0.3);">#threat-detection</span>
+                            <span class="tech-tag" style="border-color: rgba(0, 255, 136, 0.3);">#encryption</span>
+                            <span class="tech-tag" style="border-color: rgba(0, 255, 136, 0.3);">#penetration-testing</span>
+                        </div>
+                    </div>
+                    <div class="project-preview">
+                        <div class="preview-card">
+                            <div class="preview-icon icon-security">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h3 class="preview-title">Security Platform</h3>
+                            <p class="preview-description">Enterprise cybersecurity solutions</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-item">
+                    <div class="project-preview">
+                        <div class="preview-card">
+                            <div class="preview-icon icon-web">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <h3 class="preview-title">Full Stack Platform</h3>
+                            <p class="preview-description">Modern web application with AI integration</p>
+                        </div>
+                    </div>
+                    <div class="project-details">
+                        <h3 style="color: #9d00ff;">Full Stack Platform</h3>
+                        <p class="subtitle" style="color: #9d00ff;">(AI-Powered Web Application)</p>
+                        <p>
+                            Modern, responsive web platform with AI integration, real-time analytics,
+                            and advanced user interface. Built with cutting-edge technologies for optimal performance.
+                        </p>
+                        <div class="tech-tags">
+                            <span class="tech-tag" style="border-color: rgba(157, 0, 255, 0.3);">#react.js</span>
+                            <span class="tech-tag" style="border-color: rgba(157, 0, 255, 0.3);">#node.js</span>
+                            <span class="tech-tag" style="border-color: rgba(157, 0, 255, 0.3);">#mongodb</span>
+                            <span class="tech-tag" style="border-color: rgba(157, 0, 255, 0.3);">#typescript</span>
+                            <span class="tech-tag" style="border-color: rgba(157, 0, 255, 0.3);">#tailwind</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            
+            <div class="about-grid">
+                <div class="about-card">
+                    <h3>Who I Am</h3>
+                    <p>
+                        I am <strong style="color: #00f3ff;">Jay Prasad Majhi</strong>, AI Developer and 
+                        Cybersecurity Specialist with extensive expertise in creating cutting-edge 
+                        artificial intelligence solutions and implementing military-grade security 
+                        infrastructure.
+                    </p>
+                    <p>
+                        With access to a massive 900 million+ question-answer AI database, I develop 
+                        intelligent systems that transform businesses and secure digital assets against 
+                        modern cyber threats.
+                    </p>
+                    <p>
+                        My mission is to bridge the gap between innovative AI technology and 
+                        enterprise-grade security, delivering solutions that are both powerful and 
+                        protected.
+                    </p>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-number">3+</div>
+                            <div class="stat-label">Years Experience</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">50+</div>
+                            <div class="stat-label">Projects Completed</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">900M+</div>
+                            <div class="stat-label">AI Database</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-card">
+                    <h3>Core Expertise</h3>
+                    <div class="skills-container">
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Artificial Intelligence</span>
+                                <span class="skill-percentage">95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Cybersecurity</span>
+                                <span class="skill-percentage">98%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 98%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Web Development</span>
+                                <span class="skill-percentage">92%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 92%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Cloud Architecture</span>
+                                <span class="skill-percentage">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline">
+                        <h4 style="font-size: 1.25rem; margin-bottom: 24px;">Professional Journey</h4>
+                        <div class="timeline-item">
+                            <h5 class="timeline-title">Founder & Lead AI Developer</h5>
+                            <p class="timeline-subtitle">Trio IT | 2022 - Present</p>
+                            <p class="timeline-description">Leading AI development and cybersecurity solutions</p>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <h5 class="timeline-title">Cybersecurity Consultant</h5>
+                            <p class="timeline-subtitle">Multiple Organizations | 2021 - Present</p>
+                            <p class="timeline-description">Providing expert cybersecurity consulting</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section">
+        <div class="container">
+            <h2 class="section-title">My Services</h2>
+            
+            <div class="services-grid">
+                <!-- AI Development Service -->
+                <div class="service-card">
+                    <div class="service-icon icon-ai">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>AI Development</h3>
+                    <p>
+                        Advanced AI solutions including machine learning models, neural networks, 
+                        and intelligent automation systems.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> <span>Custom AI Models</span></li>
+                        <li><i class="fas fa-check"></i> <span>Machine Learning Systems</span></li>
+                        <li><i class="fas fa-check"></i> <span>AI Integration</span></li>
+                    </ul>
+                </div>
+                
+                <!-- Cybersecurity Service -->
+                <div class="service-card">
+                    <div class="service-icon icon-security">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Cybersecurity</h3>
+                    <p>
+                        Complete security solutions including threat detection, vulnerability assessment, 
+                        and enterprise-grade security infrastructure.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> <span>Security Audits</span></li>
+                        <li><i class="fas fa-check"></i> <span>Threat Protection</span></li>
+                        <li><i class="fas fa-check"></i> <span>Network Security</span></li>
+                    </ul>
+                </div>
+                
+                <!-- Web Development Service -->
+                <div class="service-card">
+                    <div class="service-icon icon-web">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Web Development</h3>
+                    <p>
+                        Modern, responsive websites and web applications with AI integration, 
+                        advanced animations, and cutting-edge technologies.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> <span>Full Stack Development</span></li>
+                        <li><i class="fas fa-check"></i> <span>AI-Powered Websites</span></li>
+                        <li><i class="fas fa-check"></i> <span>E-commerce Solutions</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SpIdErMaN IT Services Promotion Section -->
+    <section id="spiderman-services" class="spiderman-promotion section">
+        <div class="container">
+            <h2 class="spiderman-title">Professional IT Services</h2>
+            <p class="spiderman-subtitle">Powered by SpIdErMaN - Your IT Solutions Partner</p>
+            
+            <div class="spiderman-card">
+                <div class="spiderman-icon">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <h3>SpIdErMaN IT Services</h3>
+                <p>
+                    Looking for professional web design, development, hosting, and IT support services? 
+                    Visit my dedicated IT services platform for comprehensive digital solutions that 
+                    help your business grow and succeed in the digital world.
+                </p>
+                
+                <div class="service-badges">
+                    <span class="service-badge">Web Design</span>
+                    <span class="service-badge">Web Development</span>
+                    <span class="service-badge">Graphic Design</span>
+                    <span class="service-badge">Web Hosting</span>
+                    <span class="service-badge">IT Support</span>
+                    <span class="service-badge">Responsive Design</span>
+                </div>
+                
+                <a href="https://the.jayprasad.com.np" target="_blank" class="visit-spiderman-button">
+                    <i class="fas fa-external-link-alt"></i>
+                    Visit SpIdErMaN IT Services
+                </a>
+            </div>
+            
+            <div class="contact-spiderman-box">
+                <h4>Contact SpIdErMaN IT Services</h4>
+                <p>For professional web and IT services, reach out through our dedicated channels:</p>
+                <div class="mt-3">
+                    <p>General Inquiries: <a href="mailto:info@jayprasad.com.np" class="spiderman-email-link">info@jayprasad.com.np</a></p>
+                    <p>Service Support: <a href="mailto:contact@jayprasad.com.np" class="spiderman-email-link">contact@jayprasad.com.np</a></p>
+                </div>
+                <p class="mt-3" style="color: rgba(255, 255, 255, 0.7); font-size: 0.9rem;">
+                    Professional IT Solutions • Web Design & Development • Graphic Design • Web Hosting • IT Support
+                </p>
+            </div>
+        </div>
+    </section><!-- /SpIdErMaN Promotion Section -->
+
+    <!-- Testimonials Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">What clients are saying?</h2>
+            
+            <div class="testimonial-slider">
+                <div class="testimonial-slide">
+                    <div class="testimonial-avatar avatar-1">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">
+                            "Jay's AI solutions transformed our business operations. The cybersecurity implementation was flawless and the AI integration boosted our efficiency by 300%."
+                        </p>
+                        <div class="testimonial-author">
+                            <h4>Tech Enterprise CEO</h4>
+                            <p>Fortune 500 Company</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Let's Connect</h2>
+            
+            <div class="contact-grid">
+                <div class="contact-info-card">
+                    <h3>Contact Information</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon icon-email">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Primary Email</h4>
+                                <a href="mailto:contact@jayprasad.com.np">contact@jayprasad.com.np</a>
+                                <p>For all business inquiries</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon icon-business">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Business Email</h4>
+                                <a href="mailto:info@jayprasad.com.np">info@jayprasad.com.np</a>
+                                <p>IT services & support</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon icon-phone">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Phone & WhatsApp</h4>
+                                <a href="tel:+9779812345678">+977 9812345678</a>
+                                <p>Available for calls & WhatsApp</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon icon-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Location</h4>
+                                <p>Kathmandu, Nepal / Los Angeles, USA</p>
+                                <p>Serving clients globally</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="social-connect">
+                        <h4>Connect Socially</h4>
+                        <div class="social-icons">
+                            <a href="https://www.linkedin.com/in/thebijaay" target="_blank" class="social-icon social-linkedin">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://github.com/thebijaay" target="_blank" class="social-icon social-github">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://twitter.com/jayprasad" target="_blank" class="social-icon social-twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form-card">
+                    <h3>Send Message</h3>
+                    <form name="contact" netlify>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" class="form-input" placeholder="Enter your name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" name="email" class="form-input" placeholder="name@company.com" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service">Service Interest</label>
+                            <select id="service" name="service" class="form-select">
+                                <option value="">Select Service</option>
+                                <option value="ai-development">AI Development</option>
+                                <option value="cybersecurity">Cybersecurity</option>
+                                <option value="web-development">Web Development</option>
+                                <option value="it-services">IT Services (SpIdErMaN)</option>
+                                <option value="consultation">Consultation</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" class="form-textarea" placeholder="Tell me about your project..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-button">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo">
+                <i class="fas fa-brain"></i>
+            </div>
+            <p class="copyright">Jay Prasad Majhi © <span id="currentYear"></span></p>
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/in/thebijaay" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/thebijaay" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://twitter.com/jayprasad" target="_blank">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="mailto:info@jayprasad.com.np">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://wa.me/9779812345678" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+            <p class="footer-info">
+                Website powered by advanced AI systems and cybersecurity protocols<br>
+                AI Database: 900M+ | Cybersecurity Certified (CC)<br>
+                <a href="#spiderman-services" style="color: #ff0000; text-decoration: none;">Visit SpIdErMaN IT Services</a> for professional web and IT solutions
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+    <script>
+        // Loading screen simulation
+        document.addEventListener('DOMContentLoaded', function() {
+            const loadingScreen = document.getElementById('loadingScreen');
+            const loadingBar = document.getElementById('loadingBar');
+            const loadingText = document.getElementById('loadingText');
+            
+            // Show loading screen
+            loadingScreen.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            
+            const loadingStates = [
+                { text: 'Loading Cybersecurity Protocols', width: 20 },
+                { text: 'Initializing AI Systems', width: 40 },
+                { text: 'Accessing 900M+ Database', width: 60 },
+                { text: 'Establishing Neural Networks', width: 80 },
+                { text: 'Finalizing Interface', width: 100 }
+            ];
+            
+            let currentState = 0;
+            
+            function updateLoading() {
+                if (currentState < loadingStates.length) {
+                    const state = loadingStates[currentState];
+                    loadingBar.style.width = state.width + '%';
+                    loadingText.textContent = state.text;
+                    currentState++;
+                    setTimeout(updateLoading, 600);
+                } else {
+                    // Loading complete
+                    setTimeout(() => {
+                        loadingScreen.style.opacity = '0';
+                        loadingScreen.style.transition = 'opacity 0.5s ease';
+                        setTimeout(() => {
+                            loadingScreen.style.display = 'none';
+                            document.body.style.overflow = 'auto';
+                        }, 500);
+                    }, 500);
+                }
+            }
+            
+            // Start loading
+            setTimeout(updateLoading, 500);
+            
+            // Initialize Typed.js for roles
+            if (typeof Typed !== 'undefined') {
+                new Typed('#typed-roles', {
+                    strings: [
+                        'AI Developer',
+                        'Cybersecurity Expert',
+                        'IT Consultant',
+                        'Full Stack Developer',
+                        'Machine Learning Specialist'
+                    ],
+                    typeSpeed: 50,
+                    backSpeed: 30,
+                    backDelay: 1500,
+                    loop: true,
+                    showCursor: true,
+                    cursorChar: '|'
+                });
+            }
+            
+            // Set current year
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+            
+            // Theme toggle
+            const themeToggle = document.getElementById('themeToggle');
+            if (themeToggle) {
+                themeToggle.addEventListener('click', function() {
+                    const isDark = document.body.classList.toggle('light-mode');
+                    const icon = this.querySelector('i');
+                    if (isDark) {
+                        document.body.style.backgroundColor = '#ffffff';
+                        document.body.style.color = '#000000';
+                        icon.classList.remove('fa-moon');
+                        icon.classList.add('fa-sun');
+                        icon.style.color = '#ffaa00';
+                    } else {
+                        document.body.style.backgroundColor = '#111111';
+                        document.body.style.color = '#ffffff';
+                        icon.classList.remove('fa-sun');
+                        icon.classList.add('fa-moon');
+                        icon.style.color = '#00f3ff';
+                    }
+                });
+            }
+            
+            // Smooth scrolling
+            function scrollToSection(sectionId) {
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    window.scrollTo({
+                        top: section.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+            
+            // Make scrollToSection function globally available
+            window.scrollToSection = scrollToSection;
+            
+            // Add scroll reveal animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe all sections
+            document.querySelectorAll('.section').forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
