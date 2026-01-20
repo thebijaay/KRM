@@ -1,39 +1,92 @@
-# Jay Prasad Majhi — Portfolio
+# Magic Portfolio
 
-This repository contains the personal portfolio of **Jay Prasad Majhi**, built with **Next.js** and designed to be clean, professional, beginner-friendly, and SEO-optimized. The portfolio supports an MDX-based content system for projects and blog posts, an About / CV page, and a gallery. It is fully responsive and suitable for long-term professional use.
+Magic Portfolio is a simple, clean, beginner-friendly portfolio template. It supports an MDX-based content system for projects and blog posts, an about / CV page and a gallery.
 
-Live Portfolio: https://portfolio-bijay-s-projects.vercel.app  
-Official Website: https://jayprasad.com.np  
+View the demo [here](https://demo.magic-portfolio.com).
 
-![Portfolio Preview](public/images/og/home.jpg)
+![Magic Portfolio](public/images/og/home.jpg)
 
-This portfolio showcases professional background, education, IT and cybersecurity-related projects, admission and education consulting work, blog posts related to technology and IT trends, and visual portfolio elements. The structure is simple, scalable, and easy to maintain.
+## Getting started
 
-To use this portfolio, clone the repository from GitHub, install dependencies using npm, and run the development server locally. Portfolio metadata, navigation, theme settings, and social links can be customized from `src/resources/once-ui.config.ts`. Main portfolio content including About / CV details is managed in `src/resources/content.ts`. Blog posts are created by adding `.mdx` files inside `src/app/blog/posts/`, and projects are added as `.mdx` files inside `src/app/work/projects/`. Images should be placed inside the `public/images/` directory. This project requires **Node.js v18.17 or higher**.
+**1. Clone the repository**
+```
+git clone https://github.com/once-ui-system/magic-portfolio.git
+```
 
-The portfolio includes automatic SEO metadata generation, Open Graph and X image support, responsive layouts for all screen sizes, structured content rendering, automatic social link generation, and optional password protection for pages. A localized version using internationalization is available on a separate branch if multilingual support is required.
+**2. Install dependencies**
+```
+npm install
+```
 
-The technology stack used in this project includes **Next.js**, **MDX** for content authoring, and **Vercel** for deployment. Styling and layout are optimized for clarity and performance without heavy animations.
+**3. Run dev server**
+```
+npm run dev
+```
 
-## Contact & Social Information
+**4. Edit config**
+```
+src/resources/once-ui.config.js
+```
 
-Jay Prasad Majhi  
-Birtamode, Jhapa, Nepal  
-Email: it@jayprasad.com.np  
-Phone: +977-9812345678
+**5. Edit content**
+```
+src/resources/content.js
+```
 
-GitHub: https://github.com/thebijaay  
-LinkedIn: https://www.linkedin.com/in/thebijay/  
-Website: https://jayprasad.com.np  
+**6. Create blog posts / projects**
+```
+Add a new .mdx file to src/app/blog/posts or src/app/work/projects
+```
 
-## Deployment
+Magic Portfolio was built with [Once UI](https://once-ui.com) for [Next.js](https://nextjs.org). It requires Node.js v18.17+.
 
-This portfolio can be deployed easily using Vercel.
+## Documentation
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fthebijaay%2Fportfolio&project-name=jay-prasad-majhi-portfolio&repository-name=portfolio&demo-title=Jay%20Prasad%20Majhi%20Portfolio&demo-description=IT%20%7C%20Cybersecurity%20%7C%20Education%20Consulting%20Portfolio&demo-url=https%3A%2F%2Fportfolio-bijay-s-projects.vercel.app&demo-image=%2F%2Fraw.githubusercontent.com%2Fthebijaay%2Fportfolio%2Fmain%2Fpublic%2Fimages%2Fog%2Fhome.jpg)
+Docs available at: [docs.once-ui.com](https://docs.once-ui.com/docs/magic-portfolio/quick-start)
+
+## Features
+
+### Once UI
+- All tokens, components & features of [Once UI](https://once-ui.com)
+
+### SEO
+- Automatic open-graph and X image generation with next/og
+- Automatic schema and metadata generation based on the content file
+
+### Design
+- Responsive layout optimized for all screen sizes
+- Timeless design without heavy animations and motion
+- Endless customization options through [data attributes](https://once-ui.com/docs/theming)
+
+### Content
+- Render sections conditionally based on the content file
+- Enable or disable pages for blog, work, gallery and about / CV
+- Generate and display social links automatically
+- Set up password protection for URLs
+
+### Localization
+- A localized, earlier version of Magic Portfolio is available with the next-intl library
+- To use localization, switch to the 'i18n' branch
+
+## Creators
+
+Lorant One: [Threads](https://www.threads.net/@thebijaay) / [LinkedIn](https://www.linkedin.com/in/thebijay/)
+
+## Get involved
+
+- Join the Design Engineers Club on [Discord](https://discord.com/invite/5EyAQ4eNdS) and share your project with us!
+- Deployed your docs? Share it on the [Once UI Hub](https://once-ui.com/hub) too! We feature our favorite apps on our landing page.
 
 ## License
 
-This portfolio is distributed under the **Creative Commons BY-NC 4.0 License**. Attribution is required. Commercial usage is not allowed without an extended license. Full license details are available in `LICENSE.txt`.
+Distributed under the CC BY-NC 4.0 License.
+- Attribution is required.
+- Commercial usage is not allowed.
+- You can extend the license to [Dopler CC](https://dopler.app/license) by purchasing a [Once UI Pro](https://once-ui.com/pricing) license.
 
-© 2026 Jay Prasad Majhi. All rights reserved.
+See `LICENSE.txt` for more information.
+
+## Deploy with Vercel
+
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fonce-ui-system%2Fmagic-portfolio&project-name=portfolio&repository-name=portfolio&redirect-url=https%3A%2F%2Fgithub.com%2Fonce-ui-system%2Fmagic-portfolio&demo-title=Magic%20Portfolio&demo-description=Showcase%20your%20designers%20or%20developer%20portfolio&demo-url=https%3A%2F%2Fdemo.magic-portfolio.com&demo-image=%2F%2Fraw.githubusercontent.com%2Fonce-ui-system%2Fmagic-portfolio%2Fmain%2Fpublic%2Fimages%2Fog%2Fhome.jpg)

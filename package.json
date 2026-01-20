@@ -1,23 +1,30 @@
 {
-  "name": "jay-prasad-portfolio",
+  "name": "jay-prasad-majhi-portfolio",
   "version": "1.0.0",
   "private": true,
+  "description": "Portfolio of Jay Prasad Majhi - Admission Officer | Cybersecurity & IT Professional",
+  "homepage": "https://jayprasad.com.np",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thebijaay/portfolio"
+  },
+  "author": "Jay Prasad Majhi <it@jayprasad.com.np>",
+  "license": "CC BY-NC 4.0",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "export": "next export",
     "start": "next start",
     "lint": "next lint",
     "format": "npx @biomejs/biome format --write ."
   },
   "dependencies": {
     "@mdx-js/loader": "^3.1.0",
-    "@next/mdx": "^16.0.10",
+    "@next/mdx": "^16.1.3",
     "@once-ui-system/core": "^1.5.6",
     "classnames": "^2.5.1",
     "cookie": "^1.0.2",
     "gray-matter": "^4.0.3",
-    "next": "^16.0.10",
+    "next": "^16.1.3",
     "next-mdx-remote": "^5.0.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
@@ -29,10 +36,13 @@
     "@biomejs/biome": "^1.9.4",
     "@types/cookie": "^0.6.0",
     "@types/node": "^20.17.30",
-    "@types/react": "^19.0.10",
-    "@types/react-dom": "^19.0.5",
+    "@types/react": "^19.2.8",
+    "@types/react-dom": "^19.2.3",
     "eslint": "^9.25.0",
     "typescript": "^5.8.3",
     "tzdata": "^1.0.44"
+  },
+  "engines": {
+    "node": ">=20.9.0"
   }
 }
